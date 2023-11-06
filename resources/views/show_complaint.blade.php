@@ -101,17 +101,11 @@
                                                                     been resolved</td>
                                                             @endif
                                                         </tr>
-
                                                     </table>
-
-
                                                     <hr>
-
-
                                                     <p type="button" class="collapsible"> {{ $jumlahObject }} comments <i
                                                             class="fa-regular fa-comments"></i>
                                                     </p>
-
                                                     <div class="content">
                                                         @foreach ($data->comments as $comment)
                                                             @if ($comment->roles == 0)
