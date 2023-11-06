@@ -100,10 +100,14 @@
                                             @foreach ($informatics as $informatic)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $informatic->id }}</td>
-                                                    <td style="vertical-align:middle">{{ $informatic->email }}</td>
-                                                    <td style="vertical-align:middle">{{ $informatic->site }}</td>
-                                                    <td style="vertical-align:middle">{{ $informatic->complaints }}</td>
-                                                    <td style="vertical-align:middle">{{ $informatic->created_at }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $informatic->email }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $informatic->site }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $informatic->complaints }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $informatic->created_at }}</td>
                                                     @if ($informatic->status == '0')
                                                         <td style="vertical-align:middle">
                                                             <div class="red-button-1">

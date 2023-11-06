@@ -4140,3 +4140,8 @@ button.primary-1 {
       0 0 80px red;
   }
 }
+
+.active {
+    border-left: solid #0452b9 3px;
+    background-color: #042161;
+}

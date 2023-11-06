@@ -5,9 +5,8 @@
                     style="width: 100px; height:100px" alt="" /></a>
             <strong><img src="{{ asset('img/logo/logos.png') }}" alt=""
                     style="width: 60px; height:60px; margin:10px" /></strong>
-            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:21px; color:white; font-family:Kaushan Script"
-                class="main-logo">Complaint
-                's
+            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:white; font-family:Kaushan Script"
+                class="main-logo">Complaint 's
             </div>
             <strong>
                 <div></div>
@@ -19,11 +18,12 @@
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
                     <li>
-                        <a class="" href="{{ route('index-mail') }}" aria-expanded="false"><i
-                                class="fa-solid fa-house icon-head"></i><span
+                        <a @if (request()->is('/')) class="active" @endif href="{{ route('index-mail') }}"
+                            aria-expanded="false"><i class="fa-solid fa-house icon-head"></i><span
                                 class="mini-click-non">Dashboard</span></a>
                         @if (Auth::check() && Auth::user()->roles == 2)
-                            <a class="" href="{{ route('index-informatics') }}" aria-expanded="false"><i
+                            <a @if (request()->is('infomatic')) class="active" @endif
+                                href="{{ route('index-informatics') }}" aria-expanded="false"><i
                                     class="fa-regular fa-envelope icon-head"></i><span class="mini-click-non">Complaint
                                     Lists
                                     IT</span></a>
@@ -34,13 +34,14 @@
 
 
                     <li>
-                        <a class="has-arrow" href="" aria-expanded="false"><i
-                                class="fa-regular fa-bell icon-head"></i> <span
+                        <a @if (request()->is('announcements') || request()->is('add-announs')) class="active" @endif class="has-arrow" href=""
+                            aria-expanded="false"><i class="fa-regular fa-bell icon-head"></i> <span
                                 class="mini-click-non">Notifications</span></a>
                         <ul class="submenu-angle" style="margin-left: 20px" aria-expanded="false">
                             <li><a href="{{ route('index-announs') }}" title="View Mail" "><span
                                         class="mini-sub-pro">Message</span></a></li>
-                                                                                      @if (Auth::check() && Auth::user()->roles == 1)
+
+                                                   @if (Auth::check() && Auth::user()->roles == 1)
                             <li><a href="{{ route('add-announs') }}" title="View Mail" "><span class="mini-sub-pro">Add
                                         Message</span></a></li>
 @elseif(Auth::check() && Auth::user()->roles == 2)
@@ -51,15 +52,15 @@
 
                     </li>
 
-                    <li class="">
-                        <a class="" href="{{ route('index-sites') }}">
+                    <li>
+                        <a @if (request()->is('sites')) class="active" @endif href="{{ route('index-sites') }}">
                             <i class="fa-solid fa-link icon-head-3"></i>
                             <span class="mini-click-non">Site Lists</span>
                         </a>
                     </li>
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
-                            <a class="" href="{{ route('index-user') }}">
+                            <a @if (request()->is('users')) class="active" @endif href="{{ route('index-user') }}">
                                 <i class="fa-solid fa-user-group icon-head-3"></i>
                                 <span class="mini-click-non">Users</span>
                             </a>

@@ -178,10 +178,14 @@
                                             @foreach ($complaints as $complaint)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $complaint->id }}</td>
-                                                    <td style="vertical-align:middle">{{ $complaint->email }}</td>
-                                                    <td style="vertical-align:middle">{{ $complaint->site }}</td>
-                                                    <td style="vertical-align:middle">{{ $complaint->complaints }}</td>
-                                                    <td style="vertical-align:middle">{{ $complaint->created_at }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->email }}</td>
+                                                    <td style="vertical-align:middle;text-align:left">
+                                                        {{ $complaint->site }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->complaints }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->created_at }}</td>
                                                     @if ($complaint->status == '0')
                                                         <td style="vertical-align:middle">
                                                             <div class="red-button-1">
