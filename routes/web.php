@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AnnounsController;
+use App\Http\Controllers\InformaticController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -18,34 +20,39 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::get('/', function () {
-    return Redirect::route('index_product');
+Route::middleware(['blockIP'])->group(function () {
+    Route::get('/', function () {
+    return Redirect::route('index-mail');
 });
+    Auth::routes();
+    // Guest
+    Route::get('/', [MailController::class, 'index_mail'])->name('index-mail');
+    Route::get('/sites', [SiteController::class, 'index_sites'])->name('index-sites');
+    Route::get('/announcements', [AnnounsController::class, 'index_announs'])->name('index-announs');
+    Route::get('/complaints/{complaint}', [MailController::class, 'show_complaint'])->name('show_complaint');
+    Route::post('/add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');
+    Route::post('/complaints/{complaint}/comments', [MailController::class, 'store_comment'])->name('store-comment');
+    Route::delete('comments/{id}', [MailController::class, 'delete_comment'])->name('comments-delete');
 
-Auth::routes();
+    // Customer service
+    Route::middleware(['customer-service'])->group(function() {
+        Route::put('/update-complaint', [MailController::class, 'update_complaint'])->name('update-complaint');
+        Route::post('/add-sites/store', [SiteController::class, 'store_sites'])->name('store-site');
+        Route::delete('/sites/{sites}', [SiteController::class, 'delete_sites'])->name('delete-site');
+        Route::get('/add-announs', [AnnounsController::class, 'create_announs'])->name('add-announs');
+        Route::post('/add-announs/store', [AnnounsController::class, 'store_announs'])->name('store-announ');
+    });
 
-Route::get('/product', [ProductController::class, 'index_product'])->name('index_product');
-
-Route::middleware(['admin'])->group(function() {
-    Route::get('/product/create', [ProductController::class, 'create_product'])->name('create_product');
-    Route::post('/product/create', [ProductController::class, 'store_product'])->name('store_product');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit_product'])->name('edit_product');
-    Route::patch('/product/{product}/update', [ProductController::class, 'update_product'])->name('update_product');
-    Route::delete('/product/{product}', [ProductController::class, 'delete_product'])->name('delete_product');
-    Route::post('/order/{order}/confirm', [OrderController::class, 'confirm_payment'])->name('confirm_payment');
+    // Administrator  - Team IT
+    Route::middleware(['admin'])->group(function() {
+        Route::get('/users', [UserController::class, 'index_users'])->name('index-user');
+        Route::post('/add-sites/store', [SiteController::class, 'store_sites'])->name('store-site');
+        Route::post('/add-users/store', [UserController::class, 'store_users'])->name('store-user');
+        Route::delete('/users/{users}', [UserController::class, 'delete_users'])->name('delete-user');
+        Route::get('/infomatic', [InformaticController::class, 'index_informatic'])->name('index-informatics');
+        Route::put('/update-informatic', [InformaticController::class, 'update_informatic'])->name('update-informatic');
+        Route::get('/add-announs', [AnnounsController::class, 'create_announs'])->name('add-announs');
+        Route::post('/add-announs/store', [AnnounsController::class, 'store_announs'])->name('store-announ');
+        Route::delete('/announs/{announs}', [AnnounsController::class, 'delete_announs'])->name('delete-announ');
+    });
 });
-
-Route::middleware(['auth'])->group(function() {
-    Route::get('/product/{product}', [ProductController::class, 'show_product'])->name('show_product');
-    Route::post('/cart/{product}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
-    Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
-    Route::patch('/cart/{cart}', [CartController::Class, 'update_cart'])->name('update_cart');
-    Route::delete('/cart/{cart}', [CartController::class, 'delete_cart'])->name('delete_cart');
-    Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
-    Route::get('/order', [OrderController::class, 'index_order'])->name('index_order');
-    Route::get('/order/{order}', [OrderController::class, 'show_order'])->name('show_order');
-    Route::post('/order/{order}/pay', [OrderController::class, 'submit_payment_receipt'])->name('submit_payment_receipt');
-    Route::get('/profile', [ProfileController::class, 'show_profile'])->name('show_profile');
-    Route::post('/profile', [ProfileController::class, 'edit_profile'])->name('edit_profile');
-});
-

@@ -18,9 +18,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->is_admin == false)
+        if (!Auth::check() || Auth::user()->roles == 0)
         {
-            return Redirect::route('index_product');
+            return Redirect::route('index-mail');
         }
         return $next($request);
     }
