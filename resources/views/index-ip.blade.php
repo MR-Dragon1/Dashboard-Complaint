@@ -11,7 +11,7 @@
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h3 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Site Lists
+                                <h3 class="mb-3" style="text-align: center; color:black; margin:20px 0px">IP Address
                                 </h3>
                                 <div class="loader"></div>
                                 @if (session('success'))
@@ -42,28 +42,17 @@
                                                             <div class="container-fluid">
                                                                 <h5 class="mb-3"
                                                                     style="text-align: center; color:black; margin:15px 0px">
-                                                                    Add Site
+                                                                    Add Ip Address
                                                                 </h5>
                                                                 <div class="row">
-                                                                    <form action="{{ route('store-site') }}" method="post">
+                                                                    <form action="{{ route('store-ip') }}" method="post">
                                                                         @csrf
                                                                         <label for="name" style="color: black;"
-                                                                            class="m-1">Name
-                                                                            Sites</label>
+                                                                            class="m-1">IP Address</label>
                                                                         <input style="" class="form-control mt-2 mb-2"
-                                                                            type="text"
-                                                                            placeholder="What is the name of your site ?"
+                                                                            type="text" placeholder="Add your ip address"
                                                                             aria-label="default input example"
-                                                                            name="name" id="name" required>
-                                                                        <label for="grup" style="color: black"
-                                                                            class="m-1">Groups</label>
-                                                                        <select name="grup" id="grup"
-                                                                            class="form-select "
-                                                                            aria-label="Default select example">
-                                                                            <option value="" disabled selected>Select
-                                                                                Groups</option>
-                                                                            <option value="PNG" selected>PNG</option>
-                                                                        </select>
+                                                                            name="ip" id="ip" required>
                                                                         <div class="d-grid gap-2 col-6 mx-auto">
                                                                             <button class="primary-1 mt-4">Submit</button>
                                                                         </div>
@@ -84,28 +73,24 @@
                                         <thead>
                                             <tr style="text-align:center">
                                                 <td style="text-align: center">No</td>
-                                                <td style="text-align: center">Name Sites</td>
-                                                <td style="text-align: center">Groups</td>
-                                                @if (Auth::check() && Auth::user()->roles == 2)
-                                                    <td style="text-align: center">Actions</td>
-                                                @endif
+                                                <td style="text-align: center">IP Address</td>
+                                                <td style="text-align: center">Created At</td>
+                                                <td style="text-align: center">Action</td>
                                             </tr>
                                         <tbody>
-                                            @foreach ($sites as $site)
+                                            @foreach ($ips as $ip)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
-                                                    <td style="vertical-align:middle">{{ $site->name_sites }}</td>
-                                                    <td style="vertical-align:middle">{{ $site->groups }}</td>
-                                                    @if (Auth::check() && Auth::user()->roles == 2)
-                                                        <td style="vertical-align:middle">
-                                                            <form action="{{ route('delete-site', $site) }}" method="post">
-                                                                @method('delete')
-                                                                @csrf
-                                                                <button type="submit"
-                                                                    class="btn btn-danger">Delete</button>
-                                                            </form>
-                                                        </td>
-                                                    @endif
+                                                    <td style="vertical-align:middle; text-align:left">{{ $ip->ip }}
+                                                    </td>
+                                                    <td style="vertical-align:middle">{{ $ip->created_at }}</td>
+                                                    <td style="vertical-align:middle">
+                                                        <form action="{{ route('delete-ip', $ip) }}" method="post">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -113,11 +98,7 @@
                                     </table>
                                 </div>
                             </div>
-                            @if (Auth::check() && Auth::user()->roles == 1)
-                                <button class="primary" onclick="window.dialog.showModal();">Add your site</button>
-                            @elseif(Auth::check() && Auth::user()->roles == 2)
-                                <button class="primary" onclick="window.dialog.showModal();">Add your site</button>
-                            @endif
+                            <button class="primary" onclick="window.dialog.showModal();">Add new ip</button>
                         </div>
                     </div>
                 </div>

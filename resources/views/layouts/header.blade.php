@@ -32,26 +32,11 @@
 
                     </li>
 
-
                     <li>
-                        <a @if (request()->is('announcements') || request()->is('add-announs')) class="active" @endif class="has-arrow" href=""
-                            aria-expanded="false"><i class="fa-regular fa-bell icon-head"></i> <span
+                        <a @if (request()->is('announcements')) class="active" @endif href="{{ route('index-announs') }}"
+                            aria-expanded="false"><i class="fa-regular fa-bell icon-head-3"></i> <span
                                 class="mini-click-non">Notifications</span></a>
-                        <ul class="submenu-angle" style="margin-left: 20px" aria-expanded="false">
-                            <li><a href="{{ route('index-announs') }}" title="View Mail" "><span
-                                        class="mini-sub-pro">Message</span></a></li>
-
-                                                   @if (Auth::check() && Auth::user()->roles == 1)
-                            <li><a href="{{ route('add-announs') }}" title="View Mail" "><span class="mini-sub-pro">Add
-                                        Message</span></a></li>
-@elseif(Auth::check() && Auth::user()->roles == 2)
-<li><a href="{{ route('add-announs') }}" title="View Mail" "><span class="mini-sub-pro">Add
-                                        Message</span></a></li>
-                            @endif
-                        </ul>
-
                     </li>
-
                     <li>
                         <a @if (request()->is('sites')) class="active" @endif href="{{ route('index-sites') }}">
                             <i class="fa-solid fa-link icon-head-3"></i>
@@ -60,13 +45,24 @@
                     </li>
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
-                            <a @if (request()->is('users')) class="active" @endif href="{{ route('index-user') }}">
-                                <i class="fa-solid fa-user-group icon-head-3"></i>
-                                <span class="mini-click-non">Users</span>
+                            <a @if (request()->is('log-activity')) class="active" @endif href="{{ route('index-log') }}">
+                                <i class="fa-solid fa-layer-group icon-head-3"></i>
+                                <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
+                        <li>
+                            <a @if (request()->is('users') || request()->is('ip-address')) class="active" @endif class="has-arrow" href=""
+                                aria-expanded="false"><i class="fa-solid fa-user-group icon-head"></i> <span
+                                    class="mini-click-non">Users</span></a>
+                            <ul class="submenu-angle" style="margin-left: 20px" aria-expanded="false">
+                                <li><a href="{{ route('index-user') }}" title="View Mail"><span
+                                            class="mini-sub-pro">Users</span></a></li>
+                                <li><a href="{{ route('index-ip') }}" title="View Mail"><span class="mini-sub-pro">IP
+                                            Address</span></a>
+                                </li>
+                            </ul>
+                        </li>
                     @endif
-
                 </ul>
             </nav>
         </div>
@@ -119,26 +115,28 @@
                                                                 class="button-17">Login</span></a>
                                                     @endif
                                                 @else
-                                                    <a href="{{ route('index-mail') }}" data-toggle="dropdown"
-                                                        role="button" aria-expanded="false"
-                                                        class="nav-link dropdown-toggle">
+                                                    <div class="dropdown" style="float:right;">
                                                         <span class="admin-name"
-                                                            style="">{{ Auth::user()->name }}</span>
-                                                    </a>
-                                                    <ul role="menu"
-                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="{{ route('logout') }}"
+                                                            style="cursor: context-menu">{{ Auth::user()->name }} <i
+                                                                class="fa-solid fa-caret-down"></i></span>
+                                                        <div class="dropdown-content">
+                                                            <a href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                         document.getElementById('logout-form').submit();"><i
-                                                                    class="fa-solid fa-lock-open icon-head-2"></i>
+                                                                    class="fa-solid fa-lock-open icon-head-log"></i>
                                                                 Log Out</a>
-
                                                             <form id="logout-form" action="{{ route('logout') }}"
                                                                 method="POST" class="d-none">
                                                                 @csrf
                                                             </form>
-                                                        </li>
-                                                    </ul>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
                                                 @endguest
                                             </li>
                                         </ul>

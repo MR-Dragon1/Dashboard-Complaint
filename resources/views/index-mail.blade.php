@@ -95,65 +95,9 @@
                                     </div>
                                     <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
                                 </dialog>
-                                <div class="modal" id="editComplaintModal" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <form id="editComplaintForm" action="{{ route('update-complaint') }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <div class="modal-header">
-                                                    <h5 class="mb-3"
-                                                        style="text-align: center; color:black; margin:15px 0px">
-                                                        Edit Status
-                                                    </h5>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <input type="hidden" name="complaint_id" id="complaint_id">
-
-                                                    <div class="form-group">
-                                                        <div style="text-align: left">
-                                                            <label class="m-1" for="status">Status
-                                                                Complaint</label>
-                                                        </div>
-                                                        <select name="status" class="form-select mt-2 mb-2"
-                                                            aria-label="Default select example" onchange="showRadio()">
-                                                            <option value="0">
-                                                                Unprocessed
-                                                            </option>
-                                                            <option value="1">
-                                                                Data Transferred
-                                                            </option>
-                                                            <option value="2">
-                                                                On Going
-                                                            </option>
-                                                            <option value="3">
-                                                                Completed
-                                                            </option>
-                                                        </select>
-                                                    </div>
 
 
-                                                    <div class="form-check m-1 mt-2 mb-2" id="radioContainer"
-                                                        style="display: none;">
-                                                        <input class="form-check-input" type="checkbox" value="1"
-                                                            name="page" checked>
-                                                        <label class="form-check-label" for="page">
-                                                            Team IT
-                                                        </label>
-                                                    </div>
 
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-outline-secondary"
-                                                        data-bs-dismiss="modal"
-                                                        data-target="#editComplaintModal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
 
 
                                 <div class="row">
@@ -164,12 +108,10 @@
                                                 <td style="text-align: center">Email</td>
                                                 <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Complaint</td>
-                                                <td style="text-align: center">Date</td>
                                                 <td style="text-align: center">Status</td>
-                                                @if (Auth::check())
-                                                    <td style="text-align: center">Actions</td>
-                                                @endif
-                                                <td style="text-align: center">Details</td>
+                                                <td style="text-align: center">Submited Data</td>
+                                                <td style="text-align: center">Updated Data</td>
+                                                <td style="text-align: center">Actions</td>
                                             </tr>
                                             @php
                                                 $i = 1;
@@ -183,9 +125,8 @@
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
-                                                        {{ $complaint->complaints }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">
-                                                        {{ $complaint->created_at }}</td>
+                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 40) }}</td>
+
                                                     @if ($complaint->status == '0')
                                                         <td style="vertical-align:middle">
                                                             <div class="red-button-1">
@@ -211,17 +152,265 @@
                                                             </div>
                                                         </td>
                                                     @endif
-                                                    @if (Auth::check())
-                                                        <td style="vertical-align:middle">
-                                                            <button class="btn btn-primary edit-complaint"
-                                                                data-id="{{ $complaint->id }}">Edit status</button>
-                                                        </td>
-                                                    @endif
-                                                    <td style="vertical-align:middle">
-                                                        <form action="{{ route('show_complaint', $complaint) }}"
-                                                            method="get">
-                                                            <button type="submit" class="btn btn-primary">Show</button>
-                                                        </form>
+                                                    <td style="vertical-align:middle; text-align:center">
+                                                        {{ $complaint->created_at }}</td>
+                                                    <td style="vertical-align:middle; text-align:center">
+                                                        {{ $complaint->updated_at }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                            data-target="#editModal{{ $complaint->id }}">
+                                                            Details
+                                                        </button>
+
+                                                        <!-- Modal edit -->
+                                                        <div class="modal fade" id="editModal{{ $complaint->id }}"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-scrollable modal-lg"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Details
+                                                                            Complaint</h5>
+
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        @if ($complaint->complaints_image == null)
+                                                                            <div style="color: blue">No images!</div>
+                                                                        @else
+                                                                            <img style="width: auto; height:360px"
+                                                                                src="{{ $complaint->complaints_image }}"
+                                                                                class="card-img-top m-3" alt=""
+                                                                                id="img-zoom">
+                                                                            <i class="fa-solid fa-magnifying-glass-plus layout-zoom"
+                                                                                id="button-zoom"></i>
+                                                                        @endif
+                                                                        <div style="text-align: left">
+                                                                            <label for="email" style="color: black;"
+                                                                                class="m-1">Email</label>
+                                                                        </div>
+                                                                        <input
+                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                            type="email"
+                                                                            aria-label="default input example"
+                                                                            value="{{ $complaint->email }}" readonly>
+                                                                        <div style="text-align: left">
+                                                                            <label for="site" style="color: black"
+                                                                                class="m-1">Complaint</label>
+                                                                        </div>
+                                                                        <div class="form-floating">
+                                                                            <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $complaint->complaints }}</textarea>
+                                                                        </div>
+                                                                        <div style="text-align: left">
+                                                                            <label for="site" style="color: black"
+                                                                                class="m-1">Site</label>
+                                                                        </div>
+                                                                        <input
+                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                            type="text"
+                                                                            aria-label="default input example"
+                                                                            value="{{ $complaint->site }}" readonly>
+                                                                        <div style="text-align: left">
+                                                                            <label for="site" style="color: black"
+                                                                                class="m-1">Submited at</label>
+                                                                        </div>
+                                                                        <input
+                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                            type="text"
+                                                                            aria-label="default input example"
+                                                                            value="{{ $complaint->created_at }}" readonly>
+                                                                        <div style="text-align: left">
+                                                                            <label for="email" style="color: black"
+                                                                                class="m-1">Status</label>
+                                                                        </div>
+
+                                                                        @if ($complaint->status == '0')
+                                                                            <input
+                                                                                class="form-control form-control-sm mt-1 mb-1"
+                                                                                type="text"
+                                                                                aria-label="default input example"
+                                                                                value="Unprocessed" readonly>
+                                                                        @elseif ($complaint->status == '1')
+                                                                            <input
+                                                                                class="form-control form-control-sm mt-1 mb-1"
+                                                                                type="text"
+                                                                                aria-label="default input example"
+                                                                                value="Data is being transferred" readonly>
+                                                                        @elseif ($complaint->status == '2')
+                                                                            <input
+                                                                                class="form-control form-control-sm mt-1 mb-1"
+                                                                                type="text"
+                                                                                aria-label="default input example"
+                                                                                value="Data being worked on" readonly>
+                                                                        @elseif ($complaint->status == '3')
+                                                                            <input
+                                                                                class="form-control form-control-sm mt-1 mb-1"
+                                                                                type="text"
+                                                                                aria-label="default input example"
+                                                                                value="The complaint has been resolved"
+                                                                                readonly>
+                                                                        @endif
+
+                                                                        @if (Auth::check())
+                                                                            <form
+                                                                                action="{{ route('complaint.update', $complaint->id) }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                @method('PUT')
+
+                                                                                <div style="text-align: left">
+                                                                                    <label class="m-1 mt-1 mb-1"
+                                                                                        for="status">Edit
+                                                                                        Status
+                                                                                        Complaint</label>
+                                                                                </div>
+                                                                                <select name="status" id="status"
+                                                                                    class="form-select mt-1 mb-1"
+                                                                                    aria-label="Default select example">
+                                                                                    <option value="" disabled
+                                                                                        selected>
+                                                                                        Select your option
+                                                                                    </option>
+                                                                                    <option value="0">
+                                                                                        Unprocessed
+                                                                                    </option>
+                                                                                    <option value="1">
+                                                                                        Data Transferred
+                                                                                    </option>
+                                                                                    <option value="2">
+                                                                                        On Going
+                                                                                    </option>
+                                                                                    <option value="3">
+                                                                                        Completed
+                                                                                    </option>
+                                                                                </select>
+                                                                                <div class="form-check m-1 mt-2 mb-2"
+                                                                                    id="radioContainer"
+                                                                                    class="radioContainer"
+                                                                                    style="text-align:left; margin-top:2px">
+                                                                                    <div class="info-transfer">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="content-comment">
+                                                                                    @foreach ($complaint->comments as $comment)
+                                                                                        @if ($comment->roles == 1 && $comment->message != null)
+                                                                                            <div
+                                                                                                class="container text-center">
+                                                                                                <div
+                                                                                                    class="row align-items-center">
+                                                                                                    <div class="col"
+                                                                                                        style="margin-top: 12.5px">
+                                                                                                        <div>
+                                                                                                            <div class="m-1"
+                                                                                                                style="text-align:left">
+                                                                                                                <b
+                                                                                                                    style="font-size: 14px">{{ $comment->person }}
+                                                                                                                    |
+                                                                                                                    Customer
+                                                                                                                    Service</b>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="chat-guest">
+                                                                                                                {{ $comment->message }}
+
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="m-1 time-chat">
+                                                                                                                {{ $comment->created_at }}
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col mt-1">
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @elseif($comment->roles == 2 && $comment->message != null)
+                                                                                            <div
+                                                                                                class="container text-center">
+                                                                                                <div
+                                                                                                    class="row align-items-center">
+                                                                                                    <div class="col"
+                                                                                                        style="margin-top: 12.5px">
+                                                                                                        <div
+                                                                                                            style="text-align: right">
+
+                                                                                                            {{-- @if (Auth::check() && Auth::user()->roles == 2)
+                                                                                                        <form
+                                                                                                            action="{{ route('comments-delete', $comment->id) }}"
+                                                                                                            method="POST">
+                                                                                                            @csrf
+                                                                                                            @method('DELETE')
+                                                                                                            <button
+                                                                                                                type="submit"
+                                                                                                                style="border: none"
+                                                                                                                class="btn btn-outline-danger btn-sm"><i
+                                                                                                                    class="fa-solid fa-trash"></i></button>
+                                                                                                        </form>
+                                                                                                    @endif --}}
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col mt-1">
+                                                                                                        <div class="m-1"
+                                                                                                            style="text-align: right">
+                                                                                                            <b
+                                                                                                                style="font-size: 14px">{{ $comment->person }}
+                                                                                                                | Team
+                                                                                                                IT</b>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="chat-team">
+                                                                                                            {{ $comment->message }}
+
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="m-1 time-chat-2">
+                                                                                                            {{ $comment->created_at }}
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @endif
+                                                                                    @endforeach
+                                                                                </div>
+                                                                                <hr>
+                                                                                <div class="form-group">
+                                                                                    <div class="form-group">
+                                                                                        <input name="message"
+                                                                                            id="message"
+                                                                                            placeholder="Add your comments ?"
+                                                                                            class="form-control-2"
+                                                                                            aria-label="default input example"
+                                                                                            style="box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;">
+                                                                                    </div>
+                                                                                    @if (Auth::check() && Auth::user()->roles == 2)
+                                                                                        <input type="number"
+                                                                                            name="roles" id="roles"
+                                                                                            value="2" hidden>
+                                                                                    @else
+                                                                                        <input type="number"
+                                                                                            name="roles" id="roles"
+                                                                                            value="1" hidden>
+                                                                                    @endif
+                                                                                </div>
+                                                                        @endif
+                                                                        <hr>
+                                                                        <div style=text-align:end>
+                                                                            <button type="button"
+                                                                                class="btn btn-outline-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                            @if (Auth::check())
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">Save
+                                                                                    changes</button>
+                                                                            @endif
+                                                                        </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -231,7 +420,7 @@
                                 </div>
                             </div>
                             @if (!Auth::check())
-                                <button class="primary" onclick="window.dialog.showModal();">Add Complaint</button>
+                                <button class="primary" onclick="window.dialog.showModal();">Add new complaint</button>
                             @endif
                         </div>
                     </div>
@@ -241,39 +430,31 @@
         </div>
     </div>
 
+    <script>
+        let fullscreen = document.getElementById("img-zoom");
+        let button = document.getElementById("button-zoom");
 
-
-
-
-
+        button.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                fullscreen?.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    </script>
     <script>
         $(document).ready(function() {
-            $(".edit-complaint").click(function() {
-                var complaintId = $(this).data('id');
-                var status = $("#status-" + complaintId).text();
-                var page = $("#page-" + complaintId).text();
-
-                $("#complaint_id").val(complaintId);
-                $("#status").val(status);
-                $("#page").val(page);
-
-                $("#editComplaintModal").modal('show');
+            $('select[name="status"]').on('change', function() {
+                var selectedValue = $(this).val();
+                if (selectedValue === '1') {
+                    $(this).closest('form').find('.info-transfer').html(
+                        '<input class="form-check-input" type="checkbox" value="1" id="page" name="page" checked/> <label class="form-check-label" style = " margin-top:2px" for = "page" > Team IT </label>'
+                    );
+                } else {
+                    $(this).closest('form').find('.info-transfer').html('');
+                }
             });
         });
-
-        function showRadio() {
-            var statusSelect = document.getElementById("status");
-            var radioContainer = document.getElementById("radioContainer");
-
-            if (statusSelect.value === "1") {
-                radioContainer.style.display = "block";
-            } else {
-                radioContainer.style.display = "none";
-            }
-        }
     </script>
-
-
-
 
 @endsection

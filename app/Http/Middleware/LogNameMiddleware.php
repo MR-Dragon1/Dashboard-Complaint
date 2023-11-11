@@ -2,20 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\IpAddress;
 use Closure;
+use Spatie\Activitylog\Models\Activity;
 use Illuminate\Http\Request;
 
-class BlockIpMiddleware
+class LogNameMiddleware
 {
-
-    public $blockIps;
-
-    public function __construct()
-    {
-         $this->blockIps = IpAddress::pluck('ip')->map(fn ($ip) => trim($ip))->toArray();
-    }
-
     /**
      * Handle an incoming request.
      *
@@ -25,9 +17,11 @@ class BlockIpMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!in_array($request->ip(), $this->blockIps)) {
-            abort(403, "You are restricted to access the site.");
-        }
+       $userIpAddress = $request->ip();
+
+        Activity::creating(function (Activity $activity) use ($userIpAddress) {
+            $activity->log_name = $userIpAddress;
+        });
 
         return $next($request);
     }

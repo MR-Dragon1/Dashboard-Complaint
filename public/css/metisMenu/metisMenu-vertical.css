@@ -47,11 +47,11 @@
 .sidebar-nav .metismenu a {
     position: relative;
     display: block;
-    padding: 13px 15px;
+    padding: 12px 15px;
     color: #fff;
     outline-width: 0;
     transition: all .3s ease-out;
-	font-size:15px;
+	font-size:14px;
 }
 
 .sidebar-nav .metismenu ul a {

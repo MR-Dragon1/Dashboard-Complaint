@@ -151,7 +151,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <button class="primary" onclick="window.dialog.showModal();">Add User</button>
+                            <button class="primary" onclick="window.dialog.showModal();">Add user</button>
                         </div>
                     </div>
                 </div>

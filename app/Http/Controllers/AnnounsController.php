@@ -26,11 +26,6 @@ class AnnounsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create_announs()
-    {
-        return view('add-announ');
-    }
-
     /**
      * Store a newly created resource in storage.
      */

@@ -296,7 +296,7 @@ ul.dtl-social li a{
 
 .footer-copyright-area {
     background: #06163b;
-    padding: 7px 0px;
+    padding: 5px 0px;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -305,7 +305,7 @@ ul.dtl-social li a{
 }
 .footer-copy-right p {
     margin: 0px;
-    font-size: 15px;
+    font-size: 12px;
     color: #fff;
 }
 .footer-copy-right a{
@@ -382,7 +382,7 @@ ul.dtl-social li a{
 }
 .header-right-info-admin-new .navbar-nav{
 	float:right;
-	padding:25px 15px 0px 0px;
+	padding:25px 30px 0px 0px;
 }
 /*----------------------------------------*/
 /*  3.  Header top Menu CSS
@@ -461,7 +461,7 @@ ul.dtl-social li a{
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a{
    display:block;
    color:#fff;
-   font-size:13px;
+   font-size:12px;
 }
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li .author-log-ic{
    margin-right:10px;
@@ -481,6 +481,7 @@ ul.dtl-social li a{
 .header-right-info ul.header-right-menu li.open .author-message-top, .header-right-info ul.header-right-menu li.open .notification-author, .header-right-info ul.header-right-menu li.open .author-log{
    opacity:1;
    top:163%;
+   left: -62%;
    transition: all 0.5s ease 0s;
    visibility:visible;
 }
@@ -888,10 +889,10 @@ ul.setting-panel-list li{
     background: #152036;
 }
 .breadcome-list {
-    border-radius: 6px;
-    padding:15px;
-	background:#e4e6e9db;
-	margin:16px 0px;
+    border-radius: 5px;
+    padding:13px;
+	background:#f0f3f5db;
+	margin:12px -3px;
 }
 .breadcome-list-modal {
     border-radius: 6px;
@@ -946,6 +947,12 @@ ul.setting-panel-list li{
     height: 34px;
     color: black;
 }
+.form-control-2::placeholder{
+    color: gray !important;
+    font-size: 13px;
+}
+
+
 .breadcome-heading a {
     position: absolute;
     top: 50%;
@@ -1861,17 +1868,22 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 
 
 .icon-head {
-    font-size: 19px;
-    margin-left: 10px;
+    font-size: 18px;
+    margin-left: 15px;
     margin-right: 20px;
 }
 .icon-head-3 {
-    font-size: 19px;
-    margin-left: 10px;
-    margin-right: 13px;
+    font-size: 18px;
+    margin-left: 14px;
+    margin-right: 14px;
 }
 .icon-head-2 {
-    font-size: 15px;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+.icon-head-log {
+    font-size: 13px;
     margin-left: 20px;
     margin-right: 5px;
 }
@@ -3787,7 +3799,7 @@ th.fc-day-header.fc-widget-header {
 }
 .mini-navbar #sidebar.active .sidebar-nav ul.metismenu li ul.submenu-angle{
 	width: 200px;
-    left: 80px;
+    left: 54px;
     position: absolute;
     z-index: 999;
 }
@@ -3824,7 +3836,7 @@ th.fc-day-header.fc-widget-header {
 
 /*Dialog Styles*/
 dialog {
-	padding: 23px;
+	padding: 4px;
     background: none;
     width: 800px;
     border-radius: 10px;
@@ -3841,8 +3853,9 @@ dialog {
 		border: none;
 		background: none;
 		position: absolute;
-		top: 15px;
-		right: 10px;
+		top: 28px;
+        font-size: 13px;
+		right: 18px;
 		transition: ease filter, transform 0.3s;
 		cursor: pointer;
 		transform-origin: center;
@@ -3854,6 +3867,9 @@ dialog {
 
 }
 
+
+
+
 /*General Styles*/
 
 button.primary {
@@ -3861,7 +3877,27 @@ button.primary {
     font-size: 0.9rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
-    padding: 10px;
+    padding: 9px;
+    border-radius: 25px;
+    transition: background-color 0.1s ease;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+    border: 0;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+
+	&:hover {
+		box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+		transform: translateY(-5px);
+	}
+}
+button.primary-2 {
+	display: inline-block;
+    font-size: 14px;
+    color: #fff !important;
+    background: rgb(var(--vs-primary) / 100%);
+    padding: 7px 17px;
     border-radius: 25px;
     transition: background-color 0.1s ease;
     box-sizing: border-box;
@@ -3905,17 +3941,30 @@ button.primary-1 {
 	}
 }
 
+    #liveMessage {
+                    font-weight: bold;
+                    position: fixed;
+                    bottom: 45px;
+                    width: auto;
+                    right: 20px;
+                    cursor: pointer;
+                    z-index: 3;
+                    font-size: 15px;
+                }
+
+
+
 
             #live {
                     font-weight: bold;
                     position: fixed;
-                    bottom: 25px;
+                    bottom: 16px;
                     width: auto;
-                    right: -12px;
+                    right: -14px;
                     cursor: pointer;
                     z-index: 3;
                     font-size: 15px;
-                    animation: slideInRight 1s forwards, slideOutRight 1s 3s forwards;
+                    animation: slideInRight 1s forwards, slideOutRight 1s 4s forwards;
                 }
 
                     @keyframes slideInRight {
@@ -3998,12 +4047,20 @@ button.primary-1 {
     transition: 0.3s;
 }
 
+.content-comment {
+    background-color: #f5f7fd;
+    border-radius: 9px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 10px 5px;
+}
+
+
 
 .content {
     margin: 0px 0px 15px 0px;
     border-radius: 10px;
     padding: 15px;
-    height: 550px;
+    height: 545px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     display: none;
     scroll-behavior: smooth;
@@ -4032,6 +4089,11 @@ button.primary-1 {
 }
 
 .time-chat {
+    text-align: left;
+    font-size:11px;
+    color:gray;
+}
+.time-chat-2 {
     text-align: end;
     font-size:11px;
     color:gray;
@@ -4044,26 +4106,73 @@ button.primary-1 {
 .layout-zoom {
     color: rgb(var(--vs-primary) / 100%);
     position: absolute;
-    top:465px;
-    left:780px;
-    font-size:12px;
-    border:dashed rgb(var(--vs-primary) / 100%) 2px;
-    padding:2px;
+    top: 372px;
+    left: 692px;
+    font-size: 11px;
+    border: dashed rgb(var(--vs-primary) / 100%) 2px;
+    padding: 1px;
     cursor: zoom-in;
 }
 
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  width: 121px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  z-index: 1;
+  border: none;
+}
+
+.dropdown-content a {
+  background-color: #06163b;
+  color: white;
+  font-size: 13px;
+  padding: 6px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {background-color: #0e2259;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 
 .check-alert {
-    border-radius: 5px;
+    border-radius: 10px;
     width: auto;
     height: 51px;
+    background-color: rgb(207 243 217);
+    border-right: 3px solid #3ebd61;
+    border-bottom: 2px solid #3ebd61;
     text-align: left;
-    background: linear-gradient(45deg, rgba(89,212,82,0.65) 0%, rgba(89,212,82,0.65) 100%);
     display: flex;
     align-items: center;
-    padding: 12px 15px;
+    padding: 18px 27px;
+    font-size: 15px;
     cursor: pointer;
     color: #36b334;
     margin: 20px;
@@ -4076,17 +4185,20 @@ button.primary-1 {
 
 
 .danger-alert {
-  border-radius: 5px;
-  width: auto;
-  height: 51px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  background: linear-gradient(45deg, rgba(255,65,65,0.65) 0%, rgba(255,65,65,0.65) 100%);
-  cursor:pointer;
-  color: #d41f1f;
-  margin: 20px;
+    border-radius: 10px;
+    width: auto;
+    height: 51px;
+    text-align: left;
+    border-right: 3px solid #d41f1f;
+    border-bottom: 2px solid #d41f1f;
+    display: flex;
+    background-color: rgb(255 220 220);
+    align-items: center;
+    padding: 18px 27px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #d41f1f;
+    margin: 20px;
 }
 
 
@@ -4144,4 +4256,13 @@ button.primary-1 {
 .active {
     border-left: solid #0452b9 3px;
     background-color: #042161;
+}
+
+.log-method {
+    border-radius: 8px;
+    cursor:context-menu;
+    font-size: 13px;
+    width:90px;
+    font-weight: bold;
+    text-transform:capitalize;
 }
