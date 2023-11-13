@@ -13,7 +13,7 @@
             </strong>
 
         </div>
-        <hr>
+        <hr class="sep-2" />
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
@@ -24,7 +24,8 @@
                         @if (Auth::check() && Auth::user()->roles == 2)
                             <a @if (request()->is('infomatic')) class="active" @endif
                                 href="{{ route('index-informatics') }}" aria-expanded="false"><i
-                                    class="fa-regular fa-envelope icon-head"></i><span class="mini-click-non">Complaint
+                                    class="fa-regular fa-envelope icon-head-1"></i><span
+                                    class="mini-click-non">Complaint
                                     Lists
                                     IT</span></a>
                         @endif
@@ -34,19 +35,19 @@
 
                     <li>
                         <a @if (request()->is('announcements')) class="active" @endif href="{{ route('index-announs') }}"
-                            aria-expanded="false"><i class="fa-regular fa-bell icon-head-3"></i> <span
+                            aria-expanded="false"><i class="fa-regular fa-bell icon-head-1"></i> <span
                                 class="mini-click-non">Notifications</span></a>
                     </li>
                     <li>
                         <a @if (request()->is('sites')) class="active" @endif href="{{ route('index-sites') }}">
-                            <i class="fa-solid fa-link icon-head-3"></i>
+                            <i class="fa-solid fa-link icon-head-2"></i>
                             <span class="mini-click-non">Site Lists</span>
                         </a>
                     </li>
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
                             <a @if (request()->is('log-activity')) class="active" @endif href="{{ route('index-log') }}">
-                                <i class="fa-solid fa-layer-group icon-head-3"></i>
+                                <i class="fa-solid fa-layer-group icon-head-1"></i>
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>

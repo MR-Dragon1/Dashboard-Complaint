@@ -63,6 +63,17 @@
         $(document).ready(function() {
             $('#records').DataTable();
         });
+
+        // let fullscreen = document.getElementById("img-zoom");
+        // let button = document.getElementById("button-zoom");
+
+        // button.addEventListener("click", () => {
+        //     if (!document.fullscreenElement) {
+        //         fullscreen?.requestFullscreen();
+        //     } else {
+        //         document.exitFullscreen();
+        //     }
+        // });
     </script>
 </body>
 

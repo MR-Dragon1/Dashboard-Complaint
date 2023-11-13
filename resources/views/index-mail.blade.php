@@ -70,6 +70,9 @@
                                                                         <select id="site" name="site"
                                                                             class="form-select mt-2 mb-2"
                                                                             aria-label="Default select example">
+                                                                            <option value="" disabled selected>
+                                                                                Select your site
+                                                                            </option>
                                                                             @foreach ($sites as $site)
                                                                                 <option value="{{ $site->name_sites }}">
                                                                                     {{ $site->name_sites }}</option>

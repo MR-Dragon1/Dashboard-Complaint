@@ -146,22 +146,31 @@
 
                                                             @if ($announ->announcement_image == null)
                                                                 <div></div>
+                                                                <p style="margin:20px 0px; font-size:17px"
+                                                                    class="card-text">
+                                                                    {{ $announ->description }}</p>
                                                             @else
-                                                                <div style="margin: 15px 0px"><img class="m-3"
-                                                                        src="{{ $announ->announcement_image }}"
-                                                                        alt=""
-                                                                        style="width:650px; height:325px; border-radius:5px;">
+                                                                <div class="image-container">
+                                                                    <div style="margin: 10px 0px">
+                                                                        <img src="{{ $announ->announcement_image }}"
+                                                                            alt="" class="m-3 zoomable-image"
+                                                                            style="width:650px; height:325px; border-radius:5px;">
+                                                                    </div>
+                                                                    <button class="btn btn-dark btn-sm zoom-button"
+                                                                        style="margin-top: -103px; width:650px; font-weight:bold">fullscreen</button>
                                                                 </div>
+                                                                <p style="margin: -13px 0px 20px 0px; font-size:17px"
+                                                                    class="card-text">
+                                                                    {{ $announ->description }}</p>
                                                             @endif
-                                                            <p style="margin: 20px 0px; font-size:17px" class="card-text">
-                                                                {{ $announ->description }}</p>
+
                                                             @if (Auth::check() && Auth::user()->roles == 2)
                                                                 <form action="{{ route('delete-announ', $announ) }}"
                                                                     method="post">
                                                                     @method('delete')
                                                                     @csrf
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger btn-sm">Delete</button>
+                                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                                        style="margin-bottom:12px">Delete</button>
                                                                 </form>
                                                             @endif
                                                         </div>
@@ -189,4 +198,19 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            // Menambahkan event listener pada semua tombol zoom
+            $('.zoom-button').on('click', function() {
+                const imageContainer = $(this).closest('.image-container');
+                const fullscreenImage = imageContainer.find('.zoomable-image')[0];
+
+                if (!document.fullscreenElement) {
+                    fullscreenImage.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+        });
+    </script>
 @endsection

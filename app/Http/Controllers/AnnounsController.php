@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announs;
-use App\Models\Sites;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 
 class AnnounsController extends Controller
 {

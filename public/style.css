@@ -1868,20 +1868,24 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 
 
 .icon-head {
-    font-size: 18px;
-    margin-left: 15px;
-    margin-right: 20px;
+    font-size: 17px;
+    margin-left: 18px;
+    margin-right: 18px;
 }
-.icon-head-3 {
-    font-size: 18px;
-    margin-left: 14px;
-    margin-right: 14px;
+.icon-head-1 {
+    font-size: 17px;
+    margin-left: 18px;
+    margin-right: 21px;
 }
 .icon-head-2 {
-    font-size: 18px;
-    margin-left: 20px;
-    margin-right: 5px;
+    font-size: 17px;
+    margin-left: 16px;
+    margin-right: 17px;
 }
+
+
+
+
 .icon-head-log {
     font-size: 13px;
     margin-left: 20px;
@@ -4266,3 +4270,10 @@ button.primary-1 {
     font-weight: bold;
     text-transform:capitalize;
 }
+
+hr.sep-2 {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #f0f0f0, #00b9ff, #59d941, #f0f0f0);
+}
+
