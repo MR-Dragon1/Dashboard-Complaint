@@ -157,7 +157,7 @@
                                                                             style="width:650px; height:325px; border-radius:5px;">
                                                                     </div>
                                                                     <button class="btn btn-dark btn-sm zoom-button"
-                                                                        style="margin-top: -103px; width:650px; font-weight:bold">fullscreen</button>
+                                                                        style="margin-top: -103px; width:650px; font-weight:bold">Fullscreen</button>
                                                                 </div>
                                                                 <p style="margin: -13px 0px 20px 0px; font-size:17px"
                                                                     class="card-text">
