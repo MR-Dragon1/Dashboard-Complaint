@@ -8,8 +8,8 @@
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h3 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Log Activity's
-                                </h3>
+                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Log Activity's
+                                </h4>
                                 <div class="loader"></div>
                                 <div class="row">
                                     <table id="records" class="table table-striped">

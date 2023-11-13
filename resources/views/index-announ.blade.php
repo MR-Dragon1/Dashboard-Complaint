@@ -10,8 +10,8 @@
                     @endif
                     <div class="row">
                         <div class="container-fluid">
-                            <h3 class="mb-3" style="text-align: center; color:black; margin:25px 0px;"><u>Notifications</u>
-                            </h3>
+                            <h4 class="mb-3" style="text-align: center; color:black; margin:25px 0px;">Notifications
+                            </h4>
                             @if (!Auth::check())
                                 <div id="liveMessage" style="display: none">
                                     <button class="primary-2" onclick="window.dialog.showModal();">Message <i
