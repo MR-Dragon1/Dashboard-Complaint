@@ -22,7 +22,9 @@ class Mails extends Model
         'complaints_image',
         'status',
         'site',
+        'expectation',
         'page',
+        'ticket',
         'created_at',
         'updated_at'
     ];

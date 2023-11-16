@@ -896,7 +896,7 @@ ul.setting-panel-list li{
 }
 .breadcome-list-modal {
     border-radius: 6px;
-    padding:15px;
+    padding:15px 20px;
 	background:#fffffff0;
 	margin:16px 0px;
 }
@@ -3870,6 +3870,37 @@ dialog {
 	}
 
 }
+.dialog-page {
+	padding: 1px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+    width: 800px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+    animation: fadeIn 0.5s ease both;
+	&::backdrop {
+		animation: fadeIn 0.5s ease both;
+		background: linear-gradient(45deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%);
+		backdrop-filter: blur(10px);
+	}
+	.x {
+		filter: grayscale(1);
+		border: none;
+		background: none;
+		position: absolute;
+		top: 28px;
+        font-size: 13px;
+		right: 18px;
+		transition: ease filter, transform 0.3s;
+		cursor: pointer;
+		transform-origin: center;
+		&:hover {
+			filter: grayscale(0);
+			transform: scale(1.1);
+		}
+	}
+
+}
 
 
 
@@ -4166,7 +4197,7 @@ button.primary-1 {
 
 
 .check-alert {
-    border-radius: 10px;
+    border-radius: 9px;
     width: auto;
     height: 51px;
     background-color: rgb(207 243 217);
@@ -4189,7 +4220,7 @@ button.primary-1 {
 
 
 .danger-alert {
-    border-radius: 10px;
+    border-radius: 9px;
     width: auto;
     height: 51px;
     text-align: left;

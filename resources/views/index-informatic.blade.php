@@ -4,17 +4,13 @@
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    @if (!Auth::check())
-                        <div style="margin: 10px 0px"></div>
-                    @endif
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 37px">
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Complaint Lists IT
+                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Complaint Lists
+                                    IT
                                 </h4>
-
-                                {{-- <div class="loader"></div> --}}
                                 @if (session('success'))
                                     <div id="live">
                                         <div class="check-alert">
@@ -65,16 +61,6 @@
                                                                             placeholder="What is your email ?"
                                                                             aria-label="default input example"
                                                                             name="email" id="email" required>
-                                                                        <label for="site" style="color: black"
-                                                                            class="m-1">Situs</label>
-                                                                        <select id="site" name="site"
-                                                                            class="form-select mt-2 mb-2"
-                                                                            aria-label="Default select example">
-                                                                            @foreach ($sites as $site)
-                                                                                <option value="{{ $site->name_sites }}">
-                                                                                    {{ $site->name_sites }}</option>
-                                                                            @endforeach
-                                                                        </select>
                                                                         <label class="m-1" for="image"
                                                                             style="color: black">Upload
                                                                             Images</label>
@@ -95,11 +81,6 @@
                                     </div>
                                     <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
                                 </dialog>
-
-
-
-
-
                                 <div class="row">
                                     <table id="records" class="table table-striped">
                                         <thead>
@@ -252,82 +233,78 @@
                                                                                 readonly>
                                                                         @endif
 
-                                                                        @if (Auth::check())
-                                                                            <form
-                                                                                action="{{ route('complaint.update', $complaint->id) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                @method('PUT')
+                                                                        <form
+                                                                            action="{{ route('complaint.update', $complaint->id) }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            @method('PUT')
 
-                                                                                <div style="text-align: left">
-                                                                                    <label class="m-1 mt-1 mb-1"
-                                                                                        for="status">Edit
-                                                                                        Status
-                                                                                        Complaint</label>
-                                                                                </div>
-                                                                                <select name="status" id="status"
-                                                                                    class="form-select mt-1 mb-1"
-                                                                                    aria-label="Default select example">
-                                                                                    <option value="" disabled
-                                                                                        selected>
-                                                                                        Select your option
-                                                                                    </option>
-                                                                                    <option value="0">
-                                                                                        Unprocessed
-                                                                                    </option>
-                                                                                    <option value="2">
-                                                                                        On Going
-                                                                                    </option>
-                                                                                    <option value="3">
-                                                                                        Completed
-                                                                                    </option>
-                                                                                </select>
-                                                                                <br>
-                                                                                <div class="content-comment">
-                                                                                    @foreach ($complaint->comments as $comment)
-                                                                                        @if ($comment->roles == 1 && $comment->message != null)
+                                                                            <div style="text-align: left">
+                                                                                <label class="m-1 mt-1 mb-1"
+                                                                                    for="status">Edit
+                                                                                    Status
+                                                                                    Complaint</label>
+                                                                            </div>
+                                                                            <select name="status" id="status"
+                                                                                class="form-select mt-1 mb-1"
+                                                                                aria-label="Default select example">
+                                                                                <option value="" disabled selected>
+                                                                                    Select your option
+                                                                                </option>
+                                                                                <option value="0">
+                                                                                    Unprocessed
+                                                                                </option>
+                                                                                <option value="2">
+                                                                                    On Going
+                                                                                </option>
+                                                                                <option value="3">
+                                                                                    Completed
+                                                                                </option>
+                                                                            </select>
+                                                                            <br>
+                                                                            <div class="content-comment">
+                                                                                @foreach ($complaint->comments as $comment)
+                                                                                    @if ($comment->roles == 1 && $comment->message != null)
+                                                                                        <div class="container text-center">
                                                                                             <div
-                                                                                                class="container text-center">
-                                                                                                <div
-                                                                                                    class="row align-items-center">
-                                                                                                    <div class="col"
-                                                                                                        style="margin-top: 12.5px">
-                                                                                                        <div>
-                                                                                                            <div class="m-1"
-                                                                                                                style="text-align:left">
-                                                                                                                <b
-                                                                                                                    style="font-size: 14px">{{ $comment->person }}
-                                                                                                                    |
-                                                                                                                    Customer
-                                                                                                                    Service</b>
-                                                                                                            </div>
-                                                                                                            <div
-                                                                                                                class="chat-guest">
-                                                                                                                {{ $comment->message }}
+                                                                                                class="row align-items-center">
+                                                                                                <div class="col"
+                                                                                                    style="margin-top: 12.5px">
+                                                                                                    <div>
+                                                                                                        <div class="m-1"
+                                                                                                            style="text-align:left">
+                                                                                                            <b
+                                                                                                                style="font-size: 14px">{{ $comment->person }}
+                                                                                                                |
+                                                                                                                Customer
+                                                                                                                Service</b>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="chat-guest">
+                                                                                                            {{ $comment->message }}
 
-                                                                                                            </div>
-                                                                                                            <div
-                                                                                                                class="m-1 time-chat">
-                                                                                                                {{ $comment->created_at }}
-                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="m-1 time-chat">
+                                                                                                            {{ $comment->created_at }}
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col mt-1">
+                                                                                                </div>
+                                                                                                <div class="col mt-1">
 
-                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        @elseif($comment->roles == 2 && $comment->message != null)
+                                                                                        </div>
+                                                                                    @elseif($comment->roles == 2 && $comment->message != null)
+                                                                                        <div class="container text-center">
                                                                                             <div
-                                                                                                class="container text-center">
-                                                                                                <div
-                                                                                                    class="row align-items-center">
-                                                                                                    <div class="col"
-                                                                                                        style="margin-top: 12.5px">
-                                                                                                        <div
-                                                                                                            style="text-align: right">
+                                                                                                class="row align-items-center">
+                                                                                                <div class="col"
+                                                                                                    style="margin-top: 12.5px">
+                                                                                                    <div
+                                                                                                        style="text-align: right">
 
-                                                                                                            {{-- @if (Auth::check() && Auth::user()->roles == 2)
+                                                                                                        {{-- @if (Auth::check() && Auth::user()->roles == 2)
                                                                                                         <form
                                                                                                             action="{{ route('comments-delete', $comment->id) }}"
                                                                                                             method="POST">
@@ -340,63 +317,58 @@
                                                                                                                     class="fa-solid fa-trash"></i></button>
                                                                                                         </form>
                                                                                                     @endif --}}
-                                                                                                        </div>
                                                                                                     </div>
-                                                                                                    <div class="col mt-1">
-                                                                                                        <div class="m-1"
-                                                                                                            style="text-align: right">
-                                                                                                            <b
-                                                                                                                style="font-size: 14px">{{ $comment->person }}
-                                                                                                                | Team
-                                                                                                                IT</b>
-                                                                                                        </div>
-                                                                                                        <div
-                                                                                                            class="chat-team">
-                                                                                                            {{ $comment->message }}
+                                                                                                </div>
+                                                                                                <div class="col mt-1">
+                                                                                                    <div class="m-1"
+                                                                                                        style="text-align: right">
+                                                                                                        <b
+                                                                                                            style="font-size: 14px">{{ $comment->person }}
+                                                                                                            | Team
+                                                                                                            IT</b>
+                                                                                                    </div>
+                                                                                                    <div class="chat-team">
+                                                                                                        {{ $comment->message }}
 
-                                                                                                        </div>
-                                                                                                        <div
-                                                                                                            class="m-1 time-chat-2">
-                                                                                                            {{ $comment->created_at }}
-                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="m-1 time-chat-2">
+                                                                                                        {{ $comment->created_at }}
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        @endif
-                                                                                    @endforeach
-                                                                                </div>
-                                                                                <hr>
-                                                                                <div class="form-group">
-                                                                                    <div class="form-group">
-                                                                                        <input name="message"
-                                                                                            id="message"
-                                                                                            placeholder="Add your comments ?"
-                                                                                            class="form-control-2"
-                                                                                            aria-label="default input example"
-                                                                                            style="box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;">
-                                                                                    </div>
-                                                                                    @if (Auth::check() && Auth::user()->roles == 2)
-                                                                                        <input type="number"
-                                                                                            name="roles" id="roles"
-                                                                                            value="2" hidden>
-                                                                                    @else
-                                                                                        <input type="number"
-                                                                                            name="roles" id="roles"
-                                                                                            value="1" hidden>
+                                                                                        </div>
                                                                                     @endif
+                                                                                @endforeach
+                                                                            </div>
+                                                                            <hr>
+                                                                            <div class="form-group">
+                                                                                <div class="form-group">
+                                                                                    <input name="message" id="message"
+                                                                                        placeholder="Add your comments ?"
+                                                                                        class="form-control-2"
+                                                                                        aria-label="default input example"
+                                                                                        style="box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;">
                                                                                 </div>
-                                                                        @endif
-                                                                        <hr>
-                                                                        <div style=text-align:end>
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-secondary"
-                                                                                data-dismiss="modal">Close</button>
-                                                                            @if (Auth::check())
+                                                                                @if (Auth::check() && Auth::user()->roles == 2)
+                                                                                    <input type="number" name="roles"
+                                                                                        id="roles" value="2"
+                                                                                        hidden>
+                                                                                @else
+                                                                                    <input type="number" name="roles"
+                                                                                        id="roles" value="1"
+                                                                                        hidden>
+                                                                                @endif
+                                                                            </div>
+                                                                            <hr>
+                                                                            <div style=text-align:end>
+                                                                                <button type="button"
+                                                                                    class="btn btn-outline-secondary"
+                                                                                    data-dismiss="modal">Close</button>
                                                                                 <button type="submit"
                                                                                     class="btn btn-primary">Save
                                                                                     changes</button>
-                                                                            @endif
-                                                                        </div>
+                                                                            </div>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -410,9 +382,7 @@
                                     </table>
                                 </div>
                             </div>
-                            @if (!Auth::check())
-                                <button class="primary" onclick="window.dialog.showModal();">Add Complaint</button>
-                            @endif
+                            <button class="primary" onclick="window.dialog.showModal();">Add Complaint</button>
                         </div>
                     </div>
                 </div>

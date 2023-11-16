@@ -5,9 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
-class Cs
+class NewGuest
 {
     /**
      * Handle an incoming request.
@@ -18,10 +17,21 @@ class Cs
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->roles == 0)
-        {
-            return Redirect::route('index-mail');
-        }
-        return $next($request);
+
+    $routeName = $request->route()->getName();
+
+    $excludedRoutes = [
+        'index-laporan',
+        'index-announs',
+        'search',
+        'index-status',
+        'store-complaint',
+    ];
+
+    if (!in_array($routeName, $excludedRoutes)) {
+        return redirect()->route('login');
+    }
+
+    return $next($request);
     }
 }

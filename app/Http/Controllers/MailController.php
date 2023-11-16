@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class MailController extends Controller
 {
@@ -18,19 +19,17 @@ class MailController extends Controller
 
     public function index_informatic()
     {
-        $sites = Sites::all();
         $complaints = Mails::select('id','email','site','complaints','complaints_image','status','page','created_at', 'updated_at')->where('page', '1')->get();
 
 
-        return view('index-informatic', compact('complaints', 'sites'));
+        return view('index-informatic', compact('complaints'));
     }
     public function index_mail()
     {
-        $sites = Sites::all();
         $complaints = Mails::all();
 
 
-        return view('index-mail', compact('complaints', 'sites'));
+        return view('index-mail', compact('complaints'));
     }
     public function update_complaint(Request $request, $id)
 {
@@ -57,10 +56,14 @@ class MailController extends Controller
      */
     public function store_complaint(Request $request)
     {
+
             $request->validate([
                 'complaint' => 'required',
                 'email' => 'required',
                 'site' => 'required',
+                'expectation' => 'required',
+                'ticket' => 'required',
+                'g-recaptcha-response' => 'required|captcha'
             ]);
 
             $image = $request->file('image');
@@ -73,25 +76,28 @@ class MailController extends Controller
                     $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
                     Mails::create([
                         'complaints' => $request->complaint,
+                        'expectation' => $request->expectation,
                         'email' => $request->email,
                         'site' => $request->site,
+                        'ticket' => $request->ticket,
                         'complaints_image' => $image_url,
                     ]);
             } else {
 
                 $i = null;
 
-                Mails::create([
+                $complaint = Mails::create([
                         'complaints' => $request->complaint,
+                        'expectation' => $request->expectation,
                         'email' => $request->email,
                         'site' => $request->site,
+                        'ticket' => $request->ticket,
                         'complaints_image' => $i
                 ]);
             }
+            Session::flash('additionalData', compact('complaint'));
 
-
-
-            return redirect()->route('index-mail')->with('success', 'Form submitted successfully');
+            return Redirect::back()->with('success', 'Form submitted successfully');
 
     }
 }

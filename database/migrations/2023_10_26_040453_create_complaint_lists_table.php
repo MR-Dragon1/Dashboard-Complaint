@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('site');
             $table->string('complaints');
+            $table->string('expectation')->nullable();
             $table->string('complaints_image')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('page')->default(0);

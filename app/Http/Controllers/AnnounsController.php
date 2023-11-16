@@ -20,6 +20,12 @@ class AnnounsController extends Controller
 
         return view('index-announ', compact('announs'));
     }
+    public function index_message()
+    {
+        $messages = Announs::all();
+
+        return view('index-message', compact('messages'));
+    }
 
     /**
      * Show the form for creating a new resource.
