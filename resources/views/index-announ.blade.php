@@ -12,6 +12,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -77,16 +80,6 @@
                                                                     class="card-text">
                                                                     {{ $announ->description }}</p>
                                                             @endif
-
-                                                            @if (Auth::check() && Auth::user()->roles == 2)
-                                                                <form action="{{ route('delete-announ', $announ) }}"
-                                                                    method="post">
-                                                                    @method('delete')
-                                                                    @csrf
-                                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                                        style="margin-bottom:12px">Delete</button>
-                                                                </form>
-                                                            @endif
                                                         </div>
                                                         <div>
                                                             <div style="font-size: 14px; color:#635f5f; font-family: monospace"
@@ -109,6 +102,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="wrapper" id="icon-menu">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <a href="{{ route('index-announs') }}"><i class="fa-solid fa-bell"></i></a>
+            <a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+            <a href="{{ route('index-laporan') }}"><i class="fa-solid fa-envelope-open-text"></i></a>
         </div>
     </div>
     <script>

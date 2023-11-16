@@ -42,6 +42,13 @@
                                                     </div>
                                                 </div>
                                             @endforeach
+                                        @elseif(session('success-spam'))
+                                            <div id="lives">
+                                                <div class="danger-alert">
+                                                    <i class="far fa-times-circle shine-alert"></i> &nbsp; &nbsp;
+                                                    <span>Sorry! {{ session('success-spam') }}</span>
+                                                </div>
+                                            </div>
                                         @endif
                                         <div class="container-fluid">
 
@@ -57,9 +64,7 @@
                                                         </h5>
                                                     </div>
                                                     <div class="col" style="text-align:right">
-                                                        <a href="{{ route('index-announs') }}"><i
-                                                                style="margin:21px 17px 15px 0px; font-size:22px"
-                                                                class="fa-regular fa-bell"></i></a>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,6 +151,16 @@
             </div>
         </div>
     </div>
+    <div class="wrapper" id="icon-menu">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <a href="{{ route('index-announs') }}"><i class="fa-solid fa-bell"></i></a>
+            <a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+            <a href="{{ route('index-laporan') }}"><i class="fa-solid fa-envelope-open-text"></i></a>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $('#reload').click(function() {
             $.ajax({

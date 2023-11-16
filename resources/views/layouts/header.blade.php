@@ -51,6 +51,12 @@
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
+                        <li class="">
+                            <a @if (request()->is('dashboard/spam')) class="active" @endif href="{{ route('index-spam') }}">
+                                <i class="fa-solid fa-file-circle-exclamation icon-head-1"></i>
+                                <span class="mini-click-non">Spam</span>
+                            </a>
+                        </li>
                         <li>
                             <a @if (request()->is('dashboard/users') || request()->is('dashboard/ip-address')) class="active" @endif class="has-arrow" href=""
                                 aria-expanded="false"><i class="fa-solid fa-user-group icon-head"></i> <span

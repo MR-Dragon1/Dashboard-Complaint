@@ -43,6 +43,7 @@ use Illuminate\Support\Facades\Redirect;
         Route::post('/dashboard/ip-address/store', [IpController::class, 'store_ip'])->name('store-ip');
         Route::delete('/dashboard/ips/{ips}', [IpController::class, 'delete_ip'])->name('delete-ip');
         Route::get('/dashboard/log-activity', [LogController::class, 'index_logs'])->name('index-log');
+        Route::get('/dashboard/spam', [MailController::class, 'index_spam'])->name('index-spam');
         Route::get('/dashboard/users', [UserController::class, 'index_users'])->name('index-user');
         Route::post('/dashboard/add-users/store', [UserController::class, 'store_users'])->name('store-user');
         Route::delete('/dashboard/users/{users}', [UserController::class, 'delete_users'])->name('delete-user');

@@ -149,6 +149,15 @@
             </div>
         </div>
     </div>
+    <div class="wrapper" id="icon-menu">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <a href="{{ route('index-announs') }}"><i class="fa-solid fa-bell"></i></a>
+            <a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+            <a href="{{ route('index-laporan') }}"><i class="fa-solid fa-envelope-open-text"></i></a>
+        </div>
+    </div>
     <script type="text/javascript">
         $('#reload').click(function() {
             $.ajax({
