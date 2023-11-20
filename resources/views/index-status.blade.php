@@ -74,7 +74,7 @@
                                                             <td style="width:5%"><button type="submit"
                                                                     class="btn btn-primary"><i
                                                                         class="fa-solid fa-magnifying-glass"
-                                                                        style="font-size: 15px; padding:4.6px"></i></button>
+                                                                        style="font-size: 16px; padding:4px"></i></button>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -94,11 +94,12 @@
 
                                                 @if (isset($data))
                                                     @foreach ($data as $item)
-                                                        <table class="table table-dark table-striped table-bordered">
+                                                        <table class="table table-striped table-bordered"
+                                                            style="font-family: math; font-size:16px">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Id</th>
-                                                                    <td>{{ $item->id }}</td>
+                                                                    <th>ID Ticket</th>
+                                                                    <td>{{ $item->ticket }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Email</th>
@@ -116,13 +117,18 @@
                                                                     <th>Expectation</th>
                                                                     <td>{{ $item->expectation }}</td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th>Ticket</th>
-                                                                    <td>{{ $item->ticket }}</td>
-                                                                </tr>
+
                                                                 <tr>
                                                                     <th>Status</th>
-                                                                    <td>{{ $item->status }}</td>
+                                                                    @if ($item->status == '0')
+                                                                        <td>Unprocessed</td>
+                                                                    @elseif ($item->status == '1')
+                                                                        <td>Data is being transferred</td>
+                                                                    @elseif ($item->status == '2')
+                                                                        <td>Data being worked on</td>
+                                                                    @elseif ($item->status == '3')
+                                                                        <td>The complaint has been resolved</td>
+                                                                    @endif
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Created_at</th>

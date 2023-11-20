@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnnounImage;
 use App\Models\Announs;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AnnounsController extends Controller
@@ -14,10 +16,9 @@ class AnnounsController extends Controller
      */
     public function index_announs()
     {
-        $announs = Announs::select('id','email','announcement_image','title','description','created_at')
+        $announs = Announs::select('id','email','title','description','created_at')
                     ->orderByDesc('id')
                     ->get();
-
         return view('index-announ', compact('announs'));
     }
     public function index_message()
@@ -27,48 +28,57 @@ class AnnounsController extends Controller
         return view('index-message', compact('messages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    /**
-     * Store a newly created resource in storage.
-     */
+
+    public function update_message(Request $request, $id)
+{
+    $announs = Announs::findOrFail($id);
+    $announs->update($request->all());
+
+    $user = Auth::user()->email;
+    $announs->updatesAnnouns()->create([
+        'status' => $request->input('status'),
+        'message' => $request->input('message'),
+        'announs_id' => $request->$user,
+    ]);
+
+    return Redirect::back()->with('success', 'Updated status message successfully');
+}
+
+
+
+
+
     public function store_announs(Request $request)
     {
             $request->validate([
-                'email'=> 'required',
                 'title'=> 'required',
                 'description'=> 'required',
             ]);
+            $user = Auth::user()->email;
 
-            $image = $request->file('image');
+            $complaint = Announs::create([
+                        'email' => $user,
+                        'title' => $request->title,
+                        'description' => $request->description,
+                    ]);
 
-            if (
-            $request->hasFile('image')) {
+
+            $images = $request->file('image');
+            if ($request->hasFile('image')) {
+                foreach ($images as $image) {
+
                     $nama_file = $image->getClientOriginalName();
                     $nama_game = pathinfo($nama_file, PATHINFO_FILENAME);
                     $dir = "Dashboard-Complaint\'2023'\Announcements";
                     $path = \Storage::disk('do_spaces')->putFileAs($dir, $image, $nama_game . '.' . $image->getClientOriginalExtension(), 'public');
                     $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
-                    Announs::create([
-                        'email' => $request->email,
-                        'title' => $request->title,
-                        'description' => $request->description,
-                        'announcement_image' => $image_url,
-                    ]);
-            } else {
-                $i = null;
-                Announs::create([
-                        'email' => $request->email,
-                        'title' => $request->title,
-                        'description' => $request->description,
-                        'announcement_image' => $i,
 
-                ]);
-            }
-
-
-
+                    AnnounImage::create([
+                    'announs_id' => $complaint->id,
+                    'image' => $image_url,
+                        ]);
+                    }
+                }
 
             return Redirect::back()->with('success', 'Form submitted successfully');
     }

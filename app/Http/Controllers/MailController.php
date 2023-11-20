@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlockedIP;
-use App\Models\Comments;
+use App\Models\ComplaintImage;
 use App\Models\Mails;
-use App\Models\Sites;
 use App\Models\SpamEntry;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -21,7 +20,7 @@ class MailController extends Controller
 
     public function index_informatic()
     {
-        $complaints = Mails::select('id','email','site','complaints','complaints_image','status','page','created_at', 'updated_at')->where('page', '1')->get();
+        $complaints = Mails::select('id','email','site','expectation','ticket','complaints','status','page','created_at', 'updated_at')->where('page', '1')->get();
 
 
         return view('index-informatic', compact('complaints'));
@@ -29,7 +28,6 @@ class MailController extends Controller
     public function index_mail()
     {
         $complaints = Mails::all();
-
 
         return view('index-mail', compact('complaints'));
     }
@@ -81,35 +79,33 @@ class MailController extends Controller
                 'g-recaptcha-response' => 'required|captcha'
             ]);
 
-            $image = $request->file('image');
+            $complaint = Mails::create([
+                        'complaints' => $request->complaint,
+                        'expectation' => $request->expectation,
+                        'email' => $request->email,
+                        'site' => $request->site,
+                        'ticket' => $request->ticket,
+                    ]);
 
+            $images = $request->file('image');
             if ($request->hasFile('image')) {
+                foreach ($images as $image) {
                     $nama_file = $image->getClientOriginalName();
                     $nama_game = pathinfo($nama_file, PATHINFO_FILENAME);
                     $dir = "Dashboard-Complaint\'2023'\Complaints";
                     $path = \Storage::disk('do_spaces')->putFileAs($dir, $image, $nama_game . '.' . $image->getClientOriginalExtension(), 'public');
                     $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
-                    Mails::create([
-                        'complaints' => $request->complaint,
-                        'expectation' => $request->expectation,
-                        'email' => $request->email,
-                        'site' => $request->site,
-                        'ticket' => $request->ticket,
-                        'complaints_image' => $image_url,
-                    ]);
-            } else {
 
-                $i = null;
+                    ComplaintImage::create([
+                    'mails_id' => $complaint->id,
+                    'image' => $image_url,
+                        ]);
+                    }
+                }
 
-                $complaint = Mails::create([
-                        'complaints' => $request->complaint,
-                        'expectation' => $request->expectation,
-                        'email' => $request->email,
-                        'site' => $request->site,
-                        'ticket' => $request->ticket,
-                        'complaints_image' => $i
-                ]);
-            }
+
+
+
 
     if ($this->isSpam($request->input('complaints')) || $this->isSpam($request->input('expectation'))) {
         if ($blockedIP) {

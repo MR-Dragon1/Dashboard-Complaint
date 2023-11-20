@@ -27,4 +27,6 @@ class Logs extends Model
         $carbonDate = Carbon::parse($value);
         return $carbonDate->format('d / m / Y  -  H:i:s' );
     }
+
+
 }

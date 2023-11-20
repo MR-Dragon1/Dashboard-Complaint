@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\Redirect;
         Route::get('/dashboard/message', [AnnounsController::class, 'index_message'])->name('index-message');
         Route::post('/dashboard/add-announs/store', [AnnounsController::class, 'store_announs'])->name('store-announ');
         Route::put('/dashboard/complaint/{id}', [MailController::class, 'update_complaint'])->name('complaint.update');
+        Route::put('/dashboard/message/{id}', [AnnounsController::class, 'update_message'])->name('message.update');
         Route::post('/dashboard/add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');
         Route::get('/dashboard', [MailController::class, 'index_mail'])->name('index-mail');
         Route::get('/dashboard/ip-address', [IpController::class, 'index_ip'])->name('index-ip');

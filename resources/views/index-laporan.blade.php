@@ -102,9 +102,9 @@
                                                     </div>
                                                     <label class="m-1" for="image" style="color: black">Upload
                                                         Images</label>
-                                                    <input name="image" id="image"
+                                                    <input name="image[]" id="image"
                                                         class="form-control mt-2 mb-2" type="file"
-                                                        aria-label="default input example">
+                                                        aria-label="default input example" multiple>
                                                     <div class="form-group m-1 mt-3">
                                                         <div style="font-size: 11px; color:blue"><i>Confirm you are a
                                                                 real

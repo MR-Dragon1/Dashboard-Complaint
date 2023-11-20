@@ -19,7 +19,6 @@ class Mails extends Model
         'id',
         'complaints',
         'email',
-        'complaints_image',
         'status',
         'site',
         'expectation',
@@ -41,6 +40,10 @@ class Mails extends Model
     {
     return $this->hasMany(Comments::class);
     }
+    public function images()
+    {
+    return $this->hasMany(ComplaintImage::class);
+    }
 
 
     public function getCreatedAtAttribute($value)
@@ -52,6 +55,11 @@ class Mails extends Model
     {
         $carbonDate = Carbon::parse($value);
         return $carbonDate->format('d / m / Y  -  H:i' );
+    }
+
+    public function setFilenamesAttribute($value)
+    {
+        $this->attributes['complaints_image'] = json_encode($value);
     }
 
 

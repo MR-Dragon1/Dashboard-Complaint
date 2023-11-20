@@ -2,34 +2,31 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\LogOptions;
 
-class BlockedIP extends Model
+class AnnounImage extends Model
 {
     use HasFactory;
-    protected $table = 'blocked_ips';
+    protected $table = 'announs_image';
 
     protected $fillable = [
         'id',
-        'ip_address',
-        'spam_count',
+        'image',
+        'announs_id',
         'created_at',
         'updated_at',
     ];
 
-    public function getCreatedAtAttribute($value)
+    public function announs()
     {
-        $carbonDate = Carbon::parse($value);
-        return $carbonDate->format('d / m / Y  -  H:i:s' );
+        return $this->belongsTo(Announs::class);
     }
 
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->logOnly(['ip_address','spam_count']);
+        ->logOnly(['image','announs_id']);
     }
-
 }

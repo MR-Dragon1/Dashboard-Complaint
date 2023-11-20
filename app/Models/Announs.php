@@ -33,4 +33,14 @@ class Announs extends Model
         $carbonDate = Carbon::parse($value);
         return $carbonDate->format('l, d / m / Y  -  H:i');
     }
+
+    public function imagesAnnouns()
+    {
+    return $this->hasMany(AnnounImage::class);
+    }
+
+    public function updatesAnnouns()
+    {
+    return $this->hasMany(UpdateAnnouns::class);
+    }
 }

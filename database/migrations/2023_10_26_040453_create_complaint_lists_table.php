@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('email');
             $table->string('site');
+            $table->string('ticket');
             $table->string('complaints');
             $table->string('expectation')->nullable();
-            $table->string('complaints_image')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('page')->default(0);
             $table->timestamps();

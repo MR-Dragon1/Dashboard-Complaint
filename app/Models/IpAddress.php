@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
 
 class IpAddress extends Model
 {
@@ -23,5 +24,11 @@ class IpAddress extends Model
     {
         $carbonDate = Carbon::parse($value);
         return $carbonDate->format('d / m / Y  -  H:i:s' );
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['ip']);
     }
 }

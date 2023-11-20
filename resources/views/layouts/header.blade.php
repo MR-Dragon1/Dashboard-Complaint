@@ -18,11 +18,11 @@
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
                     <li>
-                        <a @if (request()->is('dashboard')) class="active" @endif href="{{ route('index-mail') }}"
+                        <a @if (request()->is('dashboard')) class="actives" @endif href="{{ route('index-mail') }}"
                             aria-expanded="false"><i class="fa-solid fa-house icon-head"></i><span
                                 class="mini-click-non">Dashboard</span></a>
                         @if (Auth::check() && Auth::user()->roles == 2)
-                            <a @if (request()->is('dashboard/infomatic')) class="active" @endif
+                            <a @if (request()->is('dashboard/infomatic')) class="actives" @endif
                                 href="{{ route('index-informatics') }}" aria-expanded="false"><i
                                     class="fa-regular fa-envelope icon-head-1"></i><span
                                     class="mini-click-non">Complaint
@@ -35,7 +35,7 @@
 
 
                     <li>
-                        <a @if (request()->is('dashboard/announcements')) class="active" @endif href="{{ route('index-message') }}"
+                        <a @if (request()->is('dashboard/announcements')) class="actives" @endif href="{{ route('index-message') }}"
                             aria-expanded="false"><i class="fa-regular fa-bell icon-head-1"></i> <span
                                 class="mini-click-non">Notifications</span></a>
                     </li>
@@ -46,19 +46,20 @@
 
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
-                            <a @if (request()->is('dashboard/log-activity')) class="active" @endif href="{{ route('index-log') }}">
+                            <a @if (request()->is('dashboard/log-activity')) class="actives" @endif href="{{ route('index-log') }}">
                                 <i class="fa-solid fa-layer-group icon-head-1"></i>
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
                         <li class="">
-                            <a @if (request()->is('dashboard/spam')) class="active" @endif href="{{ route('index-spam') }}">
+                            <a @if (request()->is('dashboard/spam')) class="actives" @endif
+                                href="{{ route('index-spam') }}">
                                 <i class="fa-solid fa-file-circle-exclamation icon-head-1"></i>
                                 <span class="mini-click-non">Spam</span>
                             </a>
                         </li>
                         <li>
-                            <a @if (request()->is('dashboard/users') || request()->is('dashboard/ip-address')) class="active" @endif class="has-arrow" href=""
+                            <a @if (request()->is('dashboard/users') || request()->is('dashboard/ip-address')) class="actives" @endif class="has-arrow" href=""
                                 aria-expanded="false"><i class="fa-solid fa-user-group icon-head"></i> <span
                                     class="mini-click-non">Users</span></a>
                             <ul class="submenu-angle" style="margin-left: 20px" aria-expanded="false">
