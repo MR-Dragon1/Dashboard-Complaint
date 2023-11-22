@@ -19,7 +19,7 @@
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
-html, body {height: 100%; font-family: 'Roboto', sans-serif;font-size: 15px; font-weight:400;background:#ffffff;}
+html, body {height: 100%; font-family: 'Roboto', sans-serif;font-size: 15px; font-weight:400;background:#f2f7fb;}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
@@ -98,8 +98,8 @@ body {}
     width: 240px;
 }
 #sidebar {
-    min-width: 205px;
-    background: #06163b;
+    min-width: 202px;
+    background: #0f1a34;
     color: #fff;
 	position:fixed;
     transition: all 0.3s;
@@ -133,7 +133,7 @@ body {}
     padding: 1px 0px;
 	position: relative;
     z-index: 99999;
-    background: #06163b;
+    background: #0f1a34;
 }
 #sidebar .sidebar-header strong {
     display: none;
@@ -143,7 +143,7 @@ body {}
     padding: 20px;
 	position: relative;
     z-index: 99999;
-    background: #06163b;
+    background: #0f1a34;
 }
 .profile-dtl {
     text-align: center;
@@ -295,21 +295,21 @@ ul.dtl-social li a{
 }
 
 .footer-copyright-area {
-    background: #06163b;
-    padding: 5px 0px;
+    background: #0f1a34;
+    padding: 3px 0px;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
-    text-align: center;
+    text-align: right;
 }
 .footer-copy-right p {
     margin: 0px;
-    font-size: 12px;
-    color: #fff;
+    font-size: 10px;
+    color: gray;
 }
 .footer-copy-right a{
-	color:#fff;
+	color:gray;
 	text-decoration:none;
 }
 /*----------------------------------------*/
@@ -862,7 +862,7 @@ ul.setting-panel-list li{
     right: 0;
 }
 .header-top-menu .navbar-nav>li .dropdown-menu, .header-right-info ul.header-right-menu li .author-message-top, .header-right-info ul.header-right-menu li .notification-author, .header-right-info ul.header-right-menu li .author-log, .header-right-info ul.header-right-menu li .admintab-wrap.menu-setting-wrap.menu-setting-wrap-bg.dropdown-menu {
-    background: #06163b;
+    background: #0f1a34;
 }
 .header-top-menu .navbar-nav>li .dropdown-menu a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:focus, .header-drl-controller-btn.btn-info:active:focus, .btn-info:active:hover {
     background: #152036;
@@ -889,10 +889,11 @@ ul.setting-panel-list li{
     background: #152036;
 }
 .breadcome-list {
-    border-radius: 5px;
+    border-radius: 7px;
     padding:13px;
-	background:#f0f3f5db;
+	background:white;
 	margin:12px -3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 .breadcome-list-modal {
     border-radius: 6px;
@@ -1057,11 +1058,11 @@ ul.breadcome-menu li a:hover{
 }
 .analysis-progrebar-ctn{
 	padding:20px;
-	background:#06163b;
+	background:#0f1a34;
 }
 .product-sales-chart, .analytics-info-cs, .tranffic-als-inner, .analytics-rounded, .single-new-trend, .personal-info-wrap, .author-widgets-single, .calender-inner, .product-status-wrap, .review-tab-pro-inner, .income-dashone-total, .analytics-nalika-wrap, .analytics-sparkle-line, .analysis-progrebar, .sparkline8-list, .sparkline9-list, .sparkline7-list, .sparkline10-list, .sparkline12-list, .sparkline13-list, .sparkline14-list, .sparkline13-list, .sparkline11-list, .x-editable-list, .code-editor-single, .blog-details-inner, .charts-single-pro, .about-sparkline, .sparkline-list, .button-ad-wrap, .tab-content-details, .sparkline16-list, .sparkline15-list, .tinymce-single{
 	padding:20px;
-	background:#06163b;
+	background:#0f1a34;
 }
 .graph-rp{
 	text-align:right;
@@ -1300,7 +1301,7 @@ ul.two-part-sp li{
 }
 .header-top-area {
     position: fixed;
-    background: #06163b;
+    background: #0f1a34;
     z-index: 99;
     left: 200px;
     right: 0;
@@ -1598,11 +1599,11 @@ ul#single-product-tab li{
     border: 1px solid rgba(0,0,0,.12);
 }
 .single-product-pr{
-	background:#06163b;
+	background:#0f1a34;
 	padding: 20px;
 }
 .single-tb-pr {
-    background: #06163b;
+    background: #0f1a34;
     padding: 20px;
 }
 .color-quality-details{
@@ -1869,18 +1870,18 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 
 .icon-head {
     font-size: 17px;
-    margin-left: 18px;
-    margin-right: 18px;
+    margin-left: 15px;
+    margin-right: 20px;
 }
 .icon-head-1 {
     font-size: 17px;
-    margin-left: 18px;
+    margin-left: 15px;
     margin-right: 21px;
 }
 .icon-head-2 {
     font-size: 17px;
-    margin-left: 16px;
-    margin-right: 17px;
+    margin-left: 15px;
+    margin-right: 19px;
 }
 
 
@@ -1947,7 +1948,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 #myTab3.tab-review-design{
 	padding: 15px 15px;
-	background:#06163b;
+	background:#0f1a34;
 }
 #myTab3.tab-review-design li a{
 	padding-right: 40px;
@@ -1957,7 +1958,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 	margin-right:5px;
 }
 .custom-product-edit{
-	background:#06163b;
+	background:#0f1a34;
 }
 .input-group-addon {
     background-color: #e12503;
@@ -2050,7 +2051,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     Wizard
 */
 .product-cart-inner {
-    background: #06163b;
+    background: #0f1a34;
     padding: 20px 20px;
 }
 .product-status-wrap.border-pdt-ct p{
@@ -2224,7 +2225,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 .product-cart-inner .wizard > .content > .body{
 	width:100%;
-	background: #06163b;
+	background: #0f1a34;
 }
 .product-cart-inner .wizard > .content > .body input {
     width: 35px;
@@ -2316,7 +2317,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 .product-payment-inner-st{
 	padding:20px;
-	background:#06163b;
+	background:#0f1a34;
 }
 .payment-inner-pro i{
 	color:#24caa1;
@@ -2889,7 +2890,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 	overflow:hidden;
 }
 .analytics-nalika{
-	background:#06163b;
+	background:#0f1a34;
 	overflow:hidden;
 }
 .analytics-nalika .skill{
@@ -3707,8 +3708,8 @@ div#sparklinehome canvas {
     width: 100% !important;
 }
 .fc hr, .fc tbody, .fc td, .fc th, .fc thead, .fc-row {
-    border-color: #06163b!important;
-    background: #06163b!important;
+    border-color: #0f1a34!important;
+    background: #0f1a34!important;
 }
 a.fc-day-number {
     color: #fff;
@@ -3912,13 +3913,13 @@ button.primary {
     font-size: 0.9rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
-    padding: 9px;
+    padding: 8px;
     border-radius: 25px;
     transition: background-color 0.1s ease;
     box-sizing: border-box;
     transition: all 0.25s ease;
     border: 0;
-    margin-top: 15px;
+    margin: 13px 100px;
     cursor: pointer;
     box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
 
@@ -4177,7 +4178,7 @@ button.primary-1 {
 }
 
 .dropdown-content a {
-  background-color: #06163b;
+  background-color: #0f1a34;
   color: white;
   font-size: 13px;
   padding: 6px;
@@ -4297,8 +4298,9 @@ button.primary-1 {
 }
 
 .actives {
-    border-left: solid #0452b9 1px;
-    background-color: #042161;
+    border-right: solid #0c6be9 3px;
+    border-radius: 7px;
+    background-color: #06388fad;
 }
 
 .log-method {
@@ -4320,6 +4322,16 @@ hr.sep-2 {
                     font-weight: bold;
                     position: fixed;
                     bottom: 20px;
+                    width: auto;
+                    right: 30px;
+                    cursor: pointer;
+                    z-index: 3;
+                    font-size: 15px;
+                }
+#icon-menus {
+                    font-weight: bold;
+                    position: fixed;
+                    bottom: 35px;
                     width: auto;
                     right: 30px;
                     cursor: pointer;
@@ -4481,3 +4493,38 @@ hr.sep-2 {
     transform: scale(1, 1);
   }
 }
+
+.new {
+        position: relative;
+        display: inline-block;
+    }
+
+    .new .new-text {
+        visibility: hidden;
+        width: 130px;
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+        color: #fff;
+        text-align: center;
+        border-radius: 7px;
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 1;
+        font-size: 12px;
+        top: -55px;
+        right: 1%;
+    }
+
+    .new .new-text::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.6);
+    }
+
+    .new:hover .new-text {
+        visibility: visible;
+    }

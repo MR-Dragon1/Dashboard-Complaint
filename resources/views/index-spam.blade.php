@@ -8,12 +8,12 @@
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Spam
+                                <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">File Spam
                                 </h4>
                                 <div class="loader"></div>
                                 <div class="row">
                                     <table id="records" class="table table-striped">
-                                        <thead>
+                                        <thead class="table-dark">
                                             <tr style="text-align:center">
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Ip address</td>
@@ -23,7 +23,7 @@
                                                 <td style="text-align: center">Expectation</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
-                                                <td style="text-align: center">Actions</td>
+                                                <td style="text-align: center">Action</td>
                                             </tr>
                                         <tbody>
                                             @foreach ($spams as $spam)
@@ -48,16 +48,16 @@
                                                     <td style="vertical-align:middle">{{ $spam->created_at }}</td>
 
                                                     <td>
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                            data-target="#editModal{{ $spam->id }}">
-                                                            Details
+                                                        <button type="button" class="btn btn-primary btn-sm"
+                                                            data-toggle="modal" data-target="#editModal{{ $spam->id }}">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
                                                         </button>
 
                                                         <!-- Modal edit -->
                                                         <div class="modal fade" id="editModal{{ $spam->id }}"
                                                             tabindex="-1" role="dialog"
                                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable modal-lg"
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
                                                                 role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -67,20 +67,6 @@
 
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <div class="carousel-new">
-                                                                            <div class="slides-new">
-
-                                                                            </div>
-                                                                            <button class="prev button"><i
-                                                                                    style="vertical-align: middle"
-                                                                                    class="fa-solid fa-caret-left"></i></button>
-                                                                            <button class="next button"><i
-                                                                                    style="vertical-align: middle"
-                                                                                    class="fa-solid fa-caret-right"></i></button>
-                                                                        </div>
-
-
-
                                                                         <div style="text-align: left">
                                                                             <label for="email" style="color: black;"
                                                                                 class="m-1">Email</label>
@@ -127,7 +113,7 @@
                                                                         @endif
                                                                         <div style="text-align: left">
                                                                             <label for="site" style="color: black"
-                                                                                class="m-1">Submited At</label>
+                                                                                class="m-1">Submited at</label>
                                                                         </div>
                                                                         <input
                                                                             class="form-control form-control-sm mt-1 mb-1"
@@ -162,7 +148,28 @@
                     </div>
                 </div>
             </div>
-            <div style="margin: 30px 0px"></div>
+            <div style="margin: 18px 0px"></div>
+        </div>
+    </div>
+    <div class="wrapper" id="icon-menus">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                        class="fa-solid fa-bell"></i></a>
+                <span style="margin: 50px" class="new-text">Announcements</span>
+            </div>
+
+            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                <span style="margin: 50px" class="new-text">Check status</span>
+            </div>
+            <div class="new"><a href="{{ route('index-laporan') }}"><i
+                        class="fa-solid fa-envelope-open-text"></i></a>
+                <span style="margin: 50px" class="new-text">Report complaint</span>
+            </div>
+            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
+                <span style="margin: 50px" class="new-text">Home</span>
+            </div>
         </div>
     </div>
 @endsection

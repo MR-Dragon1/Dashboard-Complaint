@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
     {{-- bundle bootstrap 4.6.2 --}}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -63,29 +61,55 @@
                                                     <div class="card h-100">
                                                         @if ($announ->imagesAnnouns->isEmpty())
                                                             <div class="slide-new">
-                                                                <img style="height:230px" class="card-img-top"
-                                                                    src="img/no_image.jpg" alt=""
-                                                                    id="img-zoom">
+                                                                <img style="height:230px; border-radius:7px"
+                                                                    class="card-img-top" src="img/no_image.jpg"
+                                                                    alt="" id="img-zoom">
                                                             </div>
                                                         @else
-                                                            <div class="carousel-new">
-                                                                <div class="slides-new">
-                                                                    <div class="slide-new">
-                                                                        <img style="height:230px; border-radius:7px"
-                                                                            class="card-img-top"
-                                                                            src="{{ $announ->imagesAnnouns->first()->image }}"
-                                                                            alt="" id="img-zoom">
-                                                                    </div>
+                                                            <div id="carouselExampleControls" class="carousel slide"
+                                                                data-ride="carousel">
+                                                                <div class="carousel-inner" style="background: none">
+                                                                    @php
+                                                                        $first = true;
+                                                                    @endphp
+                                                                    @foreach ($announ->imagesAnnouns as $index => $image)
+                                                                        <div
+                                                                            class="carousel-item {{ $first ? 'active' : '' }}">
+                                                                            <img class="card-img-top"
+                                                                                style="height: 230px; border-radius:7px; margin-bottom: 8px"
+                                                                                src="{{ $image->image }}"
+                                                                                alt="Image {{ $index }}">
+                                                                            {{-- <button data-target="{{  }}"
+                                                                                                        class="fullscreen-button btn btn-dark btn-sm screen-button bulletin">Fullscreen</button> --}}
+                                                                        </div>
+                                                                        @php
+                                                                            $first = false;
+                                                                        @endphp
+                                                                    @endforeach
                                                                 </div>
+                                                                @if (count($announ->imagesAnnouns) > 1)
+                                                                    <button class="carousel-control-prev" type="button"
+                                                                        data-target="#carouselExampleControls"
+                                                                        data-slide="prev">
+                                                                        <span class="carousel-control-prev-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="sr-only">Previous</span>
+                                                                    </button>
+                                                                    <button class="carousel-control-next" type="button"
+                                                                        data-target="#carouselExampleControls"
+                                                                        data-slide="next">
+                                                                        <span class="carousel-control-next-icon"
+                                                                            aria-hidden="true"></span>
+                                                                        <span class="sr-only">Next</span>
+                                                                    </button>
+                                                                @endif
                                                             </div>
                                                         @endif
                                                         <div class="card-body">
-                                                            <button type="button" class="btn btn-outline-primary mb-2"
-                                                                data-toggle="modal"
-                                                                style="border: none; font-weight:bold"
-                                                                data-target="#editModal{{ $announ->id }}">
-                                                                {{ $announ->title }}
-                                                            </button>
+
+                                                            <div
+                                                                style="font-weight: bold; color:#175fe7; font-size:17px; margin:5px 0px">
+                                                                {{ $announ->title }}</div>
                                                             <div class="modal fade" id="editModal{{ $announ->id }}"
                                                                 tabindex="-1" role="dialog"
                                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,7 +135,7 @@
                                                                                                 <h5 class="mb-0">
                                                                                                     <button
                                                                                                         style="font-weight: bold; text-decoration:none"
-                                                                                                        class="btn btn-link btn-sm"
+                                                                                                        class="btn btn-link"
                                                                                                         type="button"
                                                                                                         data-toggle="collapse"
                                                                                                         data-target="#collapse{{ $key }}"
@@ -147,7 +171,11 @@
                                                             </div>
                                                             <p class="card-text" style="text-align: justify;">
                                                                 {{ $announ->description }}</p>
-
+                                                            <button type="button" class="btn btn-primary btn-sm mb-4"
+                                                                data-toggle="modal" style="font-weight:bold"
+                                                                data-target="#editModal{{ $announ->id }}">
+                                                                Details
+                                                            </button>
                                                             <p style="text-align:end" class="card-text"><small
                                                                     class="text-body-secondary">{{ $announ->email }}
                                                                     <br>{{ $announ->created_at }}</small></p>
@@ -164,13 +192,27 @@
                 </div>
             </div>
         </div>
+
         <div class="wrapper" id="icon-menu">
             <input type="checkbox" />
             <div class="fab"></div>
             <div class="fac">
-                <a href="{{ route('index-announs') }}"><i class="fa-solid fa-bell"></i></a>
-                <a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <a href="{{ route('index-laporan') }}"><i class="fa-solid fa-envelope-open-text"></i></a>
+                <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                            class="fa-solid fa-bell"></i></a>
+                    <span style="margin: 50px" class="new-text">Announcements</span>
+                </div>
+
+                <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                    <span style="margin: 50px" class="new-text">Check status</span>
+                </div>
+                <div class="new"><a href="{{ route('index-laporan') }}"><i
+                            class="fa-solid fa-envelope-open-text"></i></a>
+                    <span style="margin: 50px" class="new-text">Report complaint</span>
+                </div>
+                <div class="new"><a href="{{ route('login') }}" class=""><i
+                            class="fa-solid fa-house"></i></a>
+                    <span style="margin: 50px" class="new-text">Home</span>
+                </div>
             </div>
         </div>
 </body>

@@ -5,30 +5,31 @@ namespace App\Http\Middleware;
 use App\Models\IpAddress;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class BlockIpMiddleware
 {
 
-    public $blockIps;
-
-    public function __construct()
-    {
-         $this->blockIps = IpAddress::pluck('ip')->map(fn ($ip) => trim($ip))->toArray();
-    }
-
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
     public function handle(Request $request, Closure $next)
-    {
-        if (!in_array($request->ip(), $this->blockIps)) {
-            abort(403, "You are restricted to access the site.");
-        }
+{
+    $userIpAddress = $request->ip();
+    $userId = Auth::id();
 
-        return $next($request);
+    $allowedIpAddresses = IpAddress::where('user_id', $userId)->value('ip');
+
+    if ($allowedIpAddresses) {
+        $allowedIpArray = explode(',', $allowedIpAddresses);
+
+        // Memeriksa apakah alamat IP saat ini ada di dalam array yang diizinkan
+        foreach ($allowedIpArray as $allowedIp) {
+            if ($userIpAddress === trim($allowedIp)) {
+                return $next($request);
+            }
+        }
     }
+    auth()->logout();
+    return Redirect::back()->with('error-login', 'You are restricted to access the site from this IP address');
+}
+
 }

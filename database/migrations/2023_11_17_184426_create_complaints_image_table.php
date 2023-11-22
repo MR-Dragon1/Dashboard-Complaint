@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('complaints_image', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->foreignId('mails_id')->constrained('complaint_lists')->cascadeOnUpdate()->cascadeOnDelete();;
+            $table->foreignId('mails_id')->constrained('complaint_lists')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

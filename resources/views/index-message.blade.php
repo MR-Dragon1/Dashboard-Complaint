@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
     <div class="breadcome-area">
         <div class="container-fluid">
@@ -8,7 +7,7 @@
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Message Lists
+                                <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">Message Lists
                                 </h4>
                                 <div class="loader"></div>
                                 @if (session('success'))
@@ -87,15 +86,14 @@
 
                                 <div class="row">
                                     <table id="records" class="table table-striped">
-                                        <thead>
+                                        <thead class="table-dark">
                                             <tr style="text-align:center">
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Email</td>
-                                                <td style="text-align: center">Title/Site</td>
+                                                <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Description</td>
                                                 <td style="text-align: center">Submited Data</td>
-                                                <td style="text-align: center">Details</td>
-                                                <td style="text-align: center">Delete</td>
+                                                <td style="text-align: center">Action</td>
                                             </tr>
                                         <tbody>
                                             @foreach ($messages as $message)
@@ -107,17 +105,28 @@
                                                         {{ Illuminate\Support\Str::limit($message->description, 50) }}</td>
                                                     <td style="vertical-align:middle">{{ $message->created_at }}</td>
 
-                                                    <td style="vertical-align: middle">
+                                                    <td
+                                                        style="vertical-align: middle; display:flex; justify-content:center; text-align:center">
                                                         <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal" data-target="#editModal{{ $message->id }}">
-                                                            Show
+                                                            style="margin: 0px 4px" data-toggle="modal"
+                                                            data-target="#editModal{{ $message->id }}">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
                                                         </button>
+                                                        <form action="{{ route('delete-announ', $message) }}"
+                                                            method="post">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-outline-danger btn-sm delete"
+                                                                style="margin:0px 4px"><i
+                                                                    class="fa-solid fa-minus"></i></button>
+                                                        </form>
 
                                                         <!-- Modal edit -->
                                                         <div class="modal fade" id="editModal{{ $message->id }}"
                                                             tabindex="-1" role="dialog"
                                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable modal-xl"
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
                                                                 role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -192,7 +201,7 @@
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
-                                                                                            class="m-1">Title/Site</label>
+                                                                                            class="m-1">Site</label>
                                                                                     </div>
                                                                                     <input
                                                                                         class="form-control form-control-sm mt-1 mb-1"
@@ -223,7 +232,6 @@
                                                                                         readonly>
                                                                                 </div>
                                                                                 <div class="col">
-
                                                                                     @foreach ($message->updatesAnnouns as $key => $update)
                                                                                         <div class="accordion"
                                                                                             id="accordionExample">
@@ -325,15 +333,6 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td style="vertical-align:middle">
-                                                        <form action="{{ route('delete-announ', $message) }}"
-                                                            method="post">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button type="submit"
-                                                                class="btn btn-danger btn-sm">Delete</button>
-                                                        </form>
-                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -341,11 +340,64 @@
                                     </table>
                                 </div>
                             </div>
-                            <button class="primary" onclick="window.dialog.showModal();">Add message</button>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button class="primary" onclick="window.dialog.showModal();">Add message</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div style="margin: 18px 0px"></div>
         </div>
     </div>
+    <div class="wrapper" id="icon-menus">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                        class="fa-solid fa-bell"></i></a>
+                <span style="margin: 50px" class="new-text">Announcements</span>
+            </div>
+
+            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                <span style="margin: 50px" class="new-text">Check status</span>
+            </div>
+            <div class="new"><a href="{{ route('index-laporan') }}"><i
+                        class="fa-solid fa-envelope-open-text"></i></a>
+                <span style="margin: 50px" class="new-text">Report complaint</span>
+            </div>
+            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
+                <span style="margin: 50px" class="new-text">Home</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $(".delete").click(function(e) {
+                e.preventDefault(); // Untuk mencegah tindakan default dari tombol submit
+
+                var deleteForm = $(this).closest('form'); // Mendapatkan elemen form terdekat
+                Swal.fire({
+                    title: "Are you sure ?",
+                    text: "You will not be able to recover these data files!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#1D5CFF",
+                    cancelButtonColor: "#db0808",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire({
+                        //     title: "Deleted!",
+                        //     text: "Your file has been deleted.",
+                        //     icon: "success"
+                        // });
+                        deleteForm.submit();
+                    } else {
+                        Swal.close();
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

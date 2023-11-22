@@ -16,6 +16,7 @@ class IpAddress extends Model
     protected $fillable = [
         'id',
         'ip',
+        'user_id',
         'created_at',
         'updated_at',
     ];
@@ -30,5 +31,11 @@ class IpAddress extends Model
     {
         return LogOptions::defaults()
         ->logOnly(['ip']);
+    }
+
+
+        public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 }

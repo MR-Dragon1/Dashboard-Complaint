@@ -35,8 +35,8 @@
 
 
                     <li>
-                        <a @if (request()->is('dashboard/announcements')) class="actives" @endif href="{{ route('index-message') }}"
-                            aria-expanded="false"><i class="fa-regular fa-bell icon-head-1"></i> <span
+                        <a @if (request()->is('dashboard/message')) class="actives" @endif href="{{ route('index-message') }}"
+                            aria-expanded="false"><i class="fa-regular fa-bell icon-head"></i> <span
                                 class="mini-click-non">Notifications</span></a>
                     </li>
 
@@ -47,28 +47,23 @@
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
                             <a @if (request()->is('dashboard/log-activity')) class="actives" @endif href="{{ route('index-log') }}">
-                                <i class="fa-solid fa-layer-group icon-head-1"></i>
+                                <i class="fa-solid fa-layer-group icon-head-2"></i>
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
                         <li class="">
                             <a @if (request()->is('dashboard/spam')) class="actives" @endif
                                 href="{{ route('index-spam') }}">
-                                <i class="fa-solid fa-file-circle-exclamation icon-head-1"></i>
-                                <span class="mini-click-non">Spam</span>
+                                <i class="fa-solid fa-file-circle-exclamation icon-head-2"></i>
+                                <span class="mini-click-non">File Spam</span>
                             </a>
                         </li>
-                        <li>
-                            <a @if (request()->is('dashboard/users') || request()->is('dashboard/ip-address')) class="actives" @endif class="has-arrow" href=""
-                                aria-expanded="false"><i class="fa-solid fa-user-group icon-head"></i> <span
-                                    class="mini-click-non">Users</span></a>
-                            <ul class="submenu-angle" style="margin-left: 20px" aria-expanded="false">
-                                <li><a href="{{ route('index-user') }}" title="View Mail"><span
-                                            class="mini-sub-pro">Users</span></a></li>
-                                <li><a href="{{ route('index-ip') }}" title="View Mail"><span class="mini-sub-pro">IP
-                                            Address</span></a>
-                                </li>
-                            </ul>
+                        <li class="">
+                            <a @if (request()->is('dashboard/users')) class="actives" @endif
+                                href="{{ route('index-user') }}">
+                                <i class="fa-solid fa-user-group icon-head-2"></i>
+                                <span class="mini-click-non">Users</span>
+                            </a>
                         </li>
                     @endif
                 </ul>

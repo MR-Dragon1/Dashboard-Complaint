@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IpAddress;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -35,15 +36,38 @@ class UserController extends Controller
 
         $hashedPassword = Hash::make($request->input('password'));
 
-        User::create([
+        $user_ip = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $hashedPassword,
             'roles' => $request->roles,
         ]);
 
+        $ips = $request->input('ip');
+        foreach ($ips as $ip) {
+            IpAddress::create([
+                    'user_id' => $user_ip->id,
+                    'ip' => $ip,
+                        ]);
+        }
+
+
+
         return Redirect::back()->with('success', 'Form submitted successfully.');
     }
+
+    public function update_user(Request $request, $id)
+    {
+    $complaint = User::findOrFail($id);
+    $complaint->update($request->all());
+
+    $complaint->ips()->update([
+        'ip' => $request->input('ip')
+    ]);
+
+    return Redirect::back()->with('success', 'user updated status successfully');
+    }
+
 
     /**
      * Display the specified resource.

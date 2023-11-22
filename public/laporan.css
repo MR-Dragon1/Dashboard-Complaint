@@ -5,13 +5,10 @@
     height: 100vh; /* Or any other value */
 }
 
-.centered-element {
-    /* Add any additional styles for the centered element */
-}
 
 
 .body {
-    background-color: #0b3b8d;
+    background-color: #083a93;
 }
 
 .box-ticket {
@@ -220,3 +217,4 @@
     transform: scale(1, 1);
   }
 }
+

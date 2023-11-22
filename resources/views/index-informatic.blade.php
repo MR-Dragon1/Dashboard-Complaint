@@ -8,7 +8,7 @@
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
-                                <h4 class="mb-3" style="text-align: center; color:black; margin:20px 0px">Complaint Lists
+                                <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">Complaint Lists
                                     IT
                                 </h4>
                                 @if (session('success'))
@@ -31,7 +31,7 @@
                                 @endif
                                 <div class="row">
                                     <table id="records" class="table table-striped">
-                                        <thead>
+                                        <thead class="table-dark">
                                             <tr>
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Email</td>
@@ -42,7 +42,7 @@
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
                                                 <td style="text-align: center">Updated Data</td>
-                                                <td style="text-align: center">Actions</td>
+                                                <td style="text-align: center">Action</td>
                                             </tr>
                                             @php
                                                 $i = 1;
@@ -96,7 +96,7 @@
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#editModal{{ $complaint->id }}">
-                                                            Details
+                                                            <i class="fa-solid fa-pen-to-square"></i>
                                                         </button>
 
                                                         <!-- Modal edit -->
@@ -419,11 +419,9 @@
                                                                             <button type="button"
                                                                                 class="btn btn-outline-secondary"
                                                                                 data-dismiss="modal">Close</button>
-                                                                            @if (Auth::check())
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Save
-                                                                                    changes</button>
-                                                                            @endif
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Save
+                                                                                changes</button>
                                                                         </div>
                                                                         </form>
                                                                     </div>
@@ -442,7 +440,28 @@
                     </div>
                 </div>
             </div>
-            <div style="margin: 30px 0px"></div>
+            <div style="margin: 18px 0px"></div>
+        </div>
+    </div>
+    <div class="wrapper" id="icon-menus">
+        <input type="checkbox" />
+        <div class="fab"></div>
+        <div class="fac">
+            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                        class="fa-solid fa-bell"></i></a>
+                <span style="margin: 50px" class="new-text">Announcements</span>
+            </div>
+
+            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                <span style="margin: 50px" class="new-text">Check status</span>
+            </div>
+            <div class="new"><a href="{{ route('index-laporan') }}"><i
+                        class="fa-solid fa-envelope-open-text"></i></a>
+                <span style="margin: 50px" class="new-text">Report complaint</span>
+            </div>
+            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
+                <span style="margin: 50px" class="new-text">Home</span>
+            </div>
         </div>
     </div>
 @endsection

@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 
 <body class="body">
@@ -159,9 +161,21 @@
         <input type="checkbox" />
         <div class="fab"></div>
         <div class="fac">
-            <a href="{{ route('index-announs') }}"><i class="fa-solid fa-bell"></i></a>
-            <a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-            <a href="{{ route('index-laporan') }}"><i class="fa-solid fa-envelope-open-text"></i></a>
+            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                        class="fa-solid fa-bell"></i></a>
+                <span style="margin: 50px" class="new-text">Announcements</span>
+            </div>
+
+            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                <span style="margin: 50px" class="new-text">Check status</span>
+            </div>
+            <div class="new"><a href="{{ route('index-laporan') }}"><i
+                        class="fa-solid fa-envelope-open-text"></i></a>
+                <span style="margin: 50px" class="new-text">Report complaint</span>
+            </div>
+            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
+                <span style="margin: 50px" class="new-text">Home</span>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
