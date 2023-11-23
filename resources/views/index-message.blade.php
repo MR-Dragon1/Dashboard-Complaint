@@ -3,7 +3,7 @@
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 37px">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
@@ -138,7 +138,8 @@
                                                                     <div class="modal-body">
                                                                         <div class="container-fluid">
                                                                             <div class="row">
-                                                                                <div class="col">
+                                                                                <div class="col"
+                                                                                    style="border-right: solid #d7d5d5cc 1px; width:50%">
                                                                                     <div id="carouselExampleControls"
                                                                                         class="carousel slide"
                                                                                         data-ride="carousel">
@@ -231,7 +232,8 @@
                                                                                         value="{{ $message->created_at }}"
                                                                                         readonly>
                                                                                 </div>
-                                                                                <div class="col">
+                                                                                <div class="col"
+                                                                                    style="border-left: solid #ffffffcc 1px;width:50%">
                                                                                     @foreach ($message->updatesAnnouns as $key => $update)
                                                                                         <div class="accordion"
                                                                                             id="accordionExample">

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('announs_image', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('image');
             $table->foreignId('announs_id')->constrained('announcements')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

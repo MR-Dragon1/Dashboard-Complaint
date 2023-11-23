@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('complaint_lists', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('email');
             $table->string('site');
             $table->string('ticket');

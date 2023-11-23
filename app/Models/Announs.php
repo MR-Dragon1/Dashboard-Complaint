@@ -31,7 +31,7 @@ class Announs extends Model
     public function getCreatedAtAttribute($value)
     {
         $carbonDate = Carbon::parse($value);
-        return $carbonDate->format('l, d / m / Y  -  H:i');
+        return $carbonDate->format('d / m / Y  -  H:i');
     }
 
     public function imagesAnnouns()

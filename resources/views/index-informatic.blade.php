@@ -4,7 +4,7 @@
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 37px">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
@@ -265,7 +265,7 @@
                                                                                         readonly>
                                                                                 </div>
                                                                                 <div class="col"
-                                                                                    style="border-left: solid #d7d5d5cc 1px;width:50%">
+                                                                                    style="border-left: solid #ffffffcc 1px;width:50%">
                                                                                     <form
                                                                                         action="{{ route('complaint.update', $complaint->id) }}"
                                                                                         method="POST">

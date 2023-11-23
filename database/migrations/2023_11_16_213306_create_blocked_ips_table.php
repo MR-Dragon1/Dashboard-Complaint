@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blocked_ips', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('ip_address');
             $table->unsignedInteger('spam_count')->default(0);
             $table->timestamps();

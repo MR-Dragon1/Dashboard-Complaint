@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('update_announs', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('status');
             $table->string('message');
             $table->foreignId('announs_id')->constrained('announcements')->cascadeOnUpdate()->cascadeOnDelete();

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('spam', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('ip_address');
             $table->string('email');
             $table->string('site');

@@ -9,9 +9,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&family=Noto+Serif+SC:wght@600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.cs') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -56,7 +57,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <h5 class="mb-3"
-                                                            style="text-align: center; color:black; margin:15px 0px; font-family: Kaushan Script;">
+                                                            style="text-align: center; color:black; margin:15px 0px; font-family: Noto Serif Balinese;font-weight:bold">
                                                             Check Status
                                                         </h5>
                                                     </div>

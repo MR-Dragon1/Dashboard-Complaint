@@ -11,10 +11,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&display=swap" rel="stylesheet">
     {{-- bundle bootstrap 4.6.2 --}}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -24,7 +24,7 @@
     </script>
 </head>
 
-<body>
+<body style="background-color: #f2f7fb">
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
@@ -51,134 +51,160 @@
                             @endif
                             <div class="row">
                                 <div class="container text-center">
-                                    <h3 style="margin: 35px 0px 35px 0px">Incident History</h3>
-                                    <hr>
+                                    <h4 style="margin: 25px 0px; font-family:Noto Serif Balinese">Incident History</h4>
+                                    <hr class="style2">
                                     <div class="container overflow-hidden text-center">
                                         <div class="row ">
-
                                             @foreach ($announs as $announ)
-                                                <div class="col-4 mb-4">
-                                                    <div class="card h-100">
+                                                <div class="row g-0 position-relative"
+                                                    style="background-color:white;box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;margin:10px 0px; border-radius:5px">
+                                                    <div class="col-md-6 mb-md-0 p-md-4">
                                                         @if ($announ->imagesAnnouns->isEmpty())
                                                             <div class="slide-new">
-                                                                <img style="height:230px; border-radius:7px"
+                                                                <img style="height:315px; border-radius:5px"
                                                                     class="card-img-top" src="img/no_image.jpg"
                                                                     alt="" id="img-zoom">
                                                             </div>
+                                                            <div class="row"
+                                                                style="margin: 6px 0px -16px 0px; font-family:monospace;font-size:13px; color:gray; font-weight:bold">
+                                                                <div class="col" style="text-align:left">
+                                                                    {{ $announ->email }}</div>
+                                                                <div class="col" style="text-align:end">
+                                                                    {{ $announ->created_at }}</div>
+                                                            </div>
                                                         @else
-                                                            <div id="carouselExampleControls" class="carousel slide"
-                                                                data-ride="carousel">
-                                                                <div class="carousel-inner" style="background: none">
-                                                                    @php
-                                                                        $first = true;
-                                                                    @endphp
-                                                                    @foreach ($announ->imagesAnnouns as $index => $image)
-                                                                        <div
-                                                                            class="carousel-item {{ $first ? 'active' : '' }}">
-                                                                            <img class="card-img-top"
-                                                                                style="height: 230px; border-radius:7px; margin-bottom: 8px"
-                                                                                src="{{ $image->image }}"
-                                                                                alt="Image {{ $index }}">
-                                                                            {{-- <button data-target="{{  }}"
-                                                                                                        class="fullscreen-button btn btn-dark btn-sm screen-button bulletin">Fullscreen</button> --}}
-                                                                        </div>
-                                                                        @php
-                                                                            $first = false;
-                                                                        @endphp
-                                                                    @endforeach
-                                                                </div>
-                                                                @if (count($announ->imagesAnnouns) > 1)
-                                                                    <button class="carousel-control-prev" type="button"
-                                                                        data-target="#carouselExampleControls"
-                                                                        data-slide="prev">
-                                                                        <span class="carousel-control-prev-icon"
-                                                                            aria-hidden="true"></span>
-                                                                        <span class="sr-only">Previous</span>
-                                                                    </button>
-                                                                    <button class="carousel-control-next" type="button"
-                                                                        data-target="#carouselExampleControls"
-                                                                        data-slide="next">
-                                                                        <span class="carousel-control-next-icon"
-                                                                            aria-hidden="true"></span>
-                                                                        <span class="sr-only">Next</span>
-                                                                    </button>
-                                                                @endif
+                                                            <div class="slide-new">
+                                                                <img class="card-img-top"
+                                                                    style="height: auto;width:auto; border-radius: 5px"
+                                                                    src="{{ $announ->imagesAnnouns->first()->image }}"
+                                                                    alt="Image 1">
+                                                                {{-- Tombol atau elemen lainnya yang ingin Anda tambahkan --}}
+                                                            </div>
+                                                            <div class="row"
+                                                                style="margin: 6px 0px -16px 0px; font-family:monospace;font-size:13px;color:gray; font-weight:bold">
+                                                                <div class="col" style="text-align:left">
+                                                                    {{ $announ->email }}</div>
+                                                                <div class="col" style="text-align:end">
+                                                                    {{ $announ->created_at }}</div>
                                                             </div>
                                                         @endif
-                                                        <div class="card-body">
+                                                    </div>
+                                                    <div class="col-md-6 p-4 ps-md-0">
+                                                        <h5
+                                                            style="font-weight: bold; color:#175fe7; font-size:19px; margin:5px 0px">
+                                                            {{ $announ->title }}</h5>
+                                                        <hr>
+                                                        <div style="font-size: 16px">{{ $announ->description }}</div>
+                                                        <button type="button" class="btn btn-primary btn-sm mt-3"
+                                                            data-toggle="modal" style="font-weight:bold"
+                                                            data-target="#editModal{{ $announ->id }}">
+                                                            Details
+                                                        </button>
 
-                                                            <div
-                                                                style="font-weight: bold; color:#175fe7; font-size:17px; margin:5px 0px">
-                                                                {{ $announ->title }}</div>
-                                                            <div class="modal fade" id="editModal{{ $announ->id }}"
-                                                                tabindex="-1" role="dialog"
-                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered modal-lg"
-                                                                    role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalLabel">
-                                                                                Update History</h5>
+                                                        <div class="modal fade" id="editModal{{ $announ->id }}"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Update History</h5>
 
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="container-fluid">
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="container-fluid">
 
-                                                                                @foreach ($announ->updatesAnnouns as $key => $update)
-                                                                                    <div class="accordion"
-                                                                                        id="accordionExample">
-                                                                                        <div class="card">
-                                                                                            <div class="card-header"
-                                                                                                id="heading{{ $key }}"
-                                                                                                style="text-align: left">
-                                                                                                <h5 class="mb-0">
-                                                                                                    <button
-                                                                                                        style="font-weight: bold; text-decoration:none"
-                                                                                                        class="btn btn-link"
-                                                                                                        type="button"
-                                                                                                        data-toggle="collapse"
-                                                                                                        data-target="#collapse{{ $key }}"
-                                                                                                        aria-expanded="true"
-                                                                                                        aria-controls="collapse{{ $key }}">
-                                                                                                        {{ $update->status }}
-                                                                                                    </button>
-                                                                                                </h5>
-                                                                                            </div>
-                                                                                            <div id="collapse{{ $key }}"
-                                                                                                class="collapse"
-                                                                                                aria-labelledby="heading{{ $key }}"
-                                                                                                data-parent="#accordionExample">
-                                                                                                <div class="card-body"
-                                                                                                    style="text-align: justify">
-                                                                                                    {{ $update->message }}
+                                                                            @foreach ($announ->updatesAnnouns as $key => $update)
+                                                                                <div class="accordion"
+                                                                                    id="accordionExample">
+
+                                                                                    <div id="carouselExampleControls"
+                                                                                        class="carousel slide"
+                                                                                        data-ride="carousel">
+                                                                                        <div class="carousel-inner"
+                                                                                            style="background: none">
+                                                                                            @php
+                                                                                                $first = true;
+                                                                                            @endphp
+                                                                                            @foreach ($announ->imagesAnnouns as $index => $image)
+                                                                                                <div
+                                                                                                    class="carousel-item {{ $first ? 'active' : '' }}">
+                                                                                                    <img class="card-img-top"
+                                                                                                        style="height: auto;width:auto; border-radius:8px;margin-bottom:5px"
+                                                                                                        src="{{ $image->image }}"
+                                                                                                        alt="Image {{ $index }}">
                                                                                                 </div>
+                                                                                                @php
+                                                                                                    $first = false;
+                                                                                                @endphp
+                                                                                            @endforeach
+                                                                                        </div>
+                                                                                        @if (count($announ->imagesAnnouns) > 1)
+                                                                                            <button
+                                                                                                class="carousel-control-prev"
+                                                                                                type="button"
+                                                                                                data-target="#carouselExampleControls"
+                                                                                                data-slide="prev">
+                                                                                                <span
+                                                                                                    class="carousel-control-prev-icon"
+                                                                                                    aria-hidden="true"></span>
+                                                                                                <span
+                                                                                                    class="sr-only">Previous</span>
+                                                                                            </button>
+                                                                                            <button
+                                                                                                class="carousel-control-next"
+                                                                                                type="button"
+                                                                                                data-target="#carouselExampleControls"
+                                                                                                data-slide="next">
+                                                                                                <span
+                                                                                                    class="carousel-control-next-icon"
+                                                                                                    aria-hidden="true"></span>
+                                                                                                <span
+                                                                                                    class="sr-only">Next</span>
+                                                                                            </button>
+                                                                                        @endif
+                                                                                    </div>
+                                                                                    <div class="card">
+                                                                                        <div class="card-header"
+                                                                                            id="heading{{ $key }}"
+                                                                                            style="text-align: left">
+                                                                                            <h5 class="mb-0">
+                                                                                                <button
+                                                                                                    style="font-weight: bold; text-decoration:none"
+                                                                                                    class="btn btn-link"
+                                                                                                    type="button"
+                                                                                                    data-toggle="collapse"
+                                                                                                    data-target="#collapse{{ $key }}"
+                                                                                                    aria-expanded="true"
+                                                                                                    aria-controls="collapse{{ $key }}">
+                                                                                                    {{ $update->status }}
+                                                                                                </button>
+                                                                                            </h5>
+                                                                                        </div>
+                                                                                        <div id="collapse{{ $key }}"
+                                                                                            class="collapse"
+                                                                                            aria-labelledby="heading{{ $key }}"
+                                                                                            data-parent="#accordionExample">
+                                                                                            <div class="card-body"
+                                                                                                style="text-align: justify">
+                                                                                                {{ $update->message }}
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                @endforeach
-                                                                            </div>
-                                                                            <hr>
-                                                                            <div style=text-align:end>
-                                                                                <button type="button"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div style=text-align:end>
+                                                                            <button type="button"
+                                                                                class="btn btn-outline-secondary"
+                                                                                data-dismiss="modal">Close</button>
 
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <p class="card-text" style="text-align: justify;">
-                                                                {{ $announ->description }}</p>
-                                                            <button type="button" class="btn btn-primary btn-sm mb-4"
-                                                                data-toggle="modal" style="font-weight:bold"
-                                                                data-target="#editModal{{ $announ->id }}">
-                                                                Details
-                                                            </button>
-                                                            <p style="text-align:end" class="card-text"><small
-                                                                    class="text-body-secondary">{{ $announ->email }}
-                                                                    <br>{{ $announ->created_at }}</small></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -192,7 +218,6 @@
                 </div>
             </div>
         </div>
-
         <div class="wrapper" id="icon-menu">
             <input type="checkbox" />
             <div class="fab"></div>

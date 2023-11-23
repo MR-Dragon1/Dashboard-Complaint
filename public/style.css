@@ -1883,6 +1883,11 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     margin-left: 15px;
     margin-right: 19px;
 }
+.icon-head-3 {
+    font-size: 17px;
+    margin-left: 14px;
+    margin-right: 19px;
+}
 
 
 
@@ -4299,7 +4304,8 @@ button.primary-1 {
 
 .actives {
     border-right: solid #0c6be9 3px;
-    border-radius: 7px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
     background-color: #06388fad;
 }
 
@@ -4314,7 +4320,7 @@ button.primary-1 {
 
 hr.sep-2 {
   border: 0;
-  height: 1px;
+  height: 2px;
   background-image: linear-gradient(to right, #f0f0f0, #00b9ff, #59d941, #f0f0f0);
 }
 
@@ -4528,3 +4534,7 @@ hr.sep-2 {
     .new:hover .new-text {
         visibility: visible;
     }
+
+    hr.style2 {
+	border-top: 4px double black;
+}

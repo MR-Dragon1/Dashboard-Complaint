@@ -121,7 +121,7 @@
                                                                         <div class="container-fluid">
                                                                             <div class="row">
                                                                                 <div class="col"
-                                                                                    style="border-right: solid #d7d5d5cc 1px; width:50%">
+                                                                                    style="border-right: solid #ffffffcc 1px; width:50%">
                                                                                     <div id="carouselExampleControls"
                                                                                         class="carousel slide"
                                                                                         data-ride="carousel">
