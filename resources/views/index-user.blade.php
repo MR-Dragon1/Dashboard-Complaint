@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="container-fluid">
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">User Lists</h4>
-                                {{-- <div class="loader"></div> --}}
+                                <div class="loader"></div>
                                 @if (session('success'))
                                     <div id="live">
                                         <div class="check-alert">

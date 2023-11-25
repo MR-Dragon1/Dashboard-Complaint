@@ -19,6 +19,17 @@
     <div class="container">
 
         <div class="centered-element">
+            <div class="row menu-nav">
+                <div class="col" style="text-align: center">
+                    <a href="{{ route('index-laporan') }}">Report Complaint</a>
+                </div>
+                <div class="col" style="text-align: center">
+                    <a href="{{ route('index-status') }}">Check Status</a>
+                </div>
+                <div class="col" style="text-align: center">
+                    <a href="{{ route('index-announs') }}">Announcements</a>
+                </div>
+            </div>
             <div id="dialog" class="dialog-page">
                 <div class="breadcome-area">
                     <div class="container-fluid">
@@ -51,8 +62,8 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        <div class="container-fluid">
 
+                                        <div class="container-fluid">
                                             <div class="">
                                                 <div class="row">
                                                     <div class="col">
@@ -151,31 +162,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-    <div class="wrapper" id="icon-menu">
-        <input type="checkbox" />
-        <div class="fab"></div>
-        <div class="fac">
-            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                        class="fa-solid fa-bell"></i></a>
-                <span style="margin: 50px" class="new-text">Announcements</span>
-            </div>
-
-            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <span style="margin: 50px" class="new-text">Check status</span>
-            </div>
-            <div class="new"><a href="{{ route('index-laporan') }}"><i
-                        class="fa-solid fa-envelope-open-text"></i></a>
-                <span style="margin: 50px" class="new-text">Report complaint</span>
-            </div>
-            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
-                <span style="margin: 50px" class="new-text">Home</span>
-            </div>
-        </div>
-    </div>
-
     <script type="text/javascript">
         $('#reload').click(function() {
             $.ajax({

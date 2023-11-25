@@ -20,14 +20,17 @@ class MailController extends Controller
 
     public function index_informatic()
     {
-        $complaints = Mails::select('id','email','site','expectation','ticket','complaints','status','page','created_at', 'updated_at')->where('page', '1')->get();
-
+        $complaints = $data = Mails::select('id', 'email', 'site', 'expectation', 'ticket', 'complaints', 'status', 'page', 'created_at', 'updated_at')
+                                    ->where('page', '=', '1')
+                                    ->orderBy('status', 'asc')
+                                    ->orderBy('id', 'desc')
+                                    ->get();
 
         return view('index-informatic', compact('complaints'));
     }
     public function index_mail()
     {
-        $complaints = Mails::all();
+        $complaints = Mails::orderBy('status', 'asc')->orderBy('id', 'desc')->get();
 
         return view('index-mail', compact('complaints'));
     }

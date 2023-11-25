@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row" style="justify-content: center">
                             @if (session('success'))
                                 <div id="live">
                                     <div class="check-alert">
@@ -49,16 +49,28 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <div class="row">
+                            <div class="row" style="width: 60%">
                                 <div class="container text-center">
                                     <h4 style="margin: 25px 0px; font-family:Noto Serif Balinese">Incident History</h4>
                                     <hr class="style2">
+
                                     <div class="container overflow-hidden text-center">
-                                        <div class="row ">
+                                        <div class="row">
+                                            <div class="row menu-nav-announ">
+                                                <div class="col" style="text-align: center">
+                                                    <a href="{{ route('index-laporan') }}">Report Complaint</a>
+                                                </div>
+                                                <div class="col" style="text-align: center">
+                                                    <a href="{{ route('index-status') }}">Check Status</a>
+                                                </div>
+                                                <div class="col" style="text-align: center">
+                                                    <a href="{{ route('index-announs') }}">Announcements</a>
+                                                </div>
+                                            </div>
                                             @foreach ($announs as $announ)
                                                 <div class="row g-0 position-relative"
-                                                    style="background-color:white;box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;margin:10px 0px; border-radius:5px">
-                                                    <div class="col-md-6 mb-md-0 p-md-4">
+                                                    style="background-color:white;box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;margin:10px 0px; border-radius:5px;">
+                                                    <div class="col-md-6 mb-md-1 p-md-4">
                                                         @if ($announ->imagesAnnouns->isEmpty())
                                                             <div class="slide-new">
                                                                 <img style="height:315px; border-radius:5px"
@@ -215,28 +227,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="wrapper" id="icon-menu">
-            <input type="checkbox" />
-            <div class="fab"></div>
-            <div class="fac">
-                <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                            class="fa-solid fa-bell"></i></a>
-                    <span style="margin: 50px" class="new-text">Announcements</span>
-                </div>
-
-                <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                    <span style="margin: 50px" class="new-text">Check status</span>
-                </div>
-                <div class="new"><a href="{{ route('index-laporan') }}"><i
-                            class="fa-solid fa-envelope-open-text"></i></a>
-                    <span style="margin: 50px" class="new-text">Report complaint</span>
-                </div>
-                <div class="new"><a href="{{ route('login') }}" class=""><i
-                            class="fa-solid fa-house"></i></a>
-                    <span style="margin: 50px" class="new-text">Home</span>
                 </div>
             </div>
         </div>

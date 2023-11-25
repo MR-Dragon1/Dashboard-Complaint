@@ -13,8 +13,7 @@
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">General
                                     Complaints
                                 </h4>
-
-                                {{-- <div class="loader"></div> --}}
+                                <div class="loader"></div>
                                 @if (session('success'))
                                     <div id="live">
                                         <div class="check-alert">
@@ -60,9 +59,9 @@
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 30) }}</td>
+                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 25) }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->expectation, 30) }}
+                                                        {{ Illuminate\Support\Str::limit($complaint->expectation, 25) }}
                                                     </td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->ticket }}
@@ -313,7 +312,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="content-comment">
-                                                                                            <h6 class="mt-1">Comments
+                                                                                            <h6 class="mt-2">Comments
                                                                                             </h6>
                                                                                             @foreach ($complaint->comments as $comment)
                                                                                                 @if ($comment->roles == 1 && $comment->message != null)
