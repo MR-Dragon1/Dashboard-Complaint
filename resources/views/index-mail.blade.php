@@ -3,10 +3,7 @@
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    @if (!Auth::check())
-                        <div style="margin: 10px 0px"></div>
-                    @endif
+                <div class="">
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
@@ -32,7 +29,7 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <div class="row">
+                                <div class="row" style="text-align: center">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
                                             <tr>
@@ -59,9 +56,9 @@
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 25) }}</td>
+                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 30) }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->expectation, 25) }}
+                                                        {{ Illuminate\Support\Str::limit($complaint->expectation, 30) }}
                                                     </td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->ticket }}
@@ -312,7 +309,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="content-comment">
-                                                                                            <h6 class="mt-2">Comments
+                                                                                            <h6 class="mt-1">Comments
                                                                                             </h6>
                                                                                             @foreach ($complaint->comments as $comment)
                                                                                                 @if ($comment->roles == 1 && $comment->message != null)

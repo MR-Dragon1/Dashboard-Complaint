@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcome-list">
-                        <div class="row">
+                        <div class="row" style="text-align: center">
                             <div class="container-fluid">
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">Message Lists
                                 </h4>
@@ -44,32 +44,41 @@
                                                                     <form action="{{ route('store-announ') }}"
                                                                         method="post" enctype="multipart/form-data">
                                                                         @csrf
-                                                                        <label for="title" style="color: black"
-                                                                            class="m-1">Title</label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="title" style="color: black"
+                                                                                class="m-1">Title</label>
+                                                                        </div>
                                                                         <input class="form-control mt-2 mb-2" type="text"
                                                                             placeholder="Your title / site ?"
                                                                             aria-label="default input example"
                                                                             name="title" id="title" required>
 
-                                                                        <label for="description" style="color: black"
-                                                                            class="m-1">Description</label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="description" style="color: black"
+                                                                                class="m-1">Description</label>
+                                                                        </div>
                                                                         <div class="form-floating">
                                                                             <textarea name="description" id="description" class="form-control mt-2 mb-2" placeholder="" id="floatingTextarea2"
                                                                                 style="height: 100px" required></textarea>
                                                                             <label style="color: gray"
-                                                                                for="floatingTextarea2">What's your notice
+                                                                                for="floatingTextarea2">What's your
+                                                                                notice
                                                                                 ?</label>
                                                                         </div>
 
 
-                                                                        <label for="image" style="color: black"
-                                                                            class="m-1">Upload Images</label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="image" style="color: black"
+                                                                                class="m-1">Upload Images
+                                                                        </div>
+                                                                        </label>
                                                                         <input name="image[]" id="image"
                                                                             class="form-control mt-2 mb-2" type="file"
                                                                             aria-label="default input example" multiple>
 
                                                                         <div class="d-grid gap-2 col-6 mx-auto">
-                                                                            <button class="primary-1 mt-4">Submit</button>
+                                                                            <button
+                                                                                class="primary-1 mt-4 mb-3">Submit</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>

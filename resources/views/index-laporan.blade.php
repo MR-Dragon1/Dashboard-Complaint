@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Report complaints</title>
+    <title>Report Complaint's</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/logos.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('laporan.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,10 +14,28 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<style>
+    .notification {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: max-content;
+        z-index: 1;
+    }
+
+    .notification .close {
+        text-align: center;
+        color: #007bff;
+        font-size: 11px;
+        cursor: pointer;
+        font-weight: bolder;
+    }
+</style>
 
 <body class="body">
     <div class="container">
-
         <div class="centered-element">
             <div class="row menu-nav">
                 <div class="col" style="text-align: center">
@@ -134,20 +152,28 @@
                                                     <input type="text" id="ticket" name="ticket"
                                                         value="{{ $combinedRandom }}" hidden>
                                                     <div class="d-grid gap-2 col-6 mx-auto">
-                                                        <button class="primary-1 mt-4">Submit</button>
+                                                        <button id="submitBtn" class="primary-1 mt-4">Submit</button>
                                                     </div>
                                                 </form>
+
                                                 @if (session('additionalData'))
-                                                    <div class="box-ticket">
-                                                        <div style="text-align: center; font-size:12px">Thank's for
-                                                            your
-                                                            complaint. Below is your ticket to check the status on the
-                                                            status page & <span style="color: red">save it</span>!
+                                                    <div id="notification" class="notification">
+                                                        <div class="box-ticket">
+                                                            <div style="text-align: center; font-size:12px">Thank's for
+                                                                your
+                                                                complaint. Below is your ticket to check the status on
+                                                                the
+                                                                check
+                                                                status page & <span style="color: red">save it</span>!
+                                                            </div>
+                                                            <div
+                                                                style="text-align:center; font-size:20px;color:red; font-weight:bold; margin:3px">
+                                                                {{ session('additionalData')['complaint']->ticket }}
+                                                            </div>
+                                                            <div class="close"onclick="closeNotification()">( Close
+                                                                )</div>
                                                         </div>
-                                                        <div
-                                                            style="text-align:center; font-size:20px;color:red; font-weight:bold; margin:2px">
-                                                            {{ session('additionalData')['complaint']->ticket }}
-                                                        </div>
+
                                                     </div>
                                                 @endif
                                                 <p style="text-align: center">Check status your complaint ? <a
@@ -175,6 +201,23 @@
         });
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Di dalam file blade atau HTML Anda -->
+    <script>
+        // Fungsi untuk menutup pemberitahuan
+        function closeNotification() {
+            var notification = document.getElementById('notification');
+            notification.style.display = 'none';
+        }
+
+        // Tampilkan pemberitahuan saat halaman dimuat
+        window.onload = function() {
+            var notification = document.getElementById('notification');
+            if (notification) {
+                notification.style.display = 'block';
+            }
+        }
+    </script>
+
 </body>
 
 </html>

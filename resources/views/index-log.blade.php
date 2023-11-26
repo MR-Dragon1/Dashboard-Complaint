@@ -11,7 +11,7 @@
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">Log Activity's
                                 </h4>
                                 <div class="loader"></div>
-                                <div class="row">
+                                <div class="row" style="text-align: center">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
                                             <tr style="text-align:center">

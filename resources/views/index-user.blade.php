@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcome-list">
-                        <div class="row">
+                        <div class="row" style="text-align: center">
                             <div class="container-fluid">
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">User Lists</h4>
                                 <div class="loader"></div>
@@ -43,29 +43,36 @@
                                                                 <div class="row">
                                                                     <form action="{{ route('store-user') }}" method="post">
                                                                         @csrf
-                                                                        <label for="name" style="color: black;"
-                                                                            class="m-1">Name
-                                                                        </label>
+
+                                                                        <div style="text-align: left">
+                                                                            <label for="name" style="color: black;"
+                                                                                class="m-1">Name
+                                                                            </label>
+                                                                        </div>
                                                                         <input style="" class="form-control mt-2 mb-2"
                                                                             type="text" placeholder="Whats your name ?"
                                                                             aria-label="default input example"
                                                                             name="name" id="name" required>
-
-                                                                        <label for="email" style="color: black;"
-                                                                            class="m-1">Email
-                                                                        </label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="email" style="color: black;"
+                                                                                class="m-1">Email
+                                                                            </label>
+                                                                        </div>
                                                                         <input style="" class="form-control mt-2 mb-2"
                                                                             type="text" placeholder="Whats your email ?"
                                                                             aria-label="default input example"
                                                                             name="email" id="email" required>
-                                                                        <label for="password" style="color: black;"
-                                                                            class="m-1">Password
-                                                                        </label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="password" style="color: black;"
+                                                                                class="m-1">Password
+                                                                            </label>
+                                                                        </div>
                                                                         <input style="" class="form-control mt-2 mb-2"
                                                                             type="password" placeholder="Min. 8 Character"
                                                                             aria-label="default input example"
                                                                             name="password" id="password" required>
-                                                                        <div style="margin: 16px 0px 9px 0px">
+                                                                        <div
+                                                                            style="margin: 16px 0px 9px 0px; text-align:left">
                                                                             <label for="roles" style="color: black;"
                                                                                 class="m-1">IP Address
                                                                             </label>
@@ -75,9 +82,11 @@
                                                                                 name="ip[]" id="input"
                                                                                 data-role="tagsinput" required>
                                                                         </div>
-                                                                        <label for="roles" style="color: black;"
-                                                                            class="m-1">Roles
-                                                                        </label>
+                                                                        <div style="text-align: left">
+                                                                            <label for="roles" style="color: black;"
+                                                                                class="m-1">Roles
+                                                                            </label>
+                                                                        </div>
                                                                         <div class="container text-center">
                                                                             <div class="row">
                                                                                 <div class="col">

@@ -27,80 +27,59 @@
                 </div>
             @endif
             <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
-                    class="tab">Sign In</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
-                    class="tab"></label>
-                <div class="login-form">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="sign-in-htm">
-                            <div class="group">
-                                <label for="email" class="label m-1">Email</label>
-                                <input id="email" type="email" name="email" id="email"
-                                    placeholder="Your Email"
-                                    class="mt-2 mb-2 input @error('email') is-invalid @enderror" required>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                <div style="margin-top: 45px">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
+                        style="font-weight: bold; font-family:Noto Serif Balinese;" for="tab-1" class="tab">Sign
+                        In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
+                        class="tab"></label>
+                    <div class="login-form">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="sign-in-htm">
+                                <div class="group">
+                                    <label for="email" class="label m-1">Email</label>
+                                    <input id="email" type="email" name="email" id="email"
+                                        placeholder="Your Email"
+                                        class="mt-2 mb-2 input @error('email') is-invalid @enderror" required>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="group">
+                                    <label for="password" class="label m-1">Password</label>
+                                    <input id="password" type="password" name="password"
+                                        class="mt-2 mb-2 input @error('password') is-invalid @enderror"
+                                        data-type="password" required>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="group m-1">
+                                    <input id="check" type="checkbox" class="check"
+                                        {{ old('remember') ? 'checked' : '' }}>
+                                    <label for="check"><span class="icon"></span> Keep me signed in</label>
+                                </div>
+                                <div class="group">
+                                    <button style="margin-top: 80px" type="submit" class="button btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+                                </div>
+                                <div class="foot-lnk">
+                                </div>
                             </div>
-                            <div class="group">
-                                <label for="password" class="label m-1">Password</label>
-                                <input id="password" type="password" name="password"
-                                    class="mt-2 mb-2 input @error('password') is-invalid @enderror" data-type="password"
-                                    required>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="group m-1">
-                                <input id="check" type="checkbox" class="check"
-                                    {{ old('remember') ? 'checked' : '' }}>
-                                <label for="check"><span class="icon"></span> Keep me signed in</label>
-                            </div>
-                            <div class="group">
-                                <button style="margin-top: 80px" type="submit" class="button btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-
-                            <div class="hr"></div>
-                            <div class="foot-lnk">
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="wrapper" id="icon-menu">
-        <input type="checkbox" />
-        <div class="fab"></div>
-        <div class="fac">
-            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                        class="fa-solid fa-bell"></i></a>
-                <span style="margin: 50px" class="new-text">Announcements</span>
-            </div>
-
-            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <span style="margin: 50px" class="new-text">Check status</span>
-            </div>
-            <div class="new"><a href="{{ route('index-laporan') }}"><i
-                        class="fa-solid fa-envelope-open-text"></i></a>
-                <span style="margin: 50px" class="new-text">Report complaint</span>
-            </div>
-            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
-                <span style="margin: 50px" class="new-text">Home</span>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

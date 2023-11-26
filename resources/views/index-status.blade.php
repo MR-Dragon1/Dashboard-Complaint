@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Status complaints</title>
+    <title>Status Complaint's</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/logos.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('laporan.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -86,7 +86,7 @@
                                                         <tr>
                                                             <td style="width: 95%"><input class="form-control"
                                                                     type="text" name="q"
-                                                                    placeholder="your ticket ?"></td>
+                                                                    placeholder="What is your ID Ticket ?"></td>
                                                             <td style="width:5%"><button type="submit"
                                                                     class="btn btn-primary"><i
                                                                         class="fa-solid fa-magnifying-glass"

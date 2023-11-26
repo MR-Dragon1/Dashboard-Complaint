@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcome-list">
-                        <div class="row">
+                        <div class="row" style="text-align: center">
                             <div class="container-fluid">
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">File Spam
                                 </h4>

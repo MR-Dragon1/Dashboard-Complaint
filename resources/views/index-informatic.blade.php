@@ -1,10 +1,9 @@
 @extends('layouts.master')
-
 @section('content')
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="">
                     <div class="breadcome-list">
                         <div class="row">
                             <div class="container-fluid">
@@ -30,7 +29,7 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <div class="row">
+                                <div class="row" style="text-align: center">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
                                             <tr>
