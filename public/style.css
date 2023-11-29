@@ -272,7 +272,9 @@ ul.dtl-social li a{
 }
 .menu-switcher-pro i{
 	font-size:20px;
-	color:#fff;
+	/* color:#0f1a34; */
+	color:white;
+    font-weight: bolder;
 }
 .mini-navbar .menu-switcher-pro {
     transition: all 0.3s;
@@ -528,10 +530,11 @@ ul.dtl-social li a{
 }
 .header-right-info .admin-name{
 	display: inline-block;
-    color: #fff;
+    color: #0f1a34;
     font-size: 15px;
     position: relative;
     top: -4px;
+    font-weight: bolder;
 	margin-left:5px;
 }
 .header-right-info .author-project-icon{
@@ -888,21 +891,22 @@ ul.setting-panel-list li{
  .notes-img {
     background: #152036;
 }
-/* .breadcome-list-first {
-    border-radius: 7px;
+.breadcome-list-first {
+    border-radius: 6px;
     padding:13px;
 	background:white;
-    width: max-content;
-	margin:12px 0px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-} */
+    width: auto;
+	margin:19px 1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 .breadcome-list {
-    border-radius: 7px;
+    border-radius: 6px;
     padding:13px;
 	background:white;
     /* width: max-content; */
-	margin:12px 0px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    min-width: max-content;
+	margin:19px 1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .breadcome-list-modal {
@@ -931,7 +935,7 @@ ul.setting-panel-list li{
 }
 
 .menu-nav a:hover {
-                        color: #90cbff;
+                        color: #34cfff;
 }
 .menu-nav-announ {
     background-color: #f3f1f130;
@@ -952,7 +956,7 @@ ul.setting-panel-list li{
 }
 
 .menu-nav-announ a:hover {
-                        color: #90cbff;
+                        color: #34cfff;
 }
 
 .breadcome-heading .form-control, .breadcome-heading .form-control:focus {
@@ -1355,7 +1359,8 @@ ul.two-part-sp li{
 }
 .header-top-area {
     position: fixed;
-    background: #0f1a34;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     z-index: 99;
     left: 200px;
     right: 0;
@@ -4051,34 +4056,27 @@ button.primary-1 {
 
 
             #live {
-                    font-weight: bold;
-                    position: fixed;
-                    bottom: 9px;
-                    width: auto;
-                    right: -14px;
-                    cursor: pointer;
-                    z-index: 3;
-                    font-size: 15px;
-                    animation: slideInRight 1s forwards, slideOutRight 1s 4s forwards;
-                }
+    font-weight: bold;
+    position: fixed;
+    bottom: 10px;
+    width: auto;
+    right: -5px;
+    cursor: pointer;
+    z-index: 9;
+    font-size: 15px;
+    animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
+}
 
-                    @keyframes slideInRight {
-                        from {
-                            transform: translateX(100%);
-                        }
-                        to {
-                            transform: translateX(0);
-                        }
-                    }
 
-                    @keyframes slideOutRight {
-                        from {
-                            transform: translateX(0);
-                        }
-                        to {
-                            transform: translateX(100%);
-                        }
-                    }
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
 
 .loader {
     position: fixed;
@@ -4147,7 +4145,7 @@ button.primary-1 {
     background-color: #f2f7fb;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    padding: 10px 5px;
+    padding: 8px 5px 4px 5px;
 }
 
 
@@ -4374,8 +4372,8 @@ button.primary-1 {
 
 hr.sep-2 {
   border: 0;
-  height: 2px;
-  background-image: linear-gradient(to right, #f0f0f0, #00b9ff, #59d941, #f0f0f0);
+    height: 2px;
+    background-image: linear-gradient(to right, #a100ff, #008cff, #c218f9, #008cff);
 }
 
 #icon-menu {

@@ -86,7 +86,7 @@
                                                         <tr>
                                                             <td style="width: 95%"><input class="form-control"
                                                                     type="text" name="q"
-                                                                    placeholder="What is your ID Ticket ?"></td>
+                                                                    placeholder="What is your ticket id ?"></td>
                                                             <td style="width:5%"><button type="submit"
                                                                     class="btn btn-primary"><i
                                                                         class="fa-solid fa-magnifying-glass"
@@ -105,13 +105,13 @@
                                                     </div>
                                                 </form>
                                                 @if (isset($query))
-                                                    <p>Search results for tickets: {{ $query }}</p>
+                                                    <p>Search results for id ticket: <b>{{ $query }}</b></p>
                                                 @endif
 
                                                 @if (isset($data))
                                                     @foreach ($data as $item)
                                                         <table class="table table-striped table-bordered"
-                                                            style="font-family: math; font-size:16px">
+                                                            style="font-family: system-ui; font-size:15px">
                                                             <thead>
                                                                 <tr>
                                                                     <th>ID Ticket</th>

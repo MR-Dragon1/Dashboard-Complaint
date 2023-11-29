@@ -151,25 +151,4 @@
             <div style="margin: 18px 0px"></div>
         </div>
     </div>
-    <div class="wrapper" id="icon-menus">
-        <input type="checkbox" />
-        <div class="fab"></div>
-        <div class="fac">
-            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                        class="fa-solid fa-bell"></i></a>
-                <span style="margin: 50px" class="new-text">Announcements</span>
-            </div>
-
-            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <span style="margin: 50px" class="new-text">Check status</span>
-            </div>
-            <div class="new"><a href="{{ route('index-laporan') }}"><i
-                        class="fa-solid fa-envelope-open-text"></i></a>
-                <span style="margin: 50px" class="new-text">Report complaint</span>
-            </div>
-            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
-                <span style="margin: 50px" class="new-text">Home</span>
-            </div>
-        </div>
-    </div>
 @endsection

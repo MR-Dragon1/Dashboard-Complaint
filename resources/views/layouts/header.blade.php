@@ -5,7 +5,7 @@
                     style="width: 100px; height:100px" alt="" /></a>
             <strong><img src="{{ asset('img/logo/logos.png') }}" alt=""
                     style="width: 60px; height:60px; margin:10px" /></strong>
-            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:white; font-family:Kaushan Script"
+            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:#98d3ff; font-family:Kaushan Script"
                 class="main-logo">Complaint 's
             </div>
             <strong>
@@ -42,13 +42,14 @@
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
-                        <li class="">
-                            <a @if (request()->is('spam')) class="actives" @endif
-                                href="{{ route('index-spam') }}">
-                                <i class="fa-solid fa-file-circle-exclamation icon-head-2"></i>
-                                <span class="mini-click-non">File Spam</span>
-                            </a>
-                        </li>
+                    @endif
+                    <li class="">
+                        <a @if (request()->is('spam')) class="actives" @endif href="{{ route('index-spam') }}">
+                            <i class="fa-solid fa-file-circle-exclamation icon-head-2"></i>
+                            <span class="mini-click-non">File Spam</span>
+                        </a>
+                    </li>
+                    @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
                             <a @if (request()->is('users')) class="actives" @endif
                                 href="{{ route('index-user') }}">
@@ -82,8 +83,9 @@
                             <div class="row">
                                 <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                     <div class="menu-switcher-pro">
-                                        <button type="button" id="sidebarCollapse"
-                                            class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                        <button style="background-color:white" type="button" id="sidebarCollapse"
+                                            class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn"
+                                            disabled>
                                             <i class="icon nalika-menu-task"></i>
                                         </button>
                                     </div>

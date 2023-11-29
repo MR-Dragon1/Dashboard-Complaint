@@ -15,71 +15,101 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="body">
-    <div class="container" style="margin-top: 80px">
-        <div class="login-wrap">
-            @if (session('error-login'))
-                <div id="live">
-                    <div class="danger-alert">
-                        <i class="far fa-check-circle shine-alert"></i> &nbsp; &nbsp;
-                        <span>Sorry! {{ session('error-login') }}</span>
+<body class="">
+    @if (session('error-login'))
+        <div id="live">
+            <div class="danger-alert">
+                <i class="far fa-check-circle shine-alert"></i> &nbsp; &nbsp;
+                <span>Sorry! {{ session('error-login') }}</span>
+            </div>
+        </div>
+    @endif
+    <div class="container-new">
+        <div class="left-side">
+            <div style="padding:10px 20px;width:500px">
+                <h5 style="font-family: fantasy">Sign In</h5>
+                <p>Your Social Campaigns</p>
+                <hr class="hr-text" data-content="Your Account">
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="mb-3" style="text-align: left">
+                        <label for="exampleInputEmail1" class="form-label m-1">Email address</label>
+                        <input type="email" name="email"
+                            class="form-control input @error('email') is-invalid @enderror" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text m-1">We'll never share your email with anyone else.</div>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                </div>
-            @endif
-            <div class="login-html">
-                <div style="margin-top: 45px">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
-                        style="font-weight: bold; font-family:Noto Serif Balinese;" for="tab-1" class="tab">Sign
-                        In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
-                        class="tab"></label>
-                    <div class="login-form">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="sign-in-htm">
-                                <div class="group">
-                                    <label for="email" class="label m-1">Email</label>
-                                    <input id="email" type="email" name="email" id="email"
-                                        placeholder="Your Email"
-                                        class="mt-2 mb-2 input @error('email') is-invalid @enderror" required>
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="group">
-                                    <label for="password" class="label m-1">Password</label>
-                                    <input id="password" type="password" name="password"
-                                        class="mt-2 mb-2 input @error('password') is-invalid @enderror"
-                                        data-type="password" required>
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="group m-1">
-                                    <input id="check" type="checkbox" class="check"
-                                        {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="check"><span class="icon"></span> Keep me signed in</label>
-                                </div>
-                                <div class="group">
-                                    <button style="margin-top: 80px" type="submit" class="button btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
-                                </div>
-                                <div class="foot-lnk">
-                                </div>
-                            </div>
-                        </form>
+                    <div class="mb-3" style="text-align: left">
+                        <label for="exampleInputPassword1" class="form-label m-1">Password</label>
+                        <input type="password" name="password"
+                            class="form-control input @error('password') is-invalid @enderror"
+                            id="exampleInputPassword1">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3 form-check" style="text-align: left">
+                        <input type="checkbox" class="form-check-input check {{ old('remember') ? 'checked' : '' }}"
+                            id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Keep me signed in</label>
+                    </div>
+                    <div class="d-grid gap-2 mt-5 mb-5">
+                        <button class="btn btn-primary mt-2 mb-2" type="submit">Sign In</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="right-side">
+            <img src="img/logo/logos.png" width="190px" height="190px" alt="no-image" style="margin: -25px 0px">
+            <div class="feedback">
+                We value your <span style="color: #ff32f7"> feedback </span>and aim to provide you with the best
+                <span style="color: #ff32f7">experience</span>. Your thoughts are important to
+                us.Please feel free to share any concerns or <span style="color: #ff32f7"> suggestion </span> you may
+                have. Your feedback helps us improve
+                and
+                ensures that we continue to meet your expectations. <br>
+                Thank you for taking the time to contact us.
+            </div>
+            <div class="wrapper-login" id="icon-menus">
+                <input type="checkbox" />
+                <div class="fab"></div>
+                <div class="fac">
+                    <div class="new"><a href="{{ route('index-announs') }}" class=""><i
+                                class="fa-solid fa-bell"></i></a>
+                        <span style="margin: 50px" class="new-text">Announcements</span>
+                    </div>
+
+                    <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
+                        <span style="margin: 50px" class="new-text">Check status</span>
+                    </div>
+                    <div class="new"><a href="{{ route('index-laporan') }}"><i
+                                class="fa-solid fa-envelope-open-text"></i></a>
+                        <span style="margin: 50px" class="new-text">Report complaint</span>
+                    </div>
+                    <div class="new"><a href="{{ route('login') }}" class=""><i
+                                class="fa-solid fa-house"></i></a>
+                        <span style="margin: 50px" class="new-text">Home</span>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

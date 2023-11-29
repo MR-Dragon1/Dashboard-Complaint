@@ -4,8 +4,8 @@
     <div class="breadcome-area">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="breadcome-list">
+                <div class="">
+                    <div class="breadcome-list-first">
                         <div class="row" style="text-align: center">
                             <div class="container-fluid">
                                 <h4 class="mb-3" style="text-align: center; color:black; margin:11px 0px">User Lists</h4>
@@ -133,7 +133,7 @@
                                     <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
                                 </dialog>
 
-                                <div class="row">
+                                <div class="row" style="text-align: center">
                                     <table id="records" class="table table-striped" style="font-size: 15px">
                                         <thead class="table-dark">
                                             <tr style="text-align:center">
@@ -280,27 +280,6 @@
                 </div>
             </div>
             <div style="margin: 18px 0px"></div>
-        </div>
-    </div>
-    <div class="wrapper" id="icon-menus">
-        <input type="checkbox" />
-        <div class="fab"></div>
-        <div class="fac">
-            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                        class="fa-solid fa-bell"></i></a>
-                <span style="margin: 50px" class="new-text">Announcements</span>
-            </div>
-
-            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <span style="margin: 50px" class="new-text">Check status</span>
-            </div>
-            <div class="new"><a href="{{ route('index-laporan') }}"><i
-                        class="fa-solid fa-envelope-open-text"></i></a>
-                <span style="margin: 50px" class="new-text">Report complaint</span>
-            </div>
-            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
-                <span style="margin: 50px" class="new-text">Home</span>
-            </div>
         </div>
     </div>
     <script>

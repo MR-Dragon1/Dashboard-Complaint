@@ -1,11 +1,90 @@
-.body {
-        margin: 0;
-        color: #b1b1b1;
-        background: #204ecf;
-        font-family: sans-serif;
-    }
 
-    *,
+/* Reset beberapa pengaturan default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gaya umum untuk container halaman */
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.container-new {
+  display: flex;
+}
+
+/* Gaya untuk sisi kiri */
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Gaya untuk sisi kanan */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #204ecf;
+  width: 50%;
+  height: 100vh;
+  text-align: center;
+}
+
+.container-item {
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Or any other value */
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+}
+.hr-text:before {
+  content: '';
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: #818078;
+  background-color: #fcfcfa;
+}
+
+.feedback {
+    width: 650px;
+    color: white;
+    font-size: 13px;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
     :after,
     :before {
         box-sizing: border-box
@@ -40,7 +119,6 @@
         position: relative;
         border-radius: 25px;
         object-fit: cover;
-        background: url('img/login.webp') no-repeat center;
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
     }
 
@@ -213,21 +291,11 @@
         position: fixed;
         bottom: -10px;
         width: auto;
-        right: -14px;
+        right: -10px;
         cursor: pointer;
-        z-index: 3;
+        z-index: 9;
         font-size: 15px;
-        animation: slideInRight 1s forwards, slideOutRight 1s 4s forwards;
-    }
-
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
+        animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
     }
 
     @keyframes slideOutRight {
@@ -413,18 +481,96 @@
    }*/
     }
 
-    .wrapper .fac a {
+
+    .wrapper-login {
+        width: var(--width);
+        height: var(--height);
+        position: relative;
+        border-radius: var(--border-radius);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 17px;
+        right: 17px;
+    }
+
+    .wrapper-login .fab {
+        background: var(--background);
+        width: var(--width);
+        height: var(--height);
+        position: relative;
+        z-index: 3;
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fab-animation-reverse 0.4s ease-out forwards;
+    }
+
+    .wrapper-login .fab::before,
+    .wrapper-login .fab::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 4px;
+        background: #fff;
+    }
+
+    .wrapper-login .fab::before {
+        width: 4px;
+        height: 18px;
+    }
+
+    .wrapper-login .fab::after {
+        width: 18px;
+        height: 4px;
+    }
+
+    .wrapper-login .fac {
+        width: 32px;
+        height: 150px;
+        border-radius: 64px;
+        position: absolute;
+        background: #fff;
+        z-index: 2;
+        padding: 0.5rem 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        top: -110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transition: opacity 0.2s ease-in, top 0.2s ease-in, width 0.1s ease-in;
+        /*&::after {
+   content: "";
+   width: 20px;
+   height: 20px;
+   background: #fff;
+   border-radius: 3px;
+   position: absolute;
+   left: 50%;
+   margin-left: -10px;
+   bottom: -8px;
+   transform: rotate(45deg);
+   z-index: 0;
+   }*/
+    }
+
+    .wrapper-login .fac a {
         color: var(--icon-color);
         opacity: 0.8;
     }
 
-    .wrapper .fac a:hover {
+    .wrapper-login .fac a:hover {
         transition: 0.2s;
         opacity: 1;
         color: #30444f;
     }
 
-    .wrapper input {
+    .wrapper-login input {
         height: 100%;
         width: 100%;
         border-radius: var(--border-radius);
@@ -434,11 +580,11 @@
         opacity: 0;
     }
 
-    .wrapper input:checked~.fab {
+    .wrapper-login input:checked~.fab {
         animation: fab-animation 0.4s ease-out forwards;
     }
 
-    .wrapper input:checked~.fac {
+    .wrapper-login input:checked~.fac {
         width: 46px;
         height: 150px;
         animation: fac-animation 0.4s ease-out forwards 0.1s;

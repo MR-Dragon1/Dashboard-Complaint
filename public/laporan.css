@@ -14,11 +14,11 @@
 
 
 .box-ticket {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border: solid #238afb 2px;
-    background-color: #d7e9ff;
-    border-radius: 17px;
-    padding: 10px 21px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: solid #238afb 3px;
+    background-color: #d5e8ff;
+    border-radius: 50px;
+    padding: 12px 100px;
     font-family: monospace;
 }
 
@@ -32,17 +32,8 @@
                     cursor: pointer;
                     z-index: 3;
                     font-size: 15px;
-                    animation: slideInRight 1s forwards, slideOutRight 1s 4s forwards;
+                    animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
                 }
-
-                    @keyframes slideInRight {
-                        from {
-                            transform: translateX(100%);
-                        }
-                        to {
-                            transform: translateX(0);
-                        }
-                    }
 
                     @keyframes slideOutRight {
                         from {
@@ -76,148 +67,4 @@
   --border-radius: 100%;
 }
 
-.wrapper {
-  width: var(--width);
-  height: var(--height);
-  position: relative;
-  border-radius: var(--border-radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 6rem;
-}
-.wrapper .fab {
-  background: var(--background);
-  width: var(--width);
-  height: var(--height);
-  position: relative;
-  z-index: 3;
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fab-animation-reverse 0.4s ease-out forwards;
-}
-.wrapper .fab::before, .wrapper .fab::after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 4px;
-  background: #fff;
-}
-.wrapper .fab::before {
-  width: 4px;
-  height: 18px;
-}
-.wrapper .fab::after {
-  width: 18px;
-  height: 4px;
-}
-.wrapper .fac {
-  width: 32px;
-  height: 150px;
-  border-radius: 64px;
-  position: absolute;
-  background: #fff;
-  z-index: 2;
-  padding: 0.5rem 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  top: -110px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  transition: opacity 0.2s ease-in, top 0.2s ease-in, width 0.1s ease-in;
-  /*&::after {
-   content: "";
-   width: 20px;
-   height: 20px;
-   background: #fff;
-   border-radius: 3px;
-   position: absolute;
-   left: 50%;
-   margin-left: -10px;
-   bottom: -8px;
-   transform: rotate(45deg);
-   z-index: 0;
-   }*/
-}
-.wrapper .fac a {
-  color: var(--icon-color);
-  opacity: 0.8;
-}
-.wrapper .fac a:hover {
-  transition: 0.2s;
-  opacity: 1;
-  color: #30444f;
-}
-.wrapper input {
-  height: 100%;
-  width: 100%;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  position: absolute;
-  z-index: 5;
-  opacity: 0;
-}
-.wrapper input:checked ~ .fab {
-  animation: fab-animation 0.4s ease-out forwards;
-}
-.wrapper input:checked ~ .fac {
-  width: 46px;
-  height: 150px;
-  animation: fac-animation 0.4s ease-out forwards 0.1s;
-  top: -159px;
-  opacity: 1;
-}
-@keyframes fab-animation {
-  0% {
-    transform: rotate(0) scale(1);
-  }
-  20% {
-    transform: rotate(60deg) scale(0.93);
-  }
-  55% {
-    transform: rotate(35deg) scale(0.97);
-  }
-  80% {
-    transform: rotate(48deg) scale(0.94);
-  }
-  100% {
-    transform: rotate(45deg) scale(0.95);
-  }
-}
-@keyframes fab-animation-reverse {
-  0% {
-    transform: rotate(45deg) scale(0.95);
-  }
-  20% {
-    transform: rotate(-15deg);
-  }
-  55% {
-    transform: rotate(10deg);
-  }
-  80% {
-    transform: rotate(-3deg);
-  }
-  100% {
-    transform: rotate(0) scale(1);
-  }
-}
-@keyframes fac-animation {
-  0% {
-    transform: scale(1, 1);
-  }
-  33% {
-    transform: scale(0.95, 1.05);
-  }
-  66% {
-    transform: scale(1.05, 0.95);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
 
