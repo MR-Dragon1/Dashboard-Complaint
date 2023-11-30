@@ -76,7 +76,7 @@
                                                     <div class="col-md-6 mb-md-1 p-md-4">
                                                         @if ($announ->imagesAnnouns->isEmpty())
                                                             <div class="slide-new">
-                                                                <img style="height:315px; border-radius:5px"
+                                                                <img style="height:260px; border-radius:5px"
                                                                     class="card-img-top" src="img/no_image.jpg"
                                                                     alt="" id="img-zoom">
                                                             </div>
