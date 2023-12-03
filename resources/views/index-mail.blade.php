@@ -33,8 +33,8 @@
                                     style="padding: 4px 8px; border-radius:5px; font-weight:bold; border-radius:6px; font-size:14px"
                                     class="mb-2 mt-2">
                                     <option value="all">All Data</option>
-                                    <option value="haveCode">Code have at code agent list</option>
-                                    <option value="noCode">Code not have at code agent list</option>
+                                    <option value="haveCode">Data have at code agent list</option>
+                                    <option value="noCode">Data not have at code agent list</option>
                                 </select>
                                 <div class="row" style="text-align: center;">
                                     <table id="records" class="table table-striped">
