@@ -19,6 +19,8 @@ class SpamEntry extends Model
         'email',
         'complaints',
         'site',
+        'name',
+        'code',
         'status',
         'ticket',
         'expectation',

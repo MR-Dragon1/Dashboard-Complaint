@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spam', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('ip_address');
-            $table->string('email');
-            $table->string('name');
+        Schema::create('codes', function (Blueprint $table) {
+            $table->id();
             $table->string('code');
-            $table->string('site');
-            $table->string('complaints');
-            $table->string('expectation')->nullable();
-            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spam');
+        Schema::dropIfExists('codes');
     }
 };

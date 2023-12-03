@@ -35,10 +35,9 @@
                                             <tr>
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Email</td>
-                                                <td style="text-align: center">Site</td>
-                                                <td style="text-align: center">Complaint</td>
-                                                <td style="text-align: center">Expectation</td>
                                                 <td style="text-align: center">ID Ticket</td>
+                                                <td style="text-align: center">Code Agent</td>
+                                                <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
                                                 <td style="text-align: center">Updated Data</td>
@@ -53,15 +52,17 @@
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->email }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->ticket }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->code }}</td>
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">
+                                                    {{-- <td style="vertical-align:middle; text-align:left">
                                                         {{ Illuminate\Support\Str::limit($complaint->complaints, 25) }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ Illuminate\Support\Str::limit($complaint->expectation, 25) }}
-                                                    </td>
-                                                    <td style="vertical-align:middle; text-align:left">
-                                                        {{ $complaint->ticket }}</td>
+                                                    </td> --}}
 
                                                     @if ($complaint->status == '0')
                                                         <td style="vertical-align:middle">
@@ -178,34 +179,6 @@
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
-                                                                                            class="m-1">Site</label>
-                                                                                    </div>
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="{{ $complaint->site }}"
-                                                                                        readonly>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Complaint</label>
-                                                                                    </div>
-                                                                                    <div class="form-floating">
-                                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $complaint->complaints }}</textarea>
-                                                                                    </div>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Expectation</label>
-                                                                                    </div>
-                                                                                    <div class="form-floating">
-                                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $complaint->expectation }}</textarea>
-                                                                                    </div>
-
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
                                                                                             class="m-1">ID
                                                                                             Ticket</label>
                                                                                     </div>
@@ -215,7 +188,54 @@
                                                                                         aria-label="default input example"
                                                                                         value="{{ $complaint->ticket }}"
                                                                                         readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Code
+                                                                                            Agent</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->code }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="name"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Website
+                                                                                            Name</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->name }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Site Web</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->site }}"
+                                                                                        readonly>
 
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Complaint</label>
+                                                                                    </div>
+                                                                                    <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" readonly>{{ $complaint->complaints }}</textarea>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Expectation</label>
+                                                                                    </div>
+                                                                                    <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" readonly>{{ $complaint->expectation }}</textarea>
 
                                                                                     <div style="text-align: left">
                                                                                         <label for="status"

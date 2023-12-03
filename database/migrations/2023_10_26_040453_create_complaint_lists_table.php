@@ -15,6 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('email');
             $table->string('site');
+            $table->string('name');
+            $table->string('code');
             $table->string('ticket');
             $table->string('complaints');
             $table->string('expectation')->nullable();

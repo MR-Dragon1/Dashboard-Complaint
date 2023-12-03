@@ -29,16 +29,22 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <div class="row" style="text-align: center">
+                                <select id="filterOption"
+                                    style="padding: 4px 8px; border-radius:5px; font-weight:bold; border-radius:6px; font-size:14px"
+                                    class="mb-2 mt-2">
+                                    <option value="all">All Data</option>
+                                    <option value="haveCode">Code have at code agent list</option>
+                                    <option value="noCode">Code not have at code agent list</option>
+                                </select>
+                                <div class="row" style="text-align: center;">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
                                             <tr>
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Email</td>
-                                                <td style="text-align: center">Site</td>
-                                                <td style="text-align: center">Complaint</td>
-                                                <td style="text-align: center">Expectation</td>
                                                 <td style="text-align: center">ID Ticket</td>
+                                                <td style="text-align: center">Code Agent</td>
+                                                <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
                                                 <td style="text-align: center">Updated Data</td>
@@ -53,16 +59,13 @@
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->email }}</td>
-                                                    <td style="vertical-align:middle;text-align:left">
-                                                        {{ $complaint->site }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->complaints, 30) }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">
-                                                        {{ Illuminate\Support\Str::limit($complaint->expectation, 30) }}
-                                                    </td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->ticket }}
                                                     </td>
+                                                    <td style="vertical-align:middle;text-align:left">
+                                                        {{ $complaint->code }}</td>
+                                                    <td style="vertical-align:middle;text-align:left">
+                                                        {{ $complaint->site }}</td>
 
                                                     @if ($complaint->status == '0')
                                                         <td style="vertical-align:middle">
@@ -180,34 +183,6 @@
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
-                                                                                            class="m-1">Site</label>
-                                                                                    </div>
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="{{ $complaint->site }}"
-                                                                                        readonly>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Complaint</label>
-                                                                                    </div>
-                                                                                    <div class="form-floating">
-                                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $complaint->complaints }}</textarea>
-                                                                                    </div>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Expectation</label>
-                                                                                    </div>
-                                                                                    <div class="form-floating">
-                                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $complaint->expectation }}</textarea>
-                                                                                    </div>
-
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
                                                                                             class="m-1">ID
                                                                                             Ticket</label>
                                                                                     </div>
@@ -217,8 +192,54 @@
                                                                                         aria-label="default input example"
                                                                                         value="{{ $complaint->ticket }}"
                                                                                         readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Code
+                                                                                            Agent</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->code }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="name"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Website
+                                                                                            Name</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->name }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Site Web</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->site }}"
+                                                                                        readonly>
 
-
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Complaint</label>
+                                                                                    </div>
+                                                                                    <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" readonly>{{ $complaint->complaints }}</textarea>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Expectation</label>
+                                                                                    </div>
+                                                                                    <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" readonly>{{ $complaint->expectation }}</textarea>
                                                                                     <div style="text-align: left">
                                                                                         <label for="status"
                                                                                             style="color: black"
@@ -450,29 +471,8 @@
             <div style="margin: 18px 0px"></div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var fullscreenButtons = document.querySelectorAll('.fullscreen-button');
-
-            fullscreenButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var image = this.previousElementSibling;
-                    if (image.requestFullscreen) {
-                        image.requestFullscreen();
-                    } else if (image.mozRequestFullScreen) {
-                        /* Firefox */
-                        image.mozRequestFullScreen();
-                    } else if (image.webkitRequestFullscreen) {
-                        /* Chrome, Safari and Opera */
-                        image.webkitRequestFullscreen();
-                    } else if (image.msRequestFullscreen) {
-                        /* IE/Edge */
-                        image.msRequestFullscreen();
-                    }
-                });
-            });
-        });
-    </script>
+@endsection
+@section('scripts')
     <script>
         $(document).ready(function() {
             $('select[name="status"]').on('change', function() {
@@ -483,6 +483,29 @@
                     );
                 } else {
                     $(this).closest('form').find('.info-transfer').html('');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#records').DataTable();
+
+            $('#filterOption').on('change', function() {
+                var selectedOption = $(this).val();
+
+                if (selectedOption === 'all') {
+                    table.columns(3).search('').draw(); // Menghapus filter kode
+                } else if (selectedOption === 'haveCode') {
+                    var codesArray = <?php echo json_encode($codes); ?>;
+                    var codesString = codesArray.join('|');
+                    table.columns(3).search('^(' + codesString + ')$',
+                        true, false).draw(); // Filter kode yang ada di tabel Codes
+                } else if (selectedOption === 'noCode') {
+                    var codesArray = <?php echo json_encode($codes); ?>;
+                    var codesString = codesArray.join('|');
+                    table.columns(3).search('^(?!' + codesString + ').*$',
+                        true, false).draw(); // Filter kode yang tidak ada di tabel Codes
                 }
             });
         });

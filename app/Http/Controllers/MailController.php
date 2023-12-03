@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlockedIP;
+use App\Models\Codes;
 use App\Models\ComplaintImage;
 use App\Models\Mails;
 use App\Models\SpamEntry;
@@ -20,20 +21,25 @@ class MailController extends Controller
 
     public function index_informatic()
     {
-        $complaints = $data = Mails::select('id', 'email', 'site', 'expectation', 'ticket', 'complaints', 'status', 'page', 'created_at', 'updated_at')
+        $complaints = $data = Mails::select('id', 'email', 'site','name','code', 'expectation', 'ticket', 'complaints', 'status', 'page', 'created_at', 'updated_at')
                                     ->where('page', '=', '1')
                                     ->orderBy('status', 'asc')
                                     ->orderBy('id', 'desc')
                                     ->get();
 
+
         return view('index-informatic', compact('complaints'));
     }
     public function index_mail()
     {
+
         $complaints = Mails::orderBy('status', 'asc')->orderBy('id', 'desc')->get();
 
-        return view('index-mail', compact('complaints'));
+        $codes = Codes::pluck('code');
+
+        return view('index-mail', compact('complaints', 'codes'));
     }
+
     public function index_spam()
     {
         $spams = SpamEntry::all();
@@ -76,6 +82,8 @@ class MailController extends Controller
             $request->validate([
                 'complaint' => 'required',
                 'email' => 'required',
+                'name' => 'required',
+                'code' => 'required',
                 'site' => 'required',
                 'expectation' => 'required',
                 'ticket' => 'required',
@@ -86,6 +94,8 @@ class MailController extends Controller
                         'complaints' => $request->complaint,
                         'expectation' => $request->expectation,
                         'email' => $request->email,
+                        'name' => $request->name,
+                        'code' => $request->code,
                         'site' => $request->site,
                         'ticket' => $request->ticket,
                     ]);
@@ -124,6 +134,8 @@ class MailController extends Controller
                     'expectation' => $request->expectation,
                     'email' => $request->email,
                     'site' => $request->site,
+                    'name' => $request->name,
+                    'kode' => $request->kode,
                 ]);
 
                 return redirect()->back()->with('success-spam', 'your complaints are considered spam');
@@ -137,6 +149,8 @@ class MailController extends Controller
             SpamEntry::create([
                     'ip_address' => $ipAddress,
                     'email' => $request->email,
+                    'name' => $request->name,
+                    'code' => $request->code,
                     'site' => $request->site,
                     'complaints' => $request->complaint,
                     'expectation' => $request->expectation,
@@ -173,9 +187,6 @@ class MailController extends Controller
 
     return false; // Input tidak terdeteksi sebagai spam
 }
-
-
-
 
 
 }

@@ -20,6 +20,8 @@ class Mails extends Model
         'complaints',
         'email',
         'status',
+        'name',
+        'code',
         'site',
         'expectation',
         'page',

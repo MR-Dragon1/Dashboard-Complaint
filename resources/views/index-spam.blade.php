@@ -18,9 +18,8 @@
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Ip address</td>
                                                 <td style="text-align: center">Email</td>
+                                                <td style="text-align: center">Code Agent</td>
                                                 <td style="text-align: center">Site</td>
-                                                <td style="text-align: center">Complaint</td>
-                                                <td style="text-align: center">Expectation</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
                                                 <td style="text-align: center">Action</td>
@@ -31,13 +30,8 @@
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
                                                     <td style="vertical-align:middle">{{ $spam->ip_address }}</td>
                                                     <td style="vertical-align:middle">{{ $spam->email }}</td>
+                                                    <td style="vertical-align:middle">{{ $spam->code }}</td>
                                                     <td style="vertical-align:middle">{{ $spam->site }}</td>
-                                                    <td style="vertical-align:middle">
-                                                        {{ Illuminate\Support\Str::limit($spam->complaints, 30) }}</td>
-                                                    </td>
-                                                    <td style="vertical-align:middle">
-                                                        {{ Illuminate\Support\Str::limit($spam->expectation, 30) }}</td>
-                                                    </td>
                                                     @if ($spam->status == '0')
                                                         <td style="vertical-align:middle">
                                                             <div class="red-button-1">
@@ -77,28 +71,43 @@
                                                                             aria-label="default input example"
                                                                             value="{{ $spam->email }}" readonly>
                                                                         <div style="text-align: left">
+                                                                            <label for="code" style="color: black"
+                                                                                class="m-1">Code Agent</label>
+                                                                        </div>
+                                                                        <input
+                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                            type="text"
+                                                                            aria-label="default input example"
+                                                                            value="{{ $spam->code }}" readonly>
+                                                                        <div style="text-align: left">
+                                                                            <label for="name" style="color: black"
+                                                                                class="m-1">Website Name</label>
+                                                                        </div>
+                                                                        <input
+                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                            type="text"
+                                                                            aria-label="default input example"
+                                                                            value="{{ $spam->name }}" readonly>
+                                                                        <div style="text-align: left">
                                                                             <label for="site" style="color: black"
-                                                                                class="m-1">Site</label>
+                                                                                class="m-1">Site Web</label>
                                                                         </div>
                                                                         <input
                                                                             class="form-control form-control-sm mt-1 mb-1"
                                                                             type="text"
                                                                             aria-label="default input example"
                                                                             value="{{ $spam->site }}" readonly>
+
                                                                         <div style="text-align: left">
                                                                             <label for="site" style="color: black"
                                                                                 class="m-1">Complaint</label>
                                                                         </div>
-                                                                        <div class="form-floating">
-                                                                            <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $spam->complaints }}</textarea>
-                                                                        </div>
+                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $spam->complaints }}</textarea>
                                                                         <div style="text-align: left">
                                                                             <label for="site" style="color: black"
                                                                                 class="m-1">Expectation</label>
                                                                         </div>
-                                                                        <div class="form-floating">
-                                                                            <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $spam->expectation }}</textarea>
-                                                                        </div>
+                                                                        <textarea class="form-control form-control-sm mt-1 mb-1" id="floatingTextarea" style="height: 65px;" readonly>{{ $spam->expectation }}</textarea>
                                                                         <div style="text-align: left">
                                                                             <label for="status" style="color: black"
                                                                                 class="m-1">Status</label>

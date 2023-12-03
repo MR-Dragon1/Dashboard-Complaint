@@ -295,8 +295,17 @@ body {
         cursor: pointer;
         z-index: 9;
         font-size: 15px;
-        animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
+        animation: slideInRight 0.5s forwards, slideOutRight 0.5s 4s forwards;
     }
+
+    @keyframes slideInRight {
+                        from {
+                            transform: translateX(100%);
+                        }
+                        to {
+                            transform: translateX(0);
+                        }
+                    }
 
     @keyframes slideOutRight {
         from {

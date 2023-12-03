@@ -5,7 +5,7 @@
                     style="width: 100px; height:100px" alt="" /></a>
             <strong><img src="{{ asset('img/logo/logos.png') }}" alt=""
                     style="width: 60px; height:60px; margin:10px" /></strong>
-            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:#98d3ff; font-family:Kaushan Script; margin-top:-10px"
+            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:#d9efff; font-family:Kaushan Script; margin-top:-10px"
                 class="main-logo">Complaint 's
             </div>
             <strong>
@@ -35,14 +35,6 @@
                             aria-expanded="false"><i class="fa-regular fa-bell icon-head"></i> <span
                                 class="mini-click-non">Notifications</span></a>
                     </li>
-                    @if (Auth::check() && Auth::user()->roles == 2)
-                        <li class="">
-                            <a @if (request()->is('log-activity')) class="actives" @endif href="{{ route('index-log') }}">
-                                <i class="fa-solid fa-layer-group icon-head-2"></i>
-                                <span class="mini-click-non">Log Activity's</span>
-                            </a>
-                        </li>
-                    @endif
                     <li class="">
                         <a @if (request()->is('spam')) class="actives" @endif href="{{ route('index-spam') }}">
                             <i class="fa-solid fa-file-circle-exclamation icon-head-2"></i>
@@ -51,10 +43,23 @@
                     </li>
                     @if (Auth::check() && Auth::user()->roles == 2)
                         <li class="">
+                            <a @if (request()->is('log-activity')) class="actives" @endif href="{{ route('index-log') }}">
+                                <i class="fa-solid fa-layer-group icon-head-2"></i>
+                                <span class="mini-click-non">Log Activity's</span>
+                            </a>
+                        </li>
+                        <li class="">
                             <a @if (request()->is('users')) class="actives" @endif
                                 href="{{ route('index-user') }}">
                                 <i class="fa-solid fa-user-group icon-head-3"></i>
                                 <span class="mini-click-non">Users</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a @if (request()->is('codes')) class="actives" @endif
+                                href="{{ route('index-code') }}">
+                                <i class="fa-solid fa-list-ul icon-head-4"></i>
+                                <span class="mini-click-non">Code Agent</span>
                             </a>
                         </li>
                     @endif

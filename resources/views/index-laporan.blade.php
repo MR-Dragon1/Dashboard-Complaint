@@ -39,7 +39,7 @@
         <div class="centered-element">
             <div class="row menu-nav">
                 <div class="col" style="text-align: center">
-                    <a href="{{ route('index-laporan') }}">Report Complaint</a>
+                    <a href="{{ route('index-laporan') }}">Report Complaint's</a>
                 </div>
                 <div class="col" style="text-align: center">
                     <a href="{{ route('index-status') }}">Check Status</a>
@@ -88,13 +88,12 @@
 
                                                     </div>
                                                     <div class="col">
-                                                        <h5 class="mb-3"
-                                                            style="text-align: center; color:black; margin:15px 0px; font-family: Noto Serif Balinese;">
+                                                        <h5 class=""
+                                                            style="text-align: center; color:black; margin:10px 0px; font-family: Noto Serif Balinese;">
                                                             Report Complaint's
                                                         </h5>
                                                     </div>
                                                     <div class="col" style="text-align:right">
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,39 +101,81 @@
                                                 <form action="{{ route('store-complaint') }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
-                                                    <label for="email" style="color: black"
-                                                        class="m-1">Email</label>
-                                                    <input class="form-control mt-2 mb-2" type="email"
-                                                        placeholder="What is your email ?"
-                                                        aria-label="default input example" name="email" id="email"
-                                                        required>
-                                                    <label for="site" style="color: black"
-                                                        class="m-1">Site</label>
-                                                    <input class="form-control mt-2 mb-2" type="text"
-                                                        placeholder="What your site ?"
-                                                        aria-label="default input example" name="site" id="site"
-                                                        required>
-                                                    <label for="complaint" style="color: black"
-                                                        class="m-1">Complaints</label>
-                                                    <div class="form-floating">
-                                                        <textarea name="complaint" id="complaint" class="form-control mt-2 mb-2" placeholder="" id="floatingTextarea2"
-                                                            style="height: 70px" required></textarea>
-                                                        <label style="color: gray" for="floatingTextarea2">What's your
-                                                            complaint ?</label>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="email"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold"
+                                                            class="">Email</label>
+                                                        <input class="form-control" type="email"
+                                                            placeholder="What's your email ?"
+                                                            aria-label="default input example" name="email"
+                                                            id="email" required>
                                                     </div>
-                                                    <label for="expectation" style="color: black"
-                                                        class="m-1">Expectation</label>
-                                                    <div class="form-floating">
-                                                        <textarea name="expectation" id="expectation" class="form-control mt-2 mb-2" placeholder="" id="floatingTextarea2"
-                                                            style="height: 70px" required></textarea>
-                                                        <label style="color: gray" for="floatingTextarea2">How do you
-                                                            want ?</label>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="kode"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Code
+                                                            Agent</label>
+
+                                                        <select class="form-select" name="code" id="selectOption"
+                                                            aria-label="Default select example"
+                                                            onchange="checkOtherOption()">
+                                                            <option style="font-size: 13.7px" selected disabled>Code
+                                                                your website</option>
+                                                            @foreach ($codes as $code)
+                                                                <option value="{{ $code->code }}">
+                                                                    {{ $code->code }}</option>
+                                                            @endforeach
+                                                            <option id="new" value="other">Other code</option>
+                                                        </select>
+
+                                                        <div id="otherOption"
+                                                            style="display: none;margin:5px 0px -10px 0px">
+                                                            <i for="otherInput"
+                                                                style="color: black; margin:2px;font-size:13px">Input
+                                                                code:</i>
+                                                            <input type="text" class="form-control-sm m-1"
+                                                                id="otherCodeInput">
+                                                        </div>
+
+
+
                                                     </div>
-                                                    <label class="m-1" for="image" style="color: black">Upload
-                                                        Images</label>
-                                                    <input name="image[]" id="image"
-                                                        class="form-control mt-2 mb-2" type="file"
-                                                        aria-label="default input example" multiple>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="name"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Website
+                                                            Name</label>
+                                                        <input class="form-control" type="name"
+                                                            placeholder="Your website name ?"
+                                                            aria-label="default input example" name="name"
+                                                            id="name" required>
+                                                    </div>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="site"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Site</label>
+                                                        <input class="form-control" type="text"
+                                                            placeholder="Site name ?"
+                                                            aria-label="default input example" name="site"
+                                                            id="site" required>
+                                                    </div>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="complaint"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Complaint</label>
+                                                        <textarea name="complaint" id="complaint" class="form-control" placeholder="What's your complaint ?"
+                                                            id="floatingTextarea2" required></textarea>
+                                                    </div>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="expectation"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Expectation</label>
+                                                        <textarea name="expectation" id="expectation" class="form-control" placeholder="How do you want ?"
+                                                            id="floatingTextarea2" required></textarea>
+                                                    </div>
+                                                    <div style="margin: 9px 0px">
+                                                        <label for="image"
+                                                            style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Upload
+                                                            Images</label>
+                                                        <input name="image[]" id="image"
+                                                            class="form-control mt-1 mb-1" type="file"
+                                                            aria-label="default input example" multiple>
+                                                    </div>
                                                     <div class="form-group m-1 mt-3">
                                                         <div style="font-size: 11px; color:blue"><i>Confirm you are a
                                                                 real
@@ -167,7 +208,7 @@
                                                                 status page & <span style="color: red">save it</span>!
                                                             </div>
                                                             <div
-                                                                style="text-align:center; font-size:20px;color:red; font-weight:bold; margin:3px">
+                                                                style="text-align:center; font-size:20px;color:red; font-weight:bold; margin:5px 0px">
                                                                 {{ session('additionalData')['complaint']->ticket }}
                                                             </div>
                                                             <div class="close"onclick="closeNotification()">( Close
@@ -217,7 +258,24 @@
             }
         }
     </script>
+    <script>
+        function checkOtherOption() {
+            var selectBox = document.getElementById("selectOption");
+            var otherCodeInput = document.getElementById("otherOption");
 
+            if (selectBox.value === "other") {
+                otherCodeInput.style.display = "block";
+                otherCodeInput.value = ""; // reset the input value
+            } else {
+                otherCodeInput.style.display = "none";
+            }
+        }
+
+        document.getElementById("otherCodeInput").addEventListener("input", function() {
+            var otherOption = document.getElementById("new");
+            otherOption.value = this.value;
+        });
+    </script>
 </body>
 
 </html>

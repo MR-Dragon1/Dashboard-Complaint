@@ -27,7 +27,7 @@
             <div style="margin: 0px 10px">
                 <div class="row menu-nav">
                     <div class="col" style="text-align: center">
-                        <a href="{{ route('index-laporan') }}">Report Complaint</a>
+                        <a href="{{ route('index-laporan') }}">Report Complaint's</a>
                     </div>
                     <div class="col" style="text-align: center">
                         <a href="{{ route('index-status') }}">Check Status</a>
@@ -69,8 +69,8 @@
 
                                                     </div>
                                                     <div class="col">
-                                                        <h5 class="mb-3"
-                                                            style="text-align: center; color:black; margin:15px 0px; font-family: Noto Serif Balinese;font-weight:bold">
+                                                        <h5 class=""
+                                                            style="text-align: center; color:black; margin:10px 0px; font-family: Noto Serif Balinese;font-weight:bold">
                                                             Check Status
                                                         </h5>
                                                     </div>
@@ -86,7 +86,7 @@
                                                         <tr>
                                                             <td style="width: 95%"><input class="form-control"
                                                                     type="text" name="q"
-                                                                    placeholder="What is your ticket id ?"></td>
+                                                                    placeholder="ID Ticket ?"></td>
                                                             <td style="width:5%"><button type="submit"
                                                                     class="btn btn-primary"><i
                                                                         class="fa-solid fa-magnifying-glass"
@@ -114,12 +114,20 @@
                                                             style="font-family: system-ui; font-size:15px">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>Email</th>
+                                                                    <td>{{ $item->email }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th>ID Ticket</th>
                                                                     <td>{{ $item->ticket }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th>Email</th>
-                                                                    <td>{{ $item->email }}</td>
+                                                                    <th>Code Agent</th>
+                                                                    <td>{{ $item->code }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Website Name</th>
+                                                                    <td>{{ $item->name }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Site</th>

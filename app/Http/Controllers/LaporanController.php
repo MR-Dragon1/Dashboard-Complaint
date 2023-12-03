@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Codes;
 use App\Models\Mails;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class LaporanController extends Controller
     public function index_laporan()
     {
 
-         return view('index-laporan');
+        $codes = Codes::all();
+
+         return view('index-laporan', compact('codes'));
 
     }
     public function index_status()

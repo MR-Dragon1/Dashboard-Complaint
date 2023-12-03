@@ -17,7 +17,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border: solid #238afb 3px;
     background-color: #d5e8ff;
-    border-radius: 50px;
+    border-radius: 100px;
     padding: 12px 100px;
     font-family: monospace;
 }
@@ -26,14 +26,23 @@
 #lives {
                     font-weight: bold;
                     position: fixed;
-                    bottom: -8px;
+                    bottom: -10px;
                     width: auto;
-                    right: -20px;
+                    right: -10px;
                     cursor: pointer;
                     z-index: 3;
                     font-size: 15px;
-                    animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
+                    animation: slideInRight 0.5s forwards, slideOutRight 0.5s 4s forwards;
                 }
+
+                    @keyframes slideInRight {
+                        from {
+                            transform: translateX(100%);
+                        }
+                        to {
+                            transform: translateX(0);
+                        }
+                    }
 
                     @keyframes slideOutRight {
                         from {

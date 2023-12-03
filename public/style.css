@@ -1364,6 +1364,7 @@ ul.two-part-sp li{
     z-index: 99;
     left: 200px;
     right: 0;
+    height: 62px !important;
     top: 0;
     margin: 0 auto;
     transition: all 0.3s;
@@ -1946,6 +1947,11 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     font-size: 17px;
     margin-left: 14px;
     margin-right: 19px;
+}
+.icon-head-4 {
+    font-size: 17px;
+    margin-left: 15px;
+    margin-right: 21px;
 }
 
 
@@ -4060,13 +4066,21 @@ button.primary-1 {
     position: fixed;
     bottom: 10px;
     width: auto;
-    right: -5px;
+    right: -10px;
     cursor: pointer;
     z-index: 9;
     font-size: 15px;
-    animation: fadeIn 0.5s, slideOutRight 1s forwards 4s;
+    animation: slideInRight 0.5s forwards, slideOutRight 0.5s 4s forwards;
 }
 
+@keyframes slideInRight {
+                        from {
+                            transform: translateX(100%);
+                        }
+                        to {
+                            transform: translateX(0);
+                        }
+                    }
 
 @keyframes slideOutRight {
     from {
@@ -4373,7 +4387,7 @@ button.primary-1 {
 hr.sep-2 {
   border: 0;
     height: 2px;
-    background-image: linear-gradient(to right, #a100ff, #008cff, #c218f9, #008cff);
+    background-image: linear-gradient(to right, #ffffff, #008cff, #ffffff, #008cff);
 }
 
 #icon-menu {
@@ -4590,3 +4604,11 @@ hr.sep-2 {
     hr.style2 {
 	border-top: 4px double white;
 }
+
+input::placeholder {
+    font-size: 13.7px;
+}
+textarea::placeholder {
+    font-size: 13.7px;
+}
+

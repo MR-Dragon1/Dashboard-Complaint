@@ -61,7 +61,7 @@
                                         <div class="row">
                                             <div class="row menu-nav-announ">
                                                 <div class="col" style="text-align: center">
-                                                    <a href="{{ route('index-laporan') }}">Report Complaint</a>
+                                                    <a href="{{ route('index-laporan') }}">Report Complaint's</a>
                                                 </div>
                                                 <div class="col" style="text-align: center">
                                                     <a href="{{ route('index-status') }}">Check Status</a>
@@ -129,7 +129,6 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <div class="container-fluid">
-
                                                                             @foreach ($announ->updatesAnnouns as $key => $update)
                                                                                 <div class="accordion"
                                                                                     id="accordionExample">

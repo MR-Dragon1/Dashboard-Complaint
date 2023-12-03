@@ -79,6 +79,6 @@ class UserController extends Controller
     public function delete_users(User $users)
     {
         $users->delete();
-        return Redirect::back()->with('success', 'Deleted successfully.');
+        return Redirect::back()->with('success', 'Deleted Data successfully.');
     }
 }
