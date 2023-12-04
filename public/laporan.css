@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Or any other value */
+    height: 100vh;
+    overflow: hidden;
 }
 
 
@@ -11,6 +12,9 @@
     background-color: #204ecf;
 }
 
+.centered-element {
+    margin: auto;
+}
 
 
 .box-ticket {
