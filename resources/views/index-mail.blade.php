@@ -41,9 +41,9 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <td style="text-align: center">No</td>
+                                                <td style="text-align: center">Code Agent</td>
                                                 <td style="text-align: center">Email</td>
                                                 <td style="text-align: center">ID Ticket</td>
-                                                <td style="text-align: center">Code Agent</td>
                                                 <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
@@ -57,13 +57,13 @@
                                             @foreach ($complaints as $complaint)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
+                                                    <td style="vertical-align:middle;text-align:left">
+                                                        {{ $complaint->code }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->email }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->ticket }}
                                                     </td>
-                                                    <td style="vertical-align:middle;text-align:left">
-                                                        {{ $complaint->code }}</td>
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
 
@@ -172,6 +172,18 @@
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
+                                                                                            class="m-1">Code
+                                                                                            Agent</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->code }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
                                                                                             class="m-1">Email</label>
                                                                                     </div>
                                                                                     <input
@@ -192,18 +204,7 @@
                                                                                         aria-label="default input example"
                                                                                         value="{{ $complaint->ticket }}"
                                                                                         readonly>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Code
-                                                                                            Agent</label>
-                                                                                    </div>
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="{{ $complaint->code }}"
-                                                                                        readonly>
+
                                                                                     <div style="text-align: left">
                                                                                         <label for="name"
                                                                                             style="color: black"
@@ -344,7 +345,7 @@
                                                                                                                     <div class="m-1"
                                                                                                                         style="text-align:left">
                                                                                                                         <b
-                                                                                                                            style="font-size: 14px">{{ $comment->person }}
+                                                                                                                            style="font-size: 13px">{{ $comment->person }}
                                                                                                                             |
                                                                                                                             CS</b>
                                                                                                                     </div>
@@ -395,7 +396,7 @@
                                                                                                                 <div class="m-1"
                                                                                                                     style="text-align: right">
                                                                                                                     <b
-                                                                                                                        style="font-size: 14px">{{ $comment->person }}
+                                                                                                                        style="font-size: 13px">{{ $comment->person }}
                                                                                                                         |
                                                                                                                         Team
                                                                                                                         IT</b>

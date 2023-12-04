@@ -34,9 +34,9 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <td style="text-align: center">No</td>
+                                                <td style="text-align: center">Code Agent</td>
                                                 <td style="text-align: center">Email</td>
                                                 <td style="text-align: center">ID Ticket</td>
-                                                <td style="text-align: center">Code Agent</td>
                                                 <td style="text-align: center">Site</td>
                                                 <td style="text-align: center">Status</td>
                                                 <td style="text-align: center">Submited Data</td>
@@ -51,11 +51,11 @@
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
+                                                        {{ $complaint->code }}</td>
+                                                    <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->email }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->ticket }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">
-                                                        {{ $complaint->code }}</td>
                                                     <td style="vertical-align:middle;text-align:left">
                                                         {{ $complaint->site }}</td>
                                                     {{-- <td style="vertical-align:middle; text-align:left">
@@ -168,6 +168,18 @@
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
+                                                                                            class="m-1">Code
+                                                                                            Agent</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $complaint->code }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
                                                                                             class="m-1">Email</label>
                                                                                     </div>
                                                                                     <input
@@ -188,18 +200,7 @@
                                                                                         aria-label="default input example"
                                                                                         value="{{ $complaint->ticket }}"
                                                                                         readonly>
-                                                                                    <div style="text-align: left">
-                                                                                        <label for="site"
-                                                                                            style="color: black"
-                                                                                            class="m-1">Code
-                                                                                            Agent</label>
-                                                                                    </div>
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="{{ $complaint->code }}"
-                                                                                        readonly>
+
                                                                                     <div style="text-align: left">
                                                                                         <label for="name"
                                                                                             style="color: black"
@@ -338,7 +339,7 @@
                                                                                                                     <div class="m-1"
                                                                                                                         style="text-align:left">
                                                                                                                         <b
-                                                                                                                            style="font-size: 14px">{{ $comment->person }}
+                                                                                                                            style="font-size: 13px">{{ $comment->person }}
                                                                                                                             |
                                                                                                                             CS</b>
                                                                                                                     </div>
@@ -389,7 +390,7 @@
                                                                                                                 <div class="m-1"
                                                                                                                     style="text-align: right">
                                                                                                                     <b
-                                                                                                                        style="font-size: 14px">{{ $comment->person }}
+                                                                                                                        style="font-size: 13px">{{ $comment->person }}
                                                                                                                         |
                                                                                                                         Team
                                                                                                                         IT</b>
@@ -461,27 +462,6 @@
                 </div>
             </div>
             <div style="margin: 18px 0px"></div>
-        </div>
-    </div>
-    <div class="wrapper" id="icon-menus">
-        <input type="checkbox" />
-        <div class="fab"></div>
-        <div class="fac">
-            <div class="new"><a href="{{ route('index-announs') }}" class=""><i
-                        class="fa-solid fa-bell"></i></a>
-                <span style="margin: 50px" class="new-text">Announcements</span>
-            </div>
-
-            <div class="new"><a href="{{ route('index-status') }}"><i class="fa-solid fa-inbox"></i></a>
-                <span style="margin: 50px" class="new-text">Check status</span>
-            </div>
-            <div class="new"><a href="{{ route('index-laporan') }}"><i
-                        class="fa-solid fa-envelope-open-text"></i></a>
-                <span style="margin: 50px" class="new-text">Report complaint</span>
-            </div>
-            <div class="new"><a href="{{ route('login') }}" class=""><i class="fa-solid fa-house"></i></a>
-                <span style="margin: 50px" class="new-text">Home</span>
-            </div>
         </div>
     </div>
 @endsection
