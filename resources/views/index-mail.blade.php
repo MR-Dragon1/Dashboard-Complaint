@@ -31,7 +31,7 @@
                                 @endif
                                 <select id="filterOption"
                                     style="padding: 4px 8px; border-radius:5px; font-weight:bold; border-radius:6px; font-size:14px"
-                                    class="mb-2 mt-2">
+                                    class="mb-3 mt-">
                                     <option value="all">All Data</option>
                                     <option value="haveCode">Data have at code agent list</option>
                                     <option value="noCode">Data not have at code agent list</option>
@@ -496,16 +496,16 @@
                 var selectedOption = $(this).val();
 
                 if (selectedOption === 'all') {
-                    table.columns(3).search('').draw(); // Menghapus filter kode
+                    table.columns(1).search('').draw(); // Menghapus filter kode
                 } else if (selectedOption === 'haveCode') {
                     var codesArray = <?php echo json_encode($codes); ?>;
                     var codesString = codesArray.join('|');
-                    table.columns(3).search('^(' + codesString + ')$',
+                    table.columns(1).search('^(' + codesString + ')$',
                         true, false).draw(); // Filter kode yang ada di tabel Codes
                 } else if (selectedOption === 'noCode') {
                     var codesArray = <?php echo json_encode($codes); ?>;
                     var codesString = codesArray.join('|');
-                    table.columns(3).search('^(?!' + codesString + ').*$',
+                    table.columns(1).search('^(?!' + codesString + ').*$',
                         true, false).draw(); // Filter kode yang tidak ada di tabel Codes
                 }
             });
