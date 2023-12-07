@@ -29,13 +29,21 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <select id="filterOption"
-                                    style="padding: 4px 8px; border-radius:5px; font-weight:bold; border-radius:6px; font-size:14px"
-                                    class="mb-3 mt-">
-                                    <option value="all">All Data</option>
-                                    <option value="haveCode">Data have at code agent list</option>
-                                    <option value="noCode">Data not have at code agent list</option>
-                                </select>
+                                <div class="row" style="text-align: center;margin:20px 0px">
+                                    <div class="col">
+                                        <div class="checkbox-wrapper-13">
+                                            <input id="filterHaveCode" value="haveCode" type="checkbox">
+                                            <label for="filterHaveCode">Data have at code agent list</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="checkbox-wrapper-13">
+                                            <input id="filterNoCode" value="noCode" type="checkbox">
+                                            <label for="filterNoCode">Data not have at code agent list</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="font-weight:bold" id="dataCount" class="mt-1 mb-1"></div>
                                 <div class="row" style="text-align: center;">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
@@ -492,23 +500,42 @@
         $(document).ready(function() {
             var table = $('#records').DataTable();
 
-            $('#filterOption').on('change', function() {
-                var selectedOption = $(this).val();
+            // Fungsi untuk menerapkan filter berdasarkan checkbox yang dicentang dan menghitung jumlah data yang terfilter
+            function applyFilters() {
+                var filterValues = [];
+                $('input[type=checkbox]:checked').each(function() {
+                    filterValues.push($(this).val());
+                });
 
-                if (selectedOption === 'all') {
-                    table.columns(1).search('').draw(); // Menghapus filter kode
-                } else if (selectedOption === 'haveCode') {
+                if (filterValues.length > 0) {
                     var codesArray = <?php echo json_encode($codes); ?>;
                     var codesString = codesArray.join('|');
-                    table.columns(1).search('^(' + codesString + ')$',
-                        true, false).draw(); // Filter kode yang ada di tabel Codes
-                } else if (selectedOption === 'noCode') {
-                    var codesArray = <?php echo json_encode($codes); ?>;
-                    var codesString = codesArray.join('|');
-                    table.columns(1).search('^(?!' + codesString + ').*$',
-                        true, false).draw(); // Filter kode yang tidak ada di tabel Codes
+
+                    if (filterValues.includes('haveCode')) {
+                        table.columns(1).search('^(' + codesString + ')$', true, false).draw();
+                    } else if (filterValues.includes('noCode')) {
+                        table.columns(1).search('^(?!' + codesString + ').*$', true, false).draw();
+                    }
+                } else {
+                    table.columns(1).search('').draw(); // Jika tidak ada checkbox yang dipilih, hapus semua filter
                 }
+
+                updateFilteredDataCount(); // Memanggil fungsi untuk mengupdate jumlah data yang terfilter
+            }
+
+            // Fungsi untuk mengupdate jumlah data yang terfilter
+            function updateFilteredDataCount() {
+                var info = table.page.info();
+                $('#dataCount').html('Amount of Data: ' + info.recordsDisplay);
+            }
+
+            // Menangani perubahan pada checkbox
+            $('input[type=checkbox]').on('change', function() {
+                applyFilters();
             });
+
+            // Memanggil fungsi saat tabel pertama kali dimuat
+            updateFilteredDataCount();
         });
     </script>
 @endsection
