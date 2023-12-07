@@ -117,15 +117,23 @@
                                                     @endif
                                                 @else
                                                     <div class="dropdown" style="float:right;">
-                                                        <span class="admin-name"
-                                                            style="cursor: context-menu">{{ Auth::user()->name }} <i
+                                                        <span class="admin-name"> {{ Auth::user()->name }} <i
                                                                 class="fa-solid fa-caret-down"></i></span>
+
+
                                                         <div class="dropdown-content">
                                                             <a href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();"><i
-                                                                    class="fa-solid fa-lock-open icon-head-log"></i>
-                                                                Log Out</a>
+                                                                        document.getElementById('logout-form').submit();"
+                                                                style="padding: 14px 7px">
+                                                                <div style="cursor:context-menu; letter-spacing:1px">
+                                                                    {{ Auth::user()->email }}
+                                                                </div>
+                                                                <hr>
+
+                                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                                                Log out
+                                                            </a>
                                                             <form id="logout-form" action="{{ route('logout') }}"
                                                                 method="POST" class="d-none">
                                                                 @csrf
