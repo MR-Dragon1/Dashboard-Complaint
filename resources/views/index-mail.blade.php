@@ -29,6 +29,21 @@
                                         </div>
                                     @endforeach
                                 @endif
+
+                                {{-- BEGIN::INI KODE BARU --}}
+                                <div class="d-flex gap-3">
+                                    <button type="button" class="btn btn-primary position-relative">
+                                        New Complaint
+                                        <span id="badgeCounter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white d-none">
+                                            <span class="visually-hidden">unread messages</span>
+                                        </span>
+                                    </button>
+
+                                    <button class="btn btn-warning" onclick="hide(this)">Enable Sound</button>
+                                </div>
+                                {{-- END::INI KODE BARU --}}
+
+
                                 <div class="row" style="text-align: center;margin:20px 0px">
                                     <div class="col">
                                         <div class="checkbox-wrapper-13">
@@ -480,6 +495,7 @@
             <div style="margin: 18px 0px"></div>
         </div>
     </div>
+    {{-- <audio src="/ping.mp3" type="audio/mp3" id="myAudio"></audio> --}}
 @endsection
 @section('scripts')
     <script>
@@ -496,6 +512,7 @@
             });
         });
     </script>
+
     <script>
         $(document).ready(function() {
             var table = $('#records').DataTable();
@@ -508,7 +525,7 @@
                 });
 
                 if (filterValues.length > 0) {
-                    var codesArray = <?php echo json_encode($codes); ?>;
+                    var codesArray = {!!json_encode($codes)!!}
                     var codesString = codesArray.join('|');
 
                     if (filterValues.includes('haveCode')) {
@@ -538,4 +555,43 @@
             updateFilteredDataCount();
         });
     </script>
+
+    {{-- BEGIN::INI KODE BARU --}}
+    {{-- New Content Stream --}}
+    <script>
+        function playSound(url) {
+            const audio = new Audio('/ping.mp3');
+            audio.type = 'audio/mp3';
+            audio.play();
+        }
+
+        function hide(el) {
+            console.log('JALAN KOK')
+            el.style.display = 'none'
+        }
+
+        let notificationCount = 0;
+        const sse = new EventSource('/notification')
+        sse.onmessage = function(e) {
+            const counter = e.data
+            console.log('Stream Data:', counter)
+            if (counter != 0 && counter != notificationCount) {
+                playSound()
+                // data nya >0
+                notificationCount = counter;
+                $('#badgeCounter').text(notificationCount)
+
+                if ($('#badgeCounter').hasClass('d-none')) {
+                    $('#badgeCounter').removeClass('d-none')
+                }
+            } else if (counter == 0) {
+                // data nya 0
+                notificationCount = 0;
+                if (!$('#badgeCounter').hasClass('d-none')) {
+                    $('#badgeCounter').addClass('d-none')
+                }
+            }
+        }
+    </script>
+    {{-- END::INI KODE BARU --}}
 @endsection
