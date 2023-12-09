@@ -33,13 +33,13 @@
                                     <div class="col">
                                         <div class="checkbox-wrapper-13">
                                             <input id="filterHaveCode" value="haveCode" type="checkbox">
-                                            <label for="filterHaveCode">Data have at code agent list</label>
+                                            <label for="filterHaveCode">[ Data have at code agent list ]</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="checkbox-wrapper-13">
                                             <input id="filterNoCode" value="noCode" type="checkbox">
-                                            <label for="filterNoCode">Data not have at code agent list</label>
+                                            <label for="filterNoCode">[ Data not have at code agent list ]</label>
                                         </div>
                                     </div>
                                 </div>
