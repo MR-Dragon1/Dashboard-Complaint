@@ -53,9 +53,7 @@
                                     </div>
                                     <div class="col" style="text-align: right"><button type="button"
                                             class="btn btn-primary" onClick="window.location.reload();">
-                                            <i class="fa-solid fa-envelope"></i> Unprocessed
-                                            <span id="badgeCounter" class="badge text-bg-danger">
-                                            </span>
+                                            <i class="fa-solid fa-envelope"></i> New complaint <span id="badgeCounter" class="badge text-bg-danger"></span>
                                         </button>
                                     </div>
 

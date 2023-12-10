@@ -1885,18 +1885,18 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 .red-button-1 {
     background-color: #d70b0b;
     font-weight:bold;
-    padding: 6px 8px;
+    padding: 4px 6px;
     font-size: 14px;
-    border-radius:18px;
+    border-radius:9px;
     color: white;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
 .blue-button-1 {
     background-color: #3ea3db;
     font-weight:bold;
-    padding: 6px 8px;
+    padding: 4px 6px;
     font-size: 14px;
-    border-radius:18px;
+    border-radius:9px;
     color: white;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
@@ -1904,9 +1904,9 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 .yellow-button-1 {
     background-color: #ebe21a;
     font-weight:bold;
-    padding: 6px 8px;
+    padding: 4px 6px;
     font-size: 14px;
-    border-radius:18px;
+    border-radius:9px;
     color: white;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
     ;
@@ -1915,9 +1915,9 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 .green-button-1 {
     background-color: #0fa50f;
     font-weight:bold;
-    padding: 6px 8px;
+    padding: 4px 6px;
     font-size: 14px;
-    border-radius:18px;
+    border-radius:9px;
     color: white;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
