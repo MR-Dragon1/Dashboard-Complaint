@@ -47,7 +47,6 @@ Route::middleware(['blockIP'])->group(function () {
     Route::get('/notification', function() {
         $count = Mails::where('status', 0)->count();
 
-        // $response = "retry: 10000\ndata: $count\n\n";
         $response = "data: $count\n\n";
 
         return response($response)

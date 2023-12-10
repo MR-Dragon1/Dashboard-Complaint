@@ -30,19 +30,6 @@
                                     @endforeach
                                 @endif
 
-                                {{-- BEGIN::INI KODE BARU --}}
-                                <div class="d-flex gap-3">
-                                    <button type="button" class="btn btn-primary position-relative">
-                                        New Complaint
-                                        <span id="badgeCounter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white d-none">
-                                            <span class="visually-hidden">unread messages</span>
-                                        </span>
-                                    </button>
-
-                                    <button class="btn btn-warning" onclick="hide(this)">Enable Sound</button>
-                                </div>
-                                {{-- END::INI KODE BARU --}}
-
 
                                 <div class="row" style="text-align: center;margin:20px 0px">
                                     <div class="col">
@@ -58,7 +45,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="font-weight:bold" id="dataCount" class="mt-1 mb-1"></div>
+
+                                <div class="row mb-2 mt-2">
+                                    <div class="col">
+                                        <code style="font-family: revert-layer; font-weight:bold">Amount of Data: <span
+                                                id="dataCount"></span></code>
+                                    </div>
+                                    <div class="col" style="text-align: right"><button type="button"
+                                            class="btn btn-primary" onClick="window.location.reload();">
+                                            <i class="fa-solid fa-envelope"></i> Unprocessed
+                                            <span id="badgeCounter" class="badge text-bg-danger">
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
                                 <div class="row" style="text-align: center;">
                                     <table id="records" class="table table-striped">
                                         <thead class="table-dark">
@@ -525,7 +528,7 @@
                 });
 
                 if (filterValues.length > 0) {
-                    var codesArray = {!!json_encode($codes)!!}
+                    var codesArray = {!! json_encode($codes) !!}
                     var codesString = codesArray.join('|');
 
                     if (filterValues.includes('haveCode')) {
@@ -543,7 +546,7 @@
             // Fungsi untuk mengupdate jumlah data yang terfilter
             function updateFilteredDataCount() {
                 var info = table.page.info();
-                $('#dataCount').html('Amount of Data: ' + info.recordsDisplay);
+                $('#dataCount').html(info.recordsDisplay);
             }
 
             // Menangani perubahan pada checkbox
@@ -555,8 +558,6 @@
             updateFilteredDataCount();
         });
     </script>
-
-    {{-- BEGIN::INI KODE BARU --}}
     {{-- New Content Stream --}}
     <script>
         function playSound(url) {
@@ -565,16 +566,10 @@
             audio.play();
         }
 
-        function hide(el) {
-            console.log('JALAN KOK')
-            el.style.display = 'none'
-        }
-
         let notificationCount = 0;
         const sse = new EventSource('/notification')
         sse.onmessage = function(e) {
             const counter = e.data
-            console.log('Stream Data:', counter)
             if (counter != 0 && counter != notificationCount) {
                 playSound()
                 // data nya >0
@@ -593,5 +588,4 @@
             }
         }
     </script>
-    {{-- END::INI KODE BARU --}}
 @endsection
