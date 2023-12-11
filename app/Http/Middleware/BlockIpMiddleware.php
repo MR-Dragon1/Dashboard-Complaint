@@ -29,7 +29,7 @@ class BlockIpMiddleware
             "check" => in_array($userIpAddress, $allowedIpAddresses)
         ]);
 
-        // auth()->logout();
+        auth()->logout();
         return redirect('/login')->with('error-login', 'You are restricted to access the site from this IP address');
     }
 
