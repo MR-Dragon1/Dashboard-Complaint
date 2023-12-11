@@ -1,4 +1,4 @@
-<html>
+<!doctype html>
 
 <head>
     <meta charset="utf-8">
@@ -13,10 +13,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&family=Noto+Serif+SC:wght@600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.cs') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 
 
 </head>
@@ -100,7 +100,7 @@
                                                                 human*</i>
                                                         </div>
                                                         <div class="g-recaptcha" data-type="image"
-                                                            data-sitekey="6LeHdREpAAAAABrbVmCXcDxyls1Pgj7t1qtT5oPF">
+                                                            data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}">
                                                         </div>
                                                     </div>
                                                 </form>

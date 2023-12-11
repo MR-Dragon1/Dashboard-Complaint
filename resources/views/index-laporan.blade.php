@@ -1,4 +1,4 @@
-<html>
+<!doctype html>
 
 <head>
     <meta charset="utf-8">
@@ -182,7 +182,7 @@
                                                                 human*</i>
                                                         </div>
                                                         <div class="g-recaptcha" data-type="image"
-                                                            data-sitekey="6LeHdREpAAAAABrbVmCXcDxyls1Pgj7t1qtT5oPF">
+                                                            data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}">
                                                         </div>
                                                     </div>
                                                     @php
