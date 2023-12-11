@@ -23,6 +23,12 @@ class BlockIpMiddleware
 
         if (in_array($userIpAddress, $allowedIpAddresses)) return $next($request);
 
+        return dd([
+            "ipbaca" => $userIpAddress,
+            "ipdb" => $allowedIpAddresses,
+            "check" => in_array($userIpAddress, $allowedIpAddresses)
+        ]);
+
         auth()->logout();
         return redirect('/login')->with('error-login', 'You are restricted to access the site from this IP address');
     }
