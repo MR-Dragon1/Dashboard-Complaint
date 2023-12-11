@@ -15,18 +15,14 @@ class BlockIpMiddleware
         $userIpAddress = $request->ip();
         $userId = Auth::id();
 
+        // return dd($userId);
+
         $allowedIpAddresses = IpAddress::where('user_id', $userId)->value('ip');
 
-        if ($allowedIpAddresses) {
-            $allowedIpArray = explode(',', $allowedIpAddresses);
+        $allowedIpAddresses = $allowedIpAddresses ? explode(',', $allowedIpAddresses) : [];
 
-            // Memeriksa apakah alamat IP saat ini ada di dalam array yang diizinkan
-            foreach ($allowedIpArray as $allowedIp) {
-                if ($userIpAddress === trim($allowedIp)) {
-                    return $next($request);
-                }
-            }
-        }
+        if (in_array($userIpAddress, $allowedIpAddresses)) return $next($request);
+
         auth()->logout();
         return redirect('/login')->with('error-login', 'You are restricted to access the site from this IP address');
     }
