@@ -71,7 +71,7 @@
         </div>
 
         <div class="right-side">
-            <img src="{{ assets('img/logo/logos.png') }}" width="190px" height="190px" alt="no-image" style="margin: -25px 0px">
+            <img src="{{ asset('img/logo/logos.png') }}" width="190px" height="190px" alt="no-image" style="margin: -25px 0px">
             <div class="feedback">
                 We value your <span style="color: #ff32f7"> feedback </span>and aim to provide you with the best
                 <span style="color: #ff32f7">experience</span>. Your thoughts are important to
