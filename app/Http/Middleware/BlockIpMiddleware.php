@@ -12,7 +12,7 @@ class BlockIpMiddleware
 {
 
     public function handle(Request $request, Closure $next) {
-        $userIpAddress = $request->ip();
+        $userIpAddress = getUserIP();
         $userId = Auth::id();
 
         // return dd($userId);
