@@ -39,9 +39,6 @@
 
     <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 
-
-    <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
-
     <script src="{{ asset('loading.js') }}"></script>
 
     {{-- bundle bootstrap 4.6.2 --}}
@@ -61,13 +58,6 @@
     @include('layouts.footer')
     <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.meanmenu.js') }}"></script>
-    <script src="{{ asset('js/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('js/metisMenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('js/metisMenu/metisMenu-active.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
