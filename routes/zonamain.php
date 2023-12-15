@@ -22,7 +22,7 @@ use App\Models\Mails;
 |
 */
 
-Route::domain('supportpng.zonamain.com')->group(function() {
+Route::domain(env('DOMAIN_BACKEND'))->group(function() {
     Route::middleware(['guest'])->group(function() {
         Route::get('/', function () {
             return Redirect::route('login');

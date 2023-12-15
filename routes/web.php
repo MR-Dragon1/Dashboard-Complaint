@@ -19,7 +19,7 @@ use App\Http\Controllers\MailController;
 */
 
 // Guest
-Route::domain('supportpng.com')->group(function() {
+Route::domain(env('DOMAIN_FRONTEND'))->group(function() {
     Route::middleware(['new-guest'])->group(function() {
         Route::get('/', [LaporanController::class, 'index_laporan'])->name('index-laporan');
         Route::get('/announcements', [AnnounsController::class, 'index_announs'])->name('index-announs');
