@@ -23,20 +23,20 @@ use App\Models\Mails;
 */
 
 // Guest
-Route::domain('announce'.env('DOMAIN_FRONTEND'))->group(function() {
+Route::domain('announce.'.env('DOMAIN_FRONTEND'))->group(function() {
     Route::middleware(['new-guest'])->group(function() {
         Route::get('/', [AnnounsController::class, 'index_announs'])->name('index-announs');
     });
 });
 
-Route::domain('status'.env('DOMAIN_FRONTEND'))->group(function() {
+Route::domain('status.'.env('DOMAIN_FRONTEND'))->group(function() {
     Route::middleware(['new-guest'])->group(function() {
         Route::get('/', [LaporanController::class, 'index_status'])->name('index-status');
         Route::get('/search', [LaporanController::class, 'search'])->name('search');
     });
 });
 
-Route::domain('report'.env('DOMAIN_FRONTEND'))->group(function() {
+Route::domain('report.'.env('DOMAIN_FRONTEND'))->group(function() {
     Route::middleware(['new-guest'])->group(function() {
         Route::get('/', [LaporanController::class, 'index_laporan'])->name('index-laporan');
         Route::post('add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');
