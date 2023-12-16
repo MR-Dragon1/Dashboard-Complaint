@@ -72,7 +72,8 @@
         </div>
 
         <div class="right-side">
-            <img src="{{ asset('img/logo/logos.png') }}" width="190px" height="190px" alt="no-image" style="margin: -25px 0px">
+            <img src="{{ asset('img/logo/logos.png') }}" width="190px" height="190px" alt="no-image"
+                style="margin: -25px 0px">
             <div class="feedback">
                 We value your <span style="color: #ff32f7"> feedback </span>and aim to provide you with the best
                 <span style="color: #ff32f7">experience</span>. Your thoughts are important to
@@ -97,10 +98,6 @@
                     <div class="new"><a href="{{ route('index-laporan') }}"><i
                                 class="fa-solid fa-envelope-open-text"></i></a>
                         <span style="margin: 50px" class="new-text">Report complaint</span>
-                    </div>
-                    <div class="new"><a href="{{ route('login') }}" class=""><i
-                                class="fa-solid fa-house"></i></a>
-                        <span style="margin: 50px" class="new-text">Home</span>
                     </div>
                 </div>
             </div>
