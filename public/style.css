@@ -3941,7 +3941,7 @@ dialog {
 .dialog-page {
 	padding: 1px;
     background: linear-gradient(45deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
-    width: 800px;
+    width: 900px;
     border-radius: 15px;
     border: solid #238afb 2px;
     box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);

@@ -6,7 +6,8 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/logos.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('laporan.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&display=swap" rel="stylesheet">
@@ -179,7 +180,7 @@
                                                                 human*</i>
                                                         </div>
                                                         <div class="g-recaptcha" data-type="image"
-                                                            data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}">
+                                                            data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}">
                                                         </div>
                                                     </div>
                                                     @php
@@ -190,7 +191,8 @@
                                                     <input type="text" id="ticket" name="ticket"
                                                         value="{{ $combinedRandom }}" hidden>
                                                     <div class="d-grid gap-2 col-6 mx-auto">
-                                                        <button id="submitBtn" class="primary-1 mt-4">Submit</button>
+                                                        <button id="submitBtn"
+                                                            class="primary-1 mt-3 mb-2">Submit</button>
                                                     </div>
                                                 </form>
 
@@ -214,8 +216,8 @@
 
                                                     </div>
                                                 @endif
-                                                <p style="text-align: center">Check status your complaint ? <a
-                                                        href="{{ route('index-status') }}"> Status</a></p>
+                                                <p style="text-align: center;">Check status your
+                                                    complaint ? <a href="{{ route('index-status') }}"> Status</a></p>
                                             </div>
                                         </div>
                                     </div>

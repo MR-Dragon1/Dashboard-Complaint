@@ -50,30 +50,31 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <div class="row" style="width: 60%">
-                                <div class="container text-center">
+                            <div class="row">
+                                <div class="container text-center" style="width: 922px">
+                                    <div class="row menu-nav-announ" style="margin: 19px 0px;">
+                                        <div class="col" style="text-align: center">
+                                            <a href="{{ route('index-laporan') }}">Report Complaint's</a>
+                                        </div>
+                                        <div class="col" style="text-align: center">
+                                            <a href="{{ route('index-status') }}">Check Status</a>
+                                        </div>
+                                        <div class="col" style="text-align: center">
+                                            <a href="{{ route('index-announs') }}">Announcements</a>
+                                        </div>
+                                    </div>
                                     <h4
-                                        style="margin: 30px 0px; font-family:Noto Serif Balinese; color:white; font-size:23px">
-                                        Incident
-                                        History</h4>
+                                        style="margin: 38px 0px 28px 0px; font-family:Noto Serif Balinese; color:white; font-size:23px">
+                                        Incident History</h4>
+
                                     <hr class="style2">
 
                                     <div class="container overflow-hidden text-center">
                                         <div class="row">
-                                            <div class="row menu-nav-announ">
-                                                <div class="col" style="text-align: center">
-                                                    <a href="{{ route('index-laporan') }}">Report Complaint's</a>
-                                                </div>
-                                                <div class="col" style="text-align: center">
-                                                    <a href="{{ route('index-status') }}">Check Status</a>
-                                                </div>
-                                                <div class="col" style="text-align: center">
-                                                    <a href="{{ route('index-announs') }}">Announcements</a>
-                                                </div>
-                                            </div>
+
                                             @foreach ($announs as $announ)
                                                 <div class="row g-0 position-relative"
-                                                    style="background-color:white;box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;margin:10px 0px; border-radius:8px;">
+                                                    style="background-color:white;box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;margin:10px 0px; border-radius:8px;">
                                                     <div class="col-md-6 mb-md-1 p-md-4">
                                                         @if ($announ->imagesAnnouns->isEmpty())
                                                             <div class="slide-new">
@@ -124,7 +125,8 @@
                                                                 role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalLabel">
                                                                             Update History</h5>
 
                                                                     </div>
