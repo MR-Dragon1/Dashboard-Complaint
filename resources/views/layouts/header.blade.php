@@ -5,8 +5,7 @@
                     style="width: 100px; height:100px" alt="" /></a>
             <strong><img src="{{ asset('img/logo/logos.png') }}" alt=""
                     style="width: 60px; height:60px; margin:10px" /></strong>
-            <div style="text-align: center; font-weight:bold;letter-spacing:1px;box-shadow:none;border:none; font-size:19px; color:#d9efff; font-family:Kaushan Script; margin-top:-10px"
-                class="main-logo">Complaint 's
+            <div class="main-logo text-dash">Complaint 's
             </div>
             <strong>
                 <div></div>
