@@ -105,6 +105,7 @@
                                                             class="">Email</label>
                                                         <input class="form-control" type="email"
                                                             placeholder="What's your email ?"
+                                                            autocomplete="off"
                                                             aria-label="default input example" name="email"
                                                             id="email" required>
                                                     </div>
@@ -128,7 +129,7 @@
                                                             <i for="otherInput"
                                                                 style="color: black; margin:2px;font-size:13px">Input
                                                                 code:</i>
-                                                            <input type="text" class="form-control-sm m-1"
+                                                            <input type="text" class="form-control-sm m-1" autocomplete="off"
                                                                 id="otherCodeInput">
                                                         </div>
 
@@ -141,6 +142,7 @@
                                                             Name</label>
                                                         <input class="form-control" type="text"
                                                             placeholder="Your website name ?"
+                                                            autocomplete="off"
                                                             aria-label="default input example" name="name"
                                                             id="name" required>
                                                     </div>
@@ -149,6 +151,7 @@
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Site</label>
                                                         <input class="form-control" type="text"
                                                             placeholder="Site name ?"
+                                                            autocomplete="off"
                                                             aria-label="default input example" name="site"
                                                             id="site" required>
                                                     </div>
