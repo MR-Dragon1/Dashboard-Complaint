@@ -109,18 +109,16 @@
                                                             id="email" required>
                                                     </div>
                                                     <div style="margin: 9px 0px">
-                                                        <label for="kode"
+                                                        <label for="selectOption"
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Code
                                                             Agent</label>
 
                                                         <select class="form-select" name="code" id="selectOption"
                                                             aria-label="Default select example"
                                                             onchange="checkOtherOption()">
-                                                            <option style="font-size: 13.7px" selected disabled>Code
-                                                                your website</option>
+                                                            <option style="font-size: 13.7px" selected disabled>Code your website</option>
                                                             @foreach ($codes as $code)
-                                                                <option value="{{ $code->code }}">
-                                                                    {{ $code->code }}</option>
+                                                                <option value="{{ $code->code }}">{{ $code->code }}</option>
                                                             @endforeach
                                                             <option id="new" value="other">Other code</option>
                                                         </select>
@@ -141,7 +139,7 @@
                                                         <label for="name"
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Website
                                                             Name</label>
-                                                        <input class="form-control" type="name"
+                                                        <input class="form-control" type="text"
                                                             placeholder="Your website name ?"
                                                             aria-label="default input example" name="name"
                                                             id="name" required>
@@ -191,8 +189,7 @@
                                                     <input type="text" id="ticket" name="ticket"
                                                         value="{{ $combinedRandom }}" hidden>
                                                     <div class="d-grid gap-2 col-6 mx-auto">
-                                                        <button id="submitBtn"
-                                                            class="primary-1 mt-3 mb-2">Submit</button>
+                                                        <button id="submitBtn" type="submit" class="primary-1 mt-3 mb-2">Submit</button>
                                                     </div>
                                                 </form>
 

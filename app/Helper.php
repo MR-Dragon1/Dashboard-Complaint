@@ -27,3 +27,26 @@ if(!function_exists("getUserIP")) {
         }
     }
 }
+
+
+if (!function_exists('isSpam')) {
+    function isSpam($input)
+    {
+        $patterns = [
+            '/([a-zA-Z])\1{3,}/', // Pendeteksian huruf berulang lebih dari 2 kali
+            '/\b(?:viagra|cialis|herbal\W*remedy)\b/i',
+            '/\b(?:https?:\/\/)?example\.com\b/i',  //email tidak sesuai
+            '/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/',
+            '/\d{5,}/' // Mendeteksi angka yang muncul lebih dari 5 kali berturut-turut
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $input)) {
+                // Jika pola spam ditemukan, lakukan tindakan yang sesuai, misalnya memblokir atau memberi peringatan
+                return true; // Input terdeteksi sebagai spam
+            }
+        }
+
+        return false; // Input tidak terdeteksi sebagai spam
+    }
+}
