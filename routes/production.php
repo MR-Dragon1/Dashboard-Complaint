@@ -60,7 +60,7 @@ Route::domain(env('DOMAIN_BACKEND'))->group(function() {
         Route::put('complaint/{id}', [MailController::class, 'update_complaint'])->name('complaint.update');
         Route::put('user/{id}', [UserController::class, 'update_user'])->name('user.update');
         Route::put('message/{id}', [AnnounsController::class, 'update_message'])->name('message.update');
-        Route::post('add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');
+        // Route::post('add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');
         Route::get('/home', [MailController::class, 'index_mail'])->name('index-mail');
         Route::get('log-activity', [LogController::class, 'index_logs'])->name('index-log');
         Route::get('spam', [MailController::class, 'index_spam'])->name('index-spam');
