@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Report Complaint's</title>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/logos.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('laporan.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -96,7 +96,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <form action="{{ route('store-complaint') }}" method="post"
+                                                <form action="{{ route('store-complaint') }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <div style="margin: 9px 0px">
