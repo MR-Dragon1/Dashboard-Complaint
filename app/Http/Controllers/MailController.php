@@ -108,10 +108,10 @@ class MailController extends Controller
                 $nama_file = $image->getClientOriginalName();
                 $nama_game = pathinfo($nama_file, PATHINFO_FILENAME);
                 $dir = "Dashboard-Complaint/2023/Complaints";
-                $path = Storage::disk('do_spaces')->put($dir, $image);
-                // $path = Storage::disk('do_spaces')->putFileAs($dir, $image, $nama_game . '.' . $image->getClientOriginalExtension(), 'public');
-                // $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
-                $image_url = Storage::disk('do_spaces')->url($path);;
+                // $path = Storage::disk('do_spaces')->put($dir, $image);
+                $path = Storage::disk('do_spaces')->putFileAs($dir, $image, $nama_game . '.' . $image->getClientOriginalExtension(), 'public');
+                $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
+                // $image_url = Storage::disk('do_spaces')->url($path);;
 
                 ComplaintImage::create([
                     'mails_id' => $complaint->id,
