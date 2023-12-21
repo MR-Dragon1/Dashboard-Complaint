@@ -102,7 +102,7 @@
                                                     <div style="margin: 9px 0px">
                                                         <label for="email"
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold"
-                                                            class="">Email</label>
+                                                            class="">Email <i class="text-danger">*</i></label>
                                                         <input class="form-control" type="email"
                                                             placeholder="What's your email ?"
                                                             autocomplete="off"
@@ -112,7 +112,7 @@
                                                     <div style="margin: 9px 0px">
                                                         <label for="selectOption"
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Code
-                                                            Agent</label>
+                                                            Agent <i class="text-danger">*</i></label>
 
                                                         <select class="form-select" name="code" id="selectOption"
                                                             aria-label="Default select example"
@@ -139,7 +139,7 @@
                                                     <div style="margin: 9px 0px">
                                                         <label for="name"
                                                             style="color: black; margin:2px;font-size:14.5px; font-weight:bold">Website
-                                                            Name</label>
+                                                            Name <i class="text-danger">*</i></label>
                                                         <input class="form-control" type="text"
                                                             placeholder="Your website name ?"
                                                             autocomplete="off"
