@@ -121,7 +121,7 @@
                                                             method="POST" style="display: none;">
                                                             @csrf <!-- Tambahkan ini untuk melindungi dari serangan CSRF -->
                                                         </form>
-                                                        <button class="Btn"
+                                                        <button class="Btn-log"
                                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                             <div class="sign">
                                                                 <svg viewBox="0 0 512 512">

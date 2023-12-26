@@ -4258,7 +4258,7 @@ button.primary-1 {
 
 .dropdown-content a:hover {background-color: #0e2259;}
 
-.Btn {
+.Btn-log {
   align-items: center;
   justify-content: flex-start;
   width: 25px;
@@ -4302,7 +4302,7 @@ button.primary-1 {
   transition-duration: .3s;
 }
 /* hover effect on button width */
-.Btn:hover {
+.Btn-log:hover {
   background-color: #0046dd;
 }
 
