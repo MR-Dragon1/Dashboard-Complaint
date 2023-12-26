@@ -92,16 +92,20 @@ class MailController extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
 
+        $input_code = $request->code;
+
+        $uppercase_name = strtoupper($input_code);
+
         $complaint = Mails::create([
             'complaints' => $request->complaint,
             'expectation' => $request->expectation,
             'email' => $request->email,
             'name' => $request->name,
-            'code' => $request->code,
+            'code' => $uppercase_name,
             'site' => $request->site,
             'ticket' => $request->ticket,
         ]);
-
+        // dd($request);
         $images = $request->file('image');
         if ($request->hasFile('image')) {
             foreach ($images as $image) {

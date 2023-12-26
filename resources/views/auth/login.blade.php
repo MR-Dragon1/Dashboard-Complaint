@@ -38,8 +38,8 @@
                     <div class="mb-3" style="text-align: left">
                         <label for="exampleInputEmail1" class="form-label m-1">Email address</label>
                         <input type="email" name="email"
-                            class="form-control input @error('email') is-invalid @enderror" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
+                            class="form-control input @error('email') is-invalid @enderror" autocomplete="off"
+                            id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text m-1">We'll never share your email with anyone else.</div>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="mb-3" style="text-align: left">
                         <label for="exampleInputPassword1" class="form-label m-1">Password</label>
-                        <input type="password" name="password"
+                        <input type="password" name="password" autocomplete="off"
                             class="form-control input @error('password') is-invalid @enderror"
                             id="exampleInputPassword1">
                         @error('password')

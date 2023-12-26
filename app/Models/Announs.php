@@ -19,7 +19,8 @@ class Announs extends Model
         'announcement_image',
         'title',
         'description',
-        'created_at'
+        'created_at',
+        'updated_at'
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -32,6 +33,12 @@ class Announs extends Model
     {
         $carbonDate = Carbon::parse($value);
         return $carbonDate->format('d / m / Y  -  H:i');
+    }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        $carbonDate = Carbon::parse($value);
+        return $carbonDate->format('d / m / Y  -  H:i' );
     }
 
     public function imagesAnnouns()

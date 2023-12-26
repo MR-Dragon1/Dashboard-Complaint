@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\AnnounImage;
 use App\Models\Announs;
+use App\Models\UpdateAnnouns;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class AnnounsController extends Controller
 {
@@ -21,6 +23,17 @@ class AnnounsController extends Controller
                     ->get();
         return view('index-announ', compact('announs'));
     }
+    public function show_announs($id)
+    {
+        $images = AnnounImage::where('announs_id', '=', $id)->get();
+
+        $updates = UpdateAnnouns::where('announs_id', '=', $id)->get();
+
+        // return response()->json($images);
+
+        return view('show-announ', compact('images', 'updates'));
+    }
+
     public function index_message()
     {
         $messages = Announs::all();
@@ -65,13 +78,10 @@ class AnnounsController extends Controller
 
             $images = $request->file('image');
             if ($request->hasFile('image')) {
-                foreach ($images as $image) {
-
-                    $nama_file = $image->getClientOriginalName();
-                    $nama_game = pathinfo($nama_file, PATHINFO_FILENAME);
-                    $dir = "Dashboard-Complaint\'2023'\Announcements";
-                    $path = \Storage::disk('do_spaces')->putFileAs($dir, $image, $nama_game . '.' . $image->getClientOriginalExtension(), 'public');
-                    $image_url = "https://smbstatic.sgp1.digitaloceanspaces.com/$path";
+            foreach ($images as $image) {
+                $dir = "Dashboard-Complaint/2023/Announcements";
+                $path = Storage::disk('do_spaces')->put($dir, $image);
+                $image_url = Storage::disk('do_spaces')->url($path);
 
                     AnnounImage::create([
                     'announs_id' => $complaint->id,

@@ -26,7 +26,6 @@ use App\Models\Mails;
 Route::middleware(['new-guest'])->group(function() {
     Route::get('/report', [LaporanController::class, 'index_laporan'])->name('index-laporan');
     Route::get('/announcements', [AnnounsController::class, 'index_announs'])->name('index-announs');
-    Route::get('/announcements/{id}', [AnnounsController::class, 'show_announs'])->name('show-announs');
     Route::get('/search', [LaporanController::class, 'search'])->name('search');
     Route::get('/status', [LaporanController::class, 'index_status'])->name('index-status');
     Route::post('add-complaints/store', [MailController::class, 'store_complaint'])->name('store-complaint');

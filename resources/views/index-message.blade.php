@@ -307,7 +307,7 @@
                                                                                                 Monitoring
                                                                                             </option>
                                                                                             <option value="Update">
-                                                                                                Update
+                                                                                                Updated
                                                                                             </option>
                                                                                             <option value="Resolved">
                                                                                                 Resolved

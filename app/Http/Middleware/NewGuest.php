@@ -26,6 +26,7 @@ class NewGuest
         'search',
         'index-status',
         'store-complaint',
+        'show-announs'
     ];
 
     if (!in_array($routeName, $excludedRoutes)) {

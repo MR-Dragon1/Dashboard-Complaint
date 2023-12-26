@@ -14,6 +14,7 @@ class Codes extends Model
     protected $fillable = [
         'id',
         'code',
+        'name',
         'created_at',
     ];
 

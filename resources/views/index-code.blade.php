@@ -44,17 +44,27 @@
                                                                 <div class="row">
                                                                     <form action="{{ route('store-code') }}" method="post">
                                                                         @csrf
-
                                                                         <div style="text-align: left">
                                                                             <label for="code" style="color: black;"
                                                                                 class="m-1">Code Agent
                                                                             </label>
                                                                         </div>
-                                                                        <input style="" class="form-control mt-2 mb-2"
-                                                                            type="text"
-                                                                            placeholder="What's your web code ?"
+                                                                        <input style="text-transform:uppercase"
+                                                                            class="form-control mt-2 mb-2 code-input"
+                                                                            type="text" placeholder="Web code ?"
                                                                             aria-label="default input example"
                                                                             name="code" id="code" required>
+                                                                        <div style="text-align: left">
+                                                                            <label for="code" style="color: black;"
+                                                                                class="m-1">Website Name
+                                                                            </label>
+                                                                        </div>
+                                                                        <input style="text-transform:uppercase"
+                                                                            class="form-control mt-2 mb-2 code-input"
+                                                                            type="text"
+                                                                            placeholder="What's your website name?"
+                                                                            aria-label="default input example"
+                                                                            name="name" id="name" required>
                                                                         <div class="d-grid gap-2 col-6 mx-auto">
                                                                             <button class="primary-1 mt-4">Submit</button>
                                                                         </div>
@@ -76,6 +86,7 @@
                                             <tr style="text-align:center">
                                                 <td style="text-align: center">No</td>
                                                 <td style="text-align: center">Code</td>
+                                                <td style="text-align: center">Website Name</td>
                                                 <td style="text-align: center">Submited Data</td>
                                                 <td style="text-align: center">Action</td>
                                             </tr>
@@ -83,7 +94,9 @@
                                             @foreach ($codes as $code)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
-                                                    <td style="vertical-align:middle; text-align:left">{{ $code->code }}
+                                                    <td style="vertical-align:middle; text-align:center">{{ $code->code }}
+                                                    </td>
+                                                    <td style="vertical-align:middle; text-align:left">{{ $code->name }}
                                                     </td>
                                                     <td style="vertical-align:middle; text-align:center">
                                                         {{ $code->created_at }}</td>

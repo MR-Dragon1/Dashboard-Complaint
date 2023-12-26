@@ -20,11 +20,20 @@ class CodeController extends Controller
     {
         $request->validate([
             'code'=> 'required',
+            'name'=> 'required',
         ]);
 
+        $input_code = $request->code;
+        $input_name = $request->name;
 
+        // Mengubah kode menjadi huruf kapital
+        $uppercase_code = strtoupper($input_code);
+        $uppercase_name = strtoupper($input_name);
+
+        // Membuat entri baru di database dengan kode yang diubah menjadi huruf kapital
         Codes::create([
-            'code' => $request->code,
+            'code' => $uppercase_code,
+            'name' => $uppercase_name,
         ]);
 
 

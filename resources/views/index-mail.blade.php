@@ -52,8 +52,9 @@
                                                 id="dataCount"></span></code>
                                     </div>
                                     <div class="col" style="text-align: right"><button type="button"
-                                            class="btn btn-primary" onClick="window.location.reload();">
-                                            <i class="fa-solid fa-envelope"></i> New complaint <span id="badgeCounter" class="badge text-bg-danger"></span>
+                                            class="btn btn-outline-primary" onClick="window.location.reload();">
+                                            <i class="fa-solid fa-envelope"></i> Complaint unprocessed <span
+                                                id="badgeCounter" class="badge text-bg-danger"></span>
                                         </button>
                                     </div>
 
@@ -81,7 +82,8 @@
                                             @foreach ($complaints as $complaint)
                                                 <tr style="text-align: center;">
                                                     <td style="vertical-align:middle">{{ $loop->iteration }}</td>
-                                                    <td style="vertical-align:middle;text-align:left">
+                                                    <td
+                                                        style="vertical-align:middle;text-align:left;text-transform:uppercase">
                                                         {{ $complaint->code }}</td>
                                                     <td style="vertical-align:middle; text-align:left">
                                                         {{ $complaint->email }}</td>
