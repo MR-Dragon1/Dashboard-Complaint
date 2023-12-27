@@ -36,16 +36,20 @@ function getCookie(cname) {
 
 // theme switcher
 function applyTheme(theme) {
-    // remove theme class
-    $("body").removeClass("dark-theme light-theme");
-    // add selected theme class
-    $("body").addClass(theme);
-    // toggle side switcher
-    if ($(".theme-selector").hasClass("show")) {
-        $(".theme-selector").removeClass("show");
-    }
     // save theme
     setCookie("supportpng_theme", theme, 365);
+    // add selected theme class
+    $("body").addClass(theme);
+    // remove theme class
+    if (theme.includes("dark")) {
+        $("body").removeClass("light-theme");
+    } else {
+        $("body").removeClass("dark-theme");
+    }
+    // toggle side switcher
+    if ($(".theme-selector").hasClass("show")) {
+        $(".theme-selector").toggleClass("show");
+    }
 }
 
 $(document).ready(function () {
