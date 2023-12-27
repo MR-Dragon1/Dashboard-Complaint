@@ -116,7 +116,7 @@
                                                     @endif
                                                 @else
                                                     <div class="admin-name">
-                                                        {{ Auth::user()->name }}
+                                                        {{ Auth::user()->name }} |
                                                         <form id="logout-form" action="{{ route('logout') }}"
                                                             method="POST" style="display: none;">
                                                             @csrf <!-- Tambahkan ini untuk melindungi dari serangan CSRF -->

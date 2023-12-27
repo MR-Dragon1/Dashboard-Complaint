@@ -537,7 +537,7 @@ ul.dtl-social li a{
     top: -6px;
     font-weight: bolder;
     margin-left:5px;
-    cursor: pointer;
+    cursor: context-menu;
 }
 .header-right-info .author-project-icon{
     color: #fff;
@@ -4266,7 +4266,7 @@ button.primary-1 {
   vertical-align: middle;
   height: 25px;
   border: none;
-  border-radius: 50%;
+  border-radius: 25%;
   cursor: pointer;
   position: relative;
   overflow: hidden;
