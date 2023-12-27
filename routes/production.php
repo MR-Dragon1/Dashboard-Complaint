@@ -45,13 +45,13 @@ Route::domain('report.'.env('DOMAIN_FRONTEND'))->group(function() {
 });
 
 // Admin
-Route::domain(env('DOMAIN_BACKEND'))->group(function() {
+Route::domain('supportpng.'.env('DOMAIN_BACKEND'))->group(function() {
     Route::middleware(['guest'])->group(function() {
         Route::get('/', function () {
             return Redirect::route('login');
         });
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-        Route::post('/login', [LoginController::class, 'login']);
+        Route::post('/login', [LoginController::class, 'login'])->name('post-login');
     });
 
     Route::middleware(['blockIP'])->group(function () {
