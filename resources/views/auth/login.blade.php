@@ -32,7 +32,7 @@
                 <p>Your Social Campaigns</p>
                 <hr class="hr-text" data-content="Your Account">
 
-                <form method="POST" action="{{ route('post-login') }}">
+                <form method="POST" action="/login">
                     @csrf
                     <div class="mb-3" style="text-align: left">
                         <label for="exampleInputEmail1" class="form-label m-1">Email address</label>

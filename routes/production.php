@@ -51,7 +51,7 @@ Route::domain('supportpng.'.env('DOMAIN_BACKEND'))->group(function() {
             return Redirect::route('login');
         });
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-        Route::post('/login', [LoginController::class, 'login'])->name('post-login');
+        Route::post('/login', [LoginController::class, 'login']);
     });
 
     Route::middleware(['blockIP'])->group(function () {
