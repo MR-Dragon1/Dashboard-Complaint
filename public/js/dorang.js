@@ -22,16 +22,12 @@ function applyTheme(theme) {
     localStorage.setItem("supportpng_theme", theme);
 }
 
-$(document).ready(function () {});
-
 // smooth scroll
 $(document).ready(function () {
     $(".navbar .nav-link").on("click", function (event) {
         if (this.hash !== "") {
             event.preventDefault();
-
             var hash = this.hash;
-
             $("html, body").animate(
                 {
                     scrollTop: $(hash).offset().top,
@@ -63,5 +59,5 @@ $(document).ready(function () {
 
     $(".light").click(() => applyTheme("light-theme"));
     $(".dark").click(() => applyTheme("dark-theme"));
-    applyTheme(localStorage.getItem("supportpng_theme") || "dark-theme");
+    applyTheme(localStorage.supportpng_theme ?? "dark-theme");
 });
