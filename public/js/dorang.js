@@ -12,51 +12,70 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
- // toggle 
-$(document).ready(function(){
-    
-    $('.search-toggle').click(function(){
-        $('.search-wrapper').toggleClass('show');
+if (!localStorage.supportpng_theme) {
+    localStorage.setItem("supportpng_theme", "dark-theme");
+}
+
+// theme switcher
+function applyTheme() {
+    let theme = localStorage.getItem("supportpng_theme");
+    if (theme.includes("dark")) {
+        $("body").addClass("light-theme");
+        $("body").removeClass("dark-theme");
+        theme = "light-theme";
+    } else {
+        $("body").addClass("dark-theme");
+        $("body").removeClass("light-theme");
+        theme = "dark-theme";
+    }
+    localStorage.setItem("supportpng_theme", theme);
+}
+
+// toggle
+$(document).ready(function () {
+    $(".search-toggle").click(function () {
+        $(".search-wrapper").toggleClass("show");
     });
 
-    $('.modal-toggle').click(function(){
-        $('.modalBox').toggleClass('show');
-    })
-
-    $('.modalBox').click(function(){
-        $(this).removeClass('show');
+    $(".modal-toggle").click(function () {
+        $(".modalBox").toggleClass("show");
     });
 
-    $('.spinner').click(function(){
-        $(".theme-selector").toggleClass('show');
+    $(".modalBox").click(function () {
+        $(this).removeClass("show");
     });
-    $('.light').click(function(){
-        $('body').addClass('light-theme');
-        $('body').removeClass('dark-theme');
+
+    $(".spinner").click(function () {
+        $(".theme-selector").toggleClass("show");
     });
-    $('.dark').click(function(){
-        $('body').toggleClass('dark-theme');
-        $('body').removeClass('light-theme');
+    $(".light").click(function () {
+        applyTheme("light-theme");
+    });
+    $(".dark").click(function () {
+        applyTheme("dark-theme");
     });
 });
 
-
-
 // smooth scroll
-$(document).ready(function(){
-    $(".navbar .nav-link").on('click', function(event) {
-
+$(document).ready(function () {
+    $(".navbar .nav-link").on("click", function (event) {
         if (this.hash !== "") {
-
             event.preventDefault();
 
             var hash = this.hash;
 
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 700, function(){
-                window.location.hash = hash;
-            });
-        } 
+            $("html, body").animate(
+                {
+                    scrollTop: $(hash).offset().top,
+                },
+                700,
+                function () {
+                    window.location.hash = hash;
+                }
+            );
+        }
     });
-}); 
+
+    // anonymous fn default theme
+    applyTheme();
+});
