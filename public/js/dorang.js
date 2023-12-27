@@ -12,48 +12,21 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == " ") {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+if (!localStorage.supportpng_theme) {
+    localStorage.setItem("supportpng_theme", "dark-theme");
 }
 
 // theme switcher
 function applyTheme(theme) {
-    // save theme
-    setCookie("supportpng_theme", theme, 365);
-    // add selected theme class
+    $("body").removeClass("dark-theme light-theme");
     $("body").addClass(theme);
-    // remove theme class
-    if (theme.includes("dark")) {
-        $("body").removeClass("light-theme");
-    } else {
-        $("body").removeClass("dark-theme");
-    }
-    // toggle side switcher
-    if ($(".theme-selector").hasClass("show")) {
-        $(".theme-selector").toggleClass("show");
-    }
+    localStorage.setItem("supportpng_theme", theme);
 }
 
+$(document).ready(function () {});
+
+// smooth scroll
 $(document).ready(function () {
-    // smooth scroll
     $(".navbar .nav-link").on("click", function (event) {
         if (this.hash !== "") {
             event.preventDefault();
@@ -89,8 +62,7 @@ $(document).ready(function () {
         $(".theme-selector").toggleClass("show");
     });
 
-    // theme switcher listener
     $(".light").click(() => applyTheme("light-theme"));
     $(".dark").click(() => applyTheme("dark-theme"));
-    applyTheme(getCookie("supportpng_theme") ?? "dark-theme");
+    applyTheme(localStorage.getItem("supportpng_theme") ?? "dark-theme");
 });
