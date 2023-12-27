@@ -12,14 +12,13 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-if (!localStorage.supportpng_theme) {
-    localStorage.setItem("supportpng_theme", "dark-theme");
-}
-
 // theme switcher
 function applyTheme(theme) {
     $("body").removeClass("dark-theme light-theme");
     $("body").addClass(theme);
+    if ($(".theme-selector").hasClass("show")) {
+        $(".theme-selector").toggleClass("show");
+    }
     localStorage.setItem("supportpng_theme", theme);
 }
 
@@ -64,5 +63,5 @@ $(document).ready(function () {
 
     $(".light").click(() => applyTheme("light-theme"));
     $(".dark").click(() => applyTheme("dark-theme"));
-    applyTheme(localStorage.getItem("supportpng_theme") ?? "dark-theme");
+    applyTheme(localStorage.getItem("supportpng_theme") || "dark-theme");
 });
