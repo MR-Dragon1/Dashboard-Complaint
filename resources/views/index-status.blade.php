@@ -83,7 +83,7 @@
         <div class="overlay"></div>
         <!-- container -->
         <div class="container-content mt-4 list-contain">
-            <div class="col-md-10 col-lg-8 m-auto">
+            <div class="col-md-10 col-lg-10 m-auto">
                 <div class="mt-2 mb-4">
                     <div class="title-text mt-4">Check Status</div>
                     <p class="title-desc">Check the status of your complaint</p>
@@ -184,6 +184,14 @@
             </div>
         </div><!-- end of container -->
     </div><!-- end of pre footer -->
+    <div class="footer-end">
+        <div class="container footer-end-1">
+            <div class="row">
+                <div class="col" style="text-align:left">Copyright © 2023 Colorlib, All rights reserved.</div>
+                <div class="col" style="text-align: right">Terms & Conditions | Privacy Policy | Complaint's</div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         $('#reload').click(function() {
             $.ajax({

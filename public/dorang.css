@@ -71,12 +71,12 @@ address {
 }
 
 .title-text {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .title-desc {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 ol,
@@ -527,7 +527,7 @@ pre code {
 
 @media (min-width: 1200px) {
     .container-content {
-        max-width: 1100px;
+        max-width: 1000px;
     }
 }
 
@@ -5116,9 +5116,18 @@ body.light-theme .result-2 {
     height: auto;
     padding: 12px 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
-    background: #fafbff;
+    background: #75757547;
+}
+
+body.light-theme .card-line {
+    height: auto;
+    padding: 12px 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff91;
 }
 
 .card-line .top-line {
@@ -5166,7 +5175,7 @@ body.light-theme .result-2 {
     font-size: 0.9rem;
     font-weight: 500;
     position: relative;
-    background: #dfe3f259;
+    background: #d0d7f359;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5176,7 +5185,13 @@ body.light-theme .result-2 {
 }
 
 #drag-area:hover {
-    background-color: #424242;
+    background-color: #b0b7d559;
+    border: 2px dashed white;
+    transition: 0.3s;
+}
+
+body.light-theme #drag-area:hover {
+    background-color: gray;
     border: 2px dashed white;
     transition: 0.3s;
 }
@@ -5249,4 +5264,37 @@ body.light-theme .result-2 {
 
 .code-input::placeholder {
     text-transform: capitalize;
+}
+
+.footer-end {
+    background-color:#202123;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:999;
+}
+
+.footer-end-1 {
+    color: white;
+    text-align:center;
+    padding:7px 0px;
+    font-size:12px;
+}
+
+body.light-theme .footer-end {
+    background-color: #e9edef;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:999;
+}
+
+body.light-theme .footer-end-1 {
+    color: #343a40;
+    text-align:center;
+    padding:7px 0px;
+    font-size:12px;
+    font-weight: bold;
 }
