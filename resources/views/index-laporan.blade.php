@@ -7,7 +7,7 @@
     <meta name="description" content="Report Complaints">
     <meta name="author" content="Roger">
     <title>Report Complaint's</title>
-    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/logos.png') }}">
     <link rel="stylesheet" href="{{ asset('dorang.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/themify-icons/css/themify-icons.css') }}">
