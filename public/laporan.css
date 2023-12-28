@@ -34,7 +34,7 @@
                     width: auto;
                     right: -20px;
                     cursor: pointer;
-                    z-index: 3;
+                    z-index: 9999;
                     font-size: 15px;
                     animation: slideInRight 0.5s forwards, slideOutRight 0.5s 4s forwards;
                 }
