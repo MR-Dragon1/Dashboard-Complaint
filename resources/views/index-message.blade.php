@@ -315,8 +315,7 @@
                                                                                         </select>
                                                                                         <div style="text-align: left">
                                                                                             <label class="m-1"
-                                                                                                for="message">Update
-                                                                                                Message
+                                                                                                for="message">Message
                                                                                             </label>
                                                                                         </div>
                                                                                         <input

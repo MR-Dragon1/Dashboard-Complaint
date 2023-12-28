@@ -84,7 +84,7 @@
         </div><!-- end of container -->
     </div><!-- end of pre footer -->
     <div class="footer-end">
-        <div class="container footer-end-1" style="padding: 7px 22px">
+        <div class="container footer-end-1" style="padding: 5px 22px">
             <div class="row">
                 <div class="col" style="text-align:left">Copyright © 2023 Colorlib, All rights reserved.</div>
                 <div class="col" style="text-align: right">Terms & Conditions | Privacy Policy | Complaint's</div>
