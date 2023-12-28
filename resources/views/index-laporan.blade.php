@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="contact-section" style="padding-bottom: 70px">
+    <div class="contact-section" style="padding-bottom: 68px">
         <div class="overlay"></div>
         <!-- container -->
         <div class="container-content mt-4 list-contain">

@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="contact-section">
+    <div class="contact-section" style="padding-bottom: 68px">
         <div class="overlay"></div>
         <!-- container -->
         <div class="container-content mt-4 list-contain">
@@ -118,7 +118,14 @@
             </div>
         </div><!-- end of container -->
     </div><!-- end of pre footer -->
-
+    <div class="footer-end">
+        <div class="container footer-end-1" style="padding: 7px 22px">
+            <div class="row">
+                <div class="col" style="text-align:left">Copyright © 2023 Colorlib, All rights reserved.</div>
+                <div class="col" style="text-align: right">Terms & Conditions | Privacy Policy | Complaint's</div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
