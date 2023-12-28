@@ -57,9 +57,9 @@
         <div class="overlay"></div>
         <!-- container -->
         <div class="container-content mt-4 list-contain">
-            <div class="col-md-10 col-lg-8 m-auto">
+            <div class="col-md-10 col-lg-10 m-auto">
                 <div class="mt-2 mb-4">
-                    <div class="title-text mt-4">Show History</div>
+                    <div class="title-text mt-4" style="font-size: 23px">Show History</div>
                     <p class="title-desc">The latest from current history</p>
                     <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-3" data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -106,7 +106,8 @@
                                 <div class="result-2">
                                     {{ $update->message }}
                                     <br>
-                                    <div style="color: gray; font-size:13px; text-align:right; margin-top:5px">Posted at
+                                    <div style="color: gray; font-size:13px; text-align:right; margin-top:5px">Posted
+                                        at
                                         {{ $update->created_at }} UTC</div>
                                 </div>
                             </div>
