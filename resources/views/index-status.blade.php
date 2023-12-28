@@ -85,7 +85,7 @@
         <div class="container-content mt-4 list-contain">
             <div class="col-md-10 col-lg-10 m-auto">
                 <div class="mt-2 mb-4">
-                    <div class="title-text mt-4">Check Status</div>
+                    <div class="title-text mt-4" style="font-size:23px">Check Status</div>
                     <p class="title-desc">Check the status of your complaint</p>
                 </div>
                 @if (!isset($data))

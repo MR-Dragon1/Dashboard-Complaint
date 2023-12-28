@@ -59,7 +59,7 @@
         <div class="container-content mt-4 list-contain">
             <div class="col-md-10 col-lg-10 m-auto">
                 <div class="mt-2 mb-4">
-                    <div class="title-text mt-4">Incident History</div>
+                    <div class="title-text mt-4" style="font-size:23px">Incident History</div>
                     <p class="title-desc">Important events will be informed at here</p>
                 </div>
 

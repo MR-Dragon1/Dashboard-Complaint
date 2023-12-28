@@ -88,7 +88,7 @@
         <div class="container-content mt-4 list-contain">
             <div class="col-md-10 col-lg-10 m-auto">
                 <div class="mt-2 mb-4">
-                    <div class="title-text mt-4">Report Complaint's</div>
+                    <div class="title-text mt-4" style="font-size:23px">Report Complaint's</div>
                     <p class="title-desc">Explain your complaint at here</p>
                 </div>
                 <form action="{{ route('store-complaint') }}" method="POST" enctype="multipart/form-data">
