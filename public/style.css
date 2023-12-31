@@ -3977,7 +3977,7 @@ dialog {
 
 button.primary {
     display: inline-block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
     padding: 8px;
@@ -4018,7 +4018,7 @@ button.primary-2 {
 
 button.primary-1 {
     display: inline-block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
     padding: 8px;
