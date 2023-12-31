@@ -19,7 +19,7 @@ CSS INDEX
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
-html, body {height: 100%; font-family: 'Roboto', sans-serif;font-size: 15px; font-weight:400;background:#f2f7fb;}
+html, body {height: 100%; font-family: 'Roboto', sans-serif;font-size: 14.5px; font-weight:400;background:#f2f7fb;}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
