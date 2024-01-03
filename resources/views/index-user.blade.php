@@ -93,9 +93,9 @@
                                                                                 aria-label="Small select example">
                                                                                 <option selected disabled>Select your role
                                                                                 </option>
-                                                                                <option value="1">Customer Service
-                                                                                </option>
                                                                                 <option value="2">Admin Support
+                                                                                </option>
+                                                                                <option value="1">Customer Service
                                                                                 </option>
                                                                             </select>
                                                                         </div>
