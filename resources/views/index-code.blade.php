@@ -65,8 +65,8 @@
                                                                             placeholder="What's your website name?"
                                                                             aria-label="default input example"
                                                                             name="name" id="name" required>
-                                                                        <div class="d-grid gap-2 col-6 mx-auto">
-                                                                            <button class="primary-1 mt-4">Submit</button>
+                                                                        <div class="d-grid gap-2 col-4 mx-auto">
+                                                                            <button class="primary-1 mt-5">Submit</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
@@ -117,8 +117,8 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-5 mx-auto">
-                                <button class="primary" onclick="window.dialog.showModal();">Add Code</button>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="primary" onclick="window.dialog.showModal();">Add code</button>
                             </div>
                         </div>
                     </div>

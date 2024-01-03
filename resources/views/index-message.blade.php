@@ -76,9 +76,9 @@
                                                                             class="form-control mt-2 mb-2" type="file"
                                                                             aria-label="default input example" multiple>
 
-                                                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                                                        <div class="d-grid gap-2 col-4 mx-auto">
                                                                             <button
-                                                                                class="primary-1 mt-4 mb-3">Submit</button>
+                                                                                class="primary-1 mt-5 mb-3">Submit</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
@@ -350,7 +350,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-5 mx-auto">
+                            <div class="d-grid gap-2 col-4 mx-auto">
                                 <button class="primary" onclick="window.dialog.showModal();">Add message</button>
                             </div>
                         </div>

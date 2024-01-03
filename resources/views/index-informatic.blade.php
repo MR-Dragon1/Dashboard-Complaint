@@ -334,14 +334,14 @@
                                                                                                         <div
                                                                                                             class="row align-items-center">
                                                                                                             <div class="col"
-                                                                                                                style="margin-top: 12.5px">
+                                                                                                                style="margin-top: 5px">
                                                                                                                 <div>
                                                                                                                     <div class="m-1"
                                                                                                                         style="text-align:left">
                                                                                                                         <b
-                                                                                                                            style="font-size: 13px">{{ $comment->person }}
+                                                                                                                            style="font-size: 12px">{{ $comment->person }}
                                                                                                                             |
-                                                                                                                            CS</b>
+                                                                                                                            Guest</b>
                                                                                                                     </div>
                                                                                                                     <div
                                                                                                                         class="chat-guest">
@@ -355,7 +355,7 @@
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div
-                                                                                                                class="col mt-1">
+                                                                                                                class="col">
 
                                                                                                             </div>
                                                                                                         </div>
@@ -390,10 +390,10 @@
                                                                                                                 <div class="m-1"
                                                                                                                     style="text-align: right">
                                                                                                                     <b
-                                                                                                                        style="font-size: 13px">{{ $comment->person }}
+                                                                                                                        style="font-size: 12px">{{ $comment->person }}
                                                                                                                         |
-                                                                                                                        Team
-                                                                                                                        IT</b>
+                                                                                                                        Customer
+                                                                                                                        Service</b>
                                                                                                                 </div>
                                                                                                                 <div
                                                                                                                     class="chat-team">

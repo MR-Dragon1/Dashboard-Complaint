@@ -3973,7 +3973,7 @@ button.primary {
     font-size: 1rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
-    padding: 8px;
+    padding: 6px;
     border-radius: 25px;
     transition: background-color 0.1s ease;
     box-sizing: border-box;
@@ -4014,7 +4014,7 @@ button.primary-1 {
     font-size: 1rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
-    padding: 8px;
+    padding: 6px;
     border-radius: 25px;
     transition: background-color 0.1s ease;
     box-sizing: border-box;
@@ -4168,9 +4168,9 @@ button.primary-1 {
 
 
 .chat-guest {
-    border: inset 2px;
-    padding: 6px 10px;
-    font-size: 14px;
+    border: inset 1px;
+    padding: 5px 10px;
+    font-size: 13px;
     background-color: white;
     text-align: left;
     border-radius: 0px 20px 20px 20px;
@@ -4178,10 +4178,10 @@ button.primary-1 {
 
 .chat-team {
     background-color: white;
-    font-size: 14px;
+    font-size: 13px;
     text-align: left;
-    border: inset 2px;
-    padding: 6px 10px;
+    border: inset 1px;
+    padding: 5px 10px;
     border-radius: 20px 0px 20px 20px;
 }
 

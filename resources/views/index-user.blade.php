@@ -87,39 +87,19 @@
                                                                                 class="m-1">Roles
                                                                             </label>
                                                                         </div>
-                                                                        <div class="container text-center">
-                                                                            <div class="row">
-                                                                                <div class="col">
-                                                                                    <div class="form-check m-1"
-                                                                                        style="text-align: left">
-                                                                                        <input
-                                                                                            class="form-check-input mt-2 mb-2"
-                                                                                            type="radio" name="roles"
-                                                                                            id="roles" value="2">
-                                                                                        <label class="form-check-label m-1"
-                                                                                            for="roles">
-                                                                                            Team IT
-                                                                                        </label>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col">
-                                                                                    <div class="form-check m-1"
-                                                                                        style="text-align: left">
-                                                                                        <input
-                                                                                            class="form-check-input mt-2 mb-2"
-                                                                                            type="radio" name="roles"
-                                                                                            id="roles" value="1">
-                                                                                        <label class="form-check-label m-1"
-                                                                                            for="roles">
-                                                                                            Customer Service
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                        <div style="text-align: left" class="mt-1">
+                                                                            <select name="roles"
+                                                                                class="form-select form-select"
+                                                                                aria-label="Small select example">
+                                                                                <option selected disabled>Select your role
+                                                                                </option>
+                                                                                <option value="1">Guest</option>
+                                                                                <option value="2">Customer Service
+                                                                                </option>
+                                                                            </select>
                                                                         </div>
-                                                                        <div class="d-grid gap-2 col-6 mx-auto">
-                                                                            <button class="primary-1 mt-4">Submit</button>
+                                                                        <div class="d-grid gap-2 col-4 mx-auto">
+                                                                            <button class="primary-1 mt-5">Submit</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
@@ -152,9 +132,9 @@
                                                     <td style="vertical-align:middle; text-align:left">{{ $user->email }}
                                                     </td>
                                                     @if ($user->roles == '1')
-                                                        <td style="vertical-align:middle">Customer Service</td>
+                                                        <td style="vertical-align:middle">Guest</td>
                                                     @elseif($user->roles == '2')
-                                                        <td style="vertical-align:middle">Team IT</td>
+                                                        <td style="vertical-align:middle">Customer Service</td>
                                                     @endif
                                                     <td style="vertical-align:middle">
                                                         <div
@@ -241,13 +221,13 @@
                                                                                         class="form-control form-control-sm mt-1 mb-1"
                                                                                         type="text"
                                                                                         aria-label="default input example"
-                                                                                        value="Customer Service" readonly>
+                                                                                        value="Guest" readonly>
                                                                                 @else
                                                                                     <input
                                                                                         class="form-control form-control-sm mt-1 mb-1"
                                                                                         type="text"
                                                                                         aria-label="default input example"
-                                                                                        value="Team IT" readonly>
+                                                                                        value="Customer Service" readonly>
                                                                                 @endif
                                                                                 <hr>
                                                                                 <div style=text-align:end>
@@ -272,7 +252,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-5 mx-auto">
+                            <div class="d-grid gap-2 col-4 mx-auto">
                                 <button class="primary" onclick="window.dialog.showModal();">Add user</button>
                             </div>
                         </div>
