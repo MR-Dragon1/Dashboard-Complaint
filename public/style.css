@@ -1884,43 +1884,39 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 
 .red-button-1 {
-    background-color: #d70b0b;
-    font-weight:bold;
-    padding: 4px 6px;
-    font-size: 14px;
-    border-radius:9px;
+    background-color: #d31212;
+    font-weight: bold;
+    padding: 4px 0px;
+    font-size: 13px;
+    border-radius: 5px;
     color: white;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
+
 .blue-button-1 {
-    background-color: #3ea3db;
-    font-weight:bold;
-    padding: 4px 6px;
-    font-size: 14px;
-    border-radius:9px;
+    background-color: #2896d3;
+    font-weight: bold;
+    padding: 4px 0px;
+    font-size: 13px;
+    border-radius: 5px;
     color: white;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
 
 .yellow-button-1 {
-    background-color: #ebe21a;
+    background-color: #dcdd19;
     font-weight:bold;
-    padding: 4px 6px;
-    font-size: 14px;
-    border-radius:9px;
+    padding: 4px 0px;
+    font-size: 13px;
+    border-radius: 5px;
     color: white;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
-    ;
 }
 
 .green-button-1 {
-    background-color: #0fa50f;
-    font-weight:bold;
-    padding: 4px 6px;
-    font-size: 14px;
-    border-radius:9px;
+    padding: 4px 0px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #29ad29;
+    font-weight: bold;
     color: white;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
 }
 
 .show-1 {
@@ -1955,9 +1951,6 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     margin-left: 15px;
     margin-right: 21px;
 }
-
-
-
 
 
 .m-t-xl small, .content-bg-pro small{

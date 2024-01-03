@@ -272,7 +272,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto">
+                            <div class="d-grid gap-2 col-5 mx-auto">
                                 <button class="primary" onclick="window.dialog.showModal();">Add user</button>
                             </div>
                         </div>

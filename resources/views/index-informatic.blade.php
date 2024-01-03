@@ -65,25 +65,25 @@
                                                     </td> --}}
 
                                                     @if ($complaint->status == '0')
-                                                        <td style="vertical-align:middle">
+                                                        <td style="vertical-align:middle; width: 8%">
                                                             <div class="red-button-1">
                                                                 Unprocessed
                                                             </div>
                                                         </td>
                                                     @elseif ($complaint->status == '1')
-                                                        <td style="vertical-align:middle">
+                                                        <td style="vertical-align:middle; width: 8%">
                                                             <div class="blue-button-1">
                                                                 Data Transferred
                                                             </div>
                                                         </td>
                                                     @elseif ($complaint->status == '2')
-                                                        <td style="vertical-align:middle">
+                                                        <td style="vertical-align:middle; width: 8%">
                                                             <div class="yellow-button-1">
                                                                 On Going
                                                             </div>
                                                         </td>
                                                     @elseif ($complaint->status == '3')
-                                                        <td style="vertical-align:middle">
+                                                        <td style="vertical-align:middle; width: 8%">
                                                             <div class="green-button-1">
                                                                 Completed
                                                             </div>
