@@ -95,7 +95,8 @@
                                                                                 </option>
                                                                                 <option value="1">Customer Service
                                                                                 </option>
-                                                                                <option value="2">Admin</option>
+                                                                                <option value="2">Admin Support
+                                                                                </option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="d-grid gap-2 col-4 mx-auto">
@@ -136,7 +137,7 @@
                                                     @if ($user->roles == '1')
                                                         <td style="vertical-align:middle">Customer Service</td>
                                                     @elseif($user->roles == '2')
-                                                        <td style="vertical-align:middle">Admin</td>
+                                                        <td style="vertical-align:middle">Admin Support</td>
                                                     @endif
                                                     @if (Auth::check() && Auth::user()->roles == 2)
                                                         <td style="vertical-align:middle">
@@ -234,7 +235,7 @@
                                                                                             class="form-control form-control-sm mt-1 mb-1"
                                                                                             type="text"
                                                                                             aria-label="default input example"
-                                                                                            value="Admin" readonly>
+                                                                                            value="Admin Support" readonly>
                                                                                     @endif
                                                                                     <hr>
                                                                                     <div style=text-align:end>

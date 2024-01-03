@@ -393,7 +393,8 @@
                                                                                                                     <b
                                                                                                                         style="font-size: 12px">{{ $comment->person }}
                                                                                                                         |
-                                                                                                                        Admin</b>
+                                                                                                                        Admin
+                                                                                                                        Support</b>
                                                                                                                 </div>
                                                                                                                 <div
                                                                                                                     class="chat-team">
