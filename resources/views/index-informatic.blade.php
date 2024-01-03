@@ -341,7 +341,8 @@
                                                                                                                         <b
                                                                                                                             style="font-size: 12px">{{ $comment->person }}
                                                                                                                             |
-                                                                                                                            Guest</b>
+                                                                                                                            Customer
+                                                                                                                            Service</b>
                                                                                                                     </div>
                                                                                                                     <div
                                                                                                                         class="chat-guest">
@@ -392,8 +393,7 @@
                                                                                                                     <b
                                                                                                                         style="font-size: 12px">{{ $comment->person }}
                                                                                                                         |
-                                                                                                                        Customer
-                                                                                                                        Service</b>
+                                                                                                                        Admin</b>
                                                                                                                 </div>
                                                                                                                 <div
                                                                                                                     class="chat-team">

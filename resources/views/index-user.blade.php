@@ -93,9 +93,9 @@
                                                                                 aria-label="Small select example">
                                                                                 <option selected disabled>Select your role
                                                                                 </option>
-                                                                                <option value="1">Guest</option>
-                                                                                <option value="2">Customer Service
+                                                                                <option value="1">Customer Service
                                                                                 </option>
+                                                                                <option value="2">Admin</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="d-grid gap-2 col-4 mx-auto">
@@ -121,7 +121,9 @@
                                                 <td style="text-align: center">Name</td>
                                                 <td style="text-align: center">Email</td>
                                                 <td style="text-align: center">Roles</td>
-                                                <td style="text-align: center">Action</td>
+                                                @if (Auth::check() && Auth::user()->roles == 2)
+                                                    <td style="text-align: center">Action</td>
+                                                @endif
                                             </tr>
                                         <tbody>
                                             @foreach ($users as $user)
@@ -132,119 +134,125 @@
                                                     <td style="vertical-align:middle; text-align:left">{{ $user->email }}
                                                     </td>
                                                     @if ($user->roles == '1')
-                                                        <td style="vertical-align:middle">Guest</td>
-                                                    @elseif($user->roles == '2')
                                                         <td style="vertical-align:middle">Customer Service</td>
+                                                    @elseif($user->roles == '2')
+                                                        <td style="vertical-align:middle">Admin</td>
                                                     @endif
-                                                    <td style="vertical-align:middle">
-                                                        <div
-                                                            style="display: flex; text-align:center; justify-content:center">
-                                                            <button type="button" class="btn btn-primary btn-sm"
-                                                                style="margin: 0px 4px; padding:6px 8px"
-                                                                data-toggle="modal"
-                                                                data-target="#editModal{{ $user->id }}">
-                                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                            </button>
-                                                            <form action="{{ route('delete-user', $user) }}"
-                                                                class="m-0 p-0" method="post">
-                                                                @method('delete')
-                                                                @csrf
-                                                                <button type="submit"
-                                                                    style="margin: 0px 4px;padding:6px 8px"
-                                                                    class="btn btn-outline-danger btn-sm delete"><i
-                                                                        class="fa-solid fa-minus"></i></button>
-                                                            </form>
-
-                                                        </div>
-                                                        <div class="modal fade" id="editModal{{ $user->id }}"
-                                                            tabindex="-1" role="dialog"
-                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog  modal-dialog-centered modal-lg"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                                            Details
-                                                                            User</h5>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="container-fluid">
-                                                                            <form
-                                                                                action="{{ route('user.update', $user->id) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                @method('PUT')
-                                                                                <div style="text-align: left">
-                                                                                    <label for="site"
-                                                                                        style="color: black"
-                                                                                        class="m-1">Name</label>
-                                                                                </div>
-                                                                                <input
-                                                                                    class="form-control form-control-sm mt-1 mb-1"
-                                                                                    type="text"
-                                                                                    aria-label="default input example"
-                                                                                    value="{{ $user->name }}" readonly>
-                                                                                <div style="text-align: left">
-                                                                                    <label for="site"
-                                                                                        style="color: black"
-                                                                                        class="m-1">Email</label>
-                                                                                </div>
-                                                                                <input
-                                                                                    class="form-control form-control-sm mt-1 mb-1"
-                                                                                    type="text"
-                                                                                    aria-label="default input example"
-                                                                                    value="{{ $user->email }}" readonly>
-                                                                                <div
-                                                                                    style="margin: 6px 0px; text-align:left">
+                                                    @if (Auth::check() && Auth::user()->roles == 2)
+                                                        <td style="vertical-align:middle">
+                                                            <div
+                                                                style="display: flex; text-align:center; justify-content:center">
+                                                                <button type="button" class="btn btn-primary btn-sm"
+                                                                    style="margin: 0px 4px; padding:6px 8px"
+                                                                    data-toggle="modal"
+                                                                    data-target="#editModal{{ $user->id }}">
+                                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                                </button>
+                                                                <form action="{{ route('delete-user', $user) }}"
+                                                                    class="m-0 p-0" method="post">
+                                                                    @method('delete')
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        style="margin: 0px 4px;padding:6px 8px"
+                                                                        class="btn btn-outline-danger btn-sm delete"><i
+                                                                            class="fa-solid fa-minus"></i></button>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal fade" id="editModal{{ $user->id }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog  modal-dialog-centered modal-lg"
+                                                                    role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel">
+                                                                                Details
+                                                                                User</h5>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="container-fluid">
+                                                                                <form
+                                                                                    action="{{ route('user.update', $user->id) }}"
+                                                                                    method="POST">
+                                                                                    @csrf
+                                                                                    @method('PUT')
                                                                                     <div style="text-align: left">
                                                                                         <label for="site"
                                                                                             style="color: black"
-                                                                                            class="m-1">Ip
-                                                                                            Address</label>
+                                                                                            class="m-1">Name</label>
                                                                                     </div>
-                                                                                    @foreach ($user->ips as $ip)
-                                                                                        <input class="form-control"
-                                                                                            type="text" name="ip"
-                                                                                            data-role="tagsinput"
-                                                                                            aria-label="default input example"
-                                                                                            value="{{ $ip->ip }}">
-                                                                                    @endforeach
-                                                                                </div>
-                                                                                <div style="text-align: left">
-                                                                                    <label for="site"
-                                                                                        style="color: black"
-                                                                                        class="m-1">Roles</label>
-                                                                                </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $user->name }}"
+                                                                                        readonly>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Email</label>
+                                                                                    </div>
+                                                                                    <input
+                                                                                        class="form-control form-control-sm mt-1 mb-1"
+                                                                                        type="text"
+                                                                                        aria-label="default input example"
+                                                                                        value="{{ $user->email }}"
+                                                                                        readonly>
+                                                                                    <div
+                                                                                        style="margin: 6px 0px; text-align:left">
+                                                                                        <div style="text-align: left">
+                                                                                            <label for="site"
+                                                                                                style="color: black"
+                                                                                                class="m-1">Ip
+                                                                                                Address</label>
+                                                                                        </div>
+                                                                                        @foreach ($user->ips as $ip)
+                                                                                            <input class="form-control"
+                                                                                                type="text"
+                                                                                                name="ip"
+                                                                                                data-role="tagsinput"
+                                                                                                aria-label="default input example"
+                                                                                                value="{{ $ip->ip }}">
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                    <div style="text-align: left">
+                                                                                        <label for="site"
+                                                                                            style="color: black"
+                                                                                            class="m-1">Roles</label>
+                                                                                    </div>
 
-                                                                                @if ($user->roles == 1)
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="Guest" readonly>
-                                                                                @else
-                                                                                    <input
-                                                                                        class="form-control form-control-sm mt-1 mb-1"
-                                                                                        type="text"
-                                                                                        aria-label="default input example"
-                                                                                        value="Customer Service" readonly>
-                                                                                @endif
-                                                                                <hr>
-                                                                                <div style=text-align:end>
-                                                                                    <button type="button"
-                                                                                        class="btn btn-outline-secondary"
-                                                                                        data-dismiss="modal">Close</button>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Save
-                                                                                        changes</button>
-                                                                                </div>
-                                                                            </form>
+                                                                                    @if ($user->roles == 1)
+                                                                                        <input
+                                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                                            type="text"
+                                                                                            aria-label="default input example"
+                                                                                            value="Customer Service"
+                                                                                            readonly>
+                                                                                    @else
+                                                                                        <input
+                                                                                            class="form-control form-control-sm mt-1 mb-1"
+                                                                                            type="text"
+                                                                                            aria-label="default input example"
+                                                                                            value="Admin" readonly>
+                                                                                    @endif
+                                                                                    <hr>
+                                                                                    <div style=text-align:end>
+                                                                                        <button type="button"
+                                                                                            class="btn btn-outline-secondary"
+                                                                                            data-dismiss="modal">Close</button>
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-primary">Save
+                                                                                            changes</button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -252,9 +260,11 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="primary" onclick="window.dialog.showModal();">Add user</button>
-                            </div>
+                            @if (Auth::check() && Auth::user()->roles == 2)
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="primary" onclick="window.dialog.showModal();">Add user</button>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -88,7 +88,9 @@
                                                 <td style="text-align: center">Code</td>
                                                 <td style="text-align: center">Website Name</td>
                                                 <td style="text-align: center">Submited Data</td>
-                                                <td style="text-align: center">Action</td>
+                                                @if (Auth::check() && Auth::user()->roles == 2)
+                                                    <td style="text-align: center">Action</td>
+                                                @endif
                                             </tr>
                                         <tbody>
                                             @foreach ($codes as $code)
@@ -100,16 +102,18 @@
                                                     </td>
                                                     <td style="vertical-align:middle; text-align:center">
                                                         {{ $code->created_at }}</td>
-                                                    <td style="vertical-align:middle;">
-                                                        <form action="{{ route('delete-code', $code) }}" class="m-0 p-0"
-                                                            method="post">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button type="submit" style="padding:6px 8px"
-                                                                class="btn btn-outline-danger btn-sm delete"><i
-                                                                    class="fa-solid fa-minus"></i></button>
-                                                        </form>
-                                                    </td>
+                                                    @if (Auth::check() && Auth::user()->roles == 2)
+                                                        <td style="vertical-align:middle;">
+                                                            <form action="{{ route('delete-code', $code) }}" class="m-0 p-0"
+                                                                method="post">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit" style="padding:6px 8px"
+                                                                    class="btn btn-outline-danger btn-sm delete"><i
+                                                                        class="fa-solid fa-minus"></i></button>
+                                                            </form>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -117,9 +121,11 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="primary" onclick="window.dialog.showModal();">Add code</button>
-                            </div>
+                            @if (Auth::check() && Auth::user()->roles == 2)
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="primary" onclick="window.dialog.showModal();">Add code</button>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

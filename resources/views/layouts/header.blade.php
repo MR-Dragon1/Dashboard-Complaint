@@ -47,21 +47,19 @@
                                 <span class="mini-click-non">Log Activity's</span>
                             </a>
                         </li>
-                        <li class="">
-                            <a @if (request()->is('users')) class="actives" @endif
-                                href="{{ route('index-user') }}">
-                                <i class="fa-solid fa-user-group icon-head-3"></i>
-                                <span class="mini-click-non">Users</span>
-                            </a>
-                        </li>
-                        <li class="">
-                            <a @if (request()->is('codes')) class="actives" @endif
-                                href="{{ route('index-code') }}">
-                                <i class="fa-solid fa-list-ul icon-head-4"></i>
-                                <span class="mini-click-non">Code Agent</span>
-                            </a>
-                        </li>
                     @endif
+                    <li class="">
+                        <a @if (request()->is('users')) class="actives" @endif href="{{ route('index-user') }}">
+                            <i class="fa-solid fa-user-group icon-head-3"></i>
+                            <span class="mini-click-non">Users</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a @if (request()->is('codes')) class="actives" @endif href="{{ route('index-code') }}">
+                            <i class="fa-solid fa-list-ul icon-head-4"></i>
+                            <span class="mini-click-non">Code Agent</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
