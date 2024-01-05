@@ -3969,8 +3969,11 @@ dialog {
 /*General Stylesas*/
 
 button.primary {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-size: 13.5px;
     display: inline-block;
-    font-size: 1rem;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
     padding: 6px;
@@ -3982,7 +3985,6 @@ button.primary {
     margin: 13px 100px;
     cursor: pointer;
     box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
-
     &:hover {
         box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
         transform: translateY(-5px);
@@ -3990,7 +3992,10 @@ button.primary {
 }
 button.primary-2 {
     display: inline-block;
-    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13.5px;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
     padding: 7px 17px;
@@ -4010,8 +4015,11 @@ button.primary-2 {
 }
 
 button.primary-1 {
+    font-weight: bold;
     display: inline-block;
-    font-size: 1rem;
+    letter-spacing: 1px;
+    font-size: 13.5px;
+    text-transform: uppercase;
     color: #fff !important;
     background: rgb(var(--vs-primary) / 100%);
     padding: 6px;
