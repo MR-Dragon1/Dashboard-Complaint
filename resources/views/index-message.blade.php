@@ -277,7 +277,7 @@
                                                                                     @endforeach
                                                                                     <hr>
 
-
+                                                                                    {{-- border --}}
                                                                                     <form
                                                                                         action="{{ route('message.update', $message->id) }}"
                                                                                         method="POST">
