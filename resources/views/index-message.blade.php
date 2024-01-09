@@ -246,7 +246,8 @@
                                                                                     @foreach ($message->updatesAnnouns as $key => $update)
                                                                                         <div class="accordion"
                                                                                             id="accordionExample">
-                                                                                            <div class="card">
+                                                                                            <div class="card"
+                                                                                                style="border-radius: 0px">
                                                                                                 <div class="card-header"
                                                                                                     id="heading{{ $key }}"
                                                                                                     style="text-align: left">
